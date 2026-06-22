@@ -1,0 +1,50 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# Local IDE/editor files
+.vscode/
+.idea/
+.claude/
+
+# Logs
+*.log
+logs/
+
+# Generated outputs for this project
+output/
+filtered_images/
+
+# Local data and indexes often used by RAG/image pipelines
+data/
+*.db
+*.sqlite
+*.sqlite3
+*.faiss
+*.index
+chroma/
+chroma_db/
+vectorstore/
+vector_store/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
