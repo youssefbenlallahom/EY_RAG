@@ -1,0 +1,3 @@
+path,document,page_number,error
+en-gl-annual-ifrs-disclosure-checklist-v2-09-2025_images/imageFile1.png,en-gl-annual-ifrs-disclosure-checklist-v2-09-2025,1,"NotImplementedError: (Unimplemented) ConvertPirAttribute2RuntimeAttribute not support [pir::ArrayAttribute<pir::DoubleAttribute>]  (at ..\paddle\fluid\framework\new_executor\instruction\onednn\onednn_instruction.cc:118)
+"

@@ -28,9 +28,7 @@ env/
 *.log
 logs/
 
-# Generated outputs for this project
-output/
-filtered_images/
+
 
 # Local data and indexes often used by RAG/image pipelines
 data/
