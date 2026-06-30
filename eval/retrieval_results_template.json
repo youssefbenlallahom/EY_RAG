@@ -1,0 +1,69 @@
+{
+  "run_name": "replace-with-run-name",
+  "run_date": "YYYY-MM-DD",
+  "notes": "Fill this file after each retrieval run. One result per scenario per indexing_type.",
+  "indexing_types": [
+    "langchain_markdown_recursive",
+    "llamaindex_semantic",
+    "haystack_document_splitter",
+    "chonkie_semantic"
+  ],
+  "results": [
+    {
+      "scenario_id": "T01",
+      "indexing_type": "langchain_markdown_recursive",
+      "query": "Copy the scenario question or the exact query variant used.",
+      "retrieved_answer": "Paste the generated answer from the retrieval pipeline.",
+      "retrieved_image_paths": [],
+      "retrieved_contexts": [
+        {
+          "rank": 1,
+          "score": 0.0,
+          "source_path": "output_clean/example.md",
+          "page": null,
+          "chunk_id": "optional-chunk-id",
+          "text": "Paste the retrieved context text or a short excerpt."
+        }
+      ],
+      "latency_ms": null,
+      "top_k": 10,
+      "candidate_k": 20,
+      "bm25_k": 20,
+      "retrieval_mode": "hybrid_vector_bm25_rerank",
+      "window_radius": 1,
+      "context_char_limit": 4500,
+      "answer_contexts": 5,
+      "human_score": null,
+      "human_notes": ""
+    },
+    {
+      "scenario_id": "H01",
+      "indexing_type": "chonkie_semantic",
+      "query": "Copy the scenario question or the exact query variant used.",
+      "retrieved_answer": "Paste the generated answer from the retrieval pipeline.",
+      "retrieved_image_paths": [
+        "filtered_images/example.png"
+      ],
+      "retrieved_contexts": [
+        {
+          "rank": 1,
+          "score": 0.0,
+          "source_path": "output_clean/example.md",
+          "page": null,
+          "chunk_id": "optional-chunk-id",
+          "text": "Paste text associated with the retrieved image or retrieved chunk."
+        }
+      ],
+      "latency_ms": null,
+      "top_k": 10,
+      "candidate_k": 20,
+      "bm25_k": 20,
+      "retrieval_mode": "hybrid_vector_bm25_rerank",
+      "window_radius": 1,
+      "context_char_limit": 4500,
+      "answer_contexts": 5,
+      "human_score": null,
+      "human_notes": ""
+    }
+  ]
+}

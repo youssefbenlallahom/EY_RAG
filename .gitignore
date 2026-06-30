@@ -28,10 +28,17 @@ env/
 *.log
 logs/
 
-
+# Archives and transfer bundles
+*.zip
 
 # Local data and indexes often used by RAG/image pipelines
 data/
+output/
+output_clean/
+filtered_images/
+chunks/
+qdrant_storage/
+pixelrag_indexes/
 *.db
 *.sqlite
 *.sqlite3

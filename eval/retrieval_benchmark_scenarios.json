@@ -1,0 +1,720 @@
+{
+  "benchmark_name": "EY RAG Retrieval Quality Benchmark",
+  "version": "2026-06-29",
+  "purpose": "Twenty gold scenarios to compare retrieval quality across chunking and indexing strategies using the cleaned Markdown corpus and filtered image set.",
+  "indexing_types_to_compare": [
+    "langchain_markdown_recursive",
+    "llamaindex_semantic",
+    "haystack_document_splitter",
+    "chonkie_semantic"
+  ],
+  "scoring_model": {
+    "answer_coverage": 40,
+    "source_support": 25,
+    "image_support": 20,
+    "precision_and_no_hallucination": 15,
+    "max_score": 100
+  },
+  "scenarios": [
+    {
+      "id": "T01",
+      "modality": "text_only",
+      "difficulty": "medium",
+      "retrieval_goal": "exact numeric lookup with short synthesis",
+      "question": "In the January 2026 EY-Parthenon CEO Outlook, did CEO sentiment improve or soften, and what hard macro and cost-pressure signals explain the caution?",
+      "ground_truth_answer": "CEO sentiment softened: the overall confidence index declined from 83.0 to 78.5. EY-Parthenon expected global real GDP growth to ease from 3.3% in 2025 to 3.1% in 2026. Cost pressure was also material: 61% of CEOs expected higher business costs in 2026, while only 16% expected reductions.",
+      "must_contain": [
+        "declined from 83.0 to 78.5",
+        "global real GDP growth",
+        "3.3% in 2025",
+        "3.1% in 2026",
+        "61% of CEOs expect higher business costs",
+        "16% anticipate reductions"
+      ],
+      "evidence": [
+        {
+          "type": "text",
+          "source_path": "output_clean/ey-gl-ceo-outlook-survey-01-2026.md",
+          "page": 3,
+          "source_lines": "58-60",
+          "notes": "CEO confidence index and GDP growth forecast."
+        },
+        {
+          "type": "text",
+          "source_path": "output_clean/ey-gl-ceo-outlook-survey-01-2026.md",
+          "page": 5,
+          "source_lines": "192-195",
+          "notes": "2026 business cost pressure."
+        }
+      ],
+      "should_retrieve_image": false
+    },
+    {
+      "id": "T02",
+      "modality": "text_only",
+      "difficulty": "medium",
+      "retrieval_goal": "ranking and adjacent-context retention",
+      "question": "What does the January 2026 CEO Outlook say about the state of enterprise-wide transformation and the top transformation outcomes CEOs are targeting?",
+      "ground_truth_answer": "Most CEOs were already in or about to start major transformation: 52% reported being in a significant enterprise-wide transformation and 45% planned to begin one in 2026. The leading desired outcomes were optimizing operations and improving productivity including digitalization at 43%, customer engagement and retention at 40%, product and process innovation at 37%, and top-line growth at 36%.",
+      "must_contain": [
+        "52%",
+        "45%",
+        "enterprise-wide transformation",
+        "43%",
+        "optimizing operations",
+        "40%",
+        "customer engagement and retention",
+        "37%",
+        "36%"
+      ],
+      "evidence": [
+        {
+          "type": "text",
+          "source_path": "output_clean/ey-gl-ceo-outlook-survey-01-2026.md",
+          "page": 6,
+          "source_lines": "257-259",
+          "notes": "Transformation status and top outcomes."
+        },
+        {
+          "type": "text",
+          "source_path": "output_clean/ey-gl-ceo-outlook-survey-01-2026.md",
+          "page": 7,
+          "source_lines": "260-283",
+          "notes": "Continuation of transformation-priority narrative and chart labels."
+        }
+      ],
+      "should_retrieve_image": false
+    },
+    {
+      "id": "T03",
+      "modality": "text_only",
+      "difficulty": "medium",
+      "retrieval_goal": "multi-paragraph synthesis",
+      "question": "How are acquisitions, joint ventures, and strategic alliances positioned as transformation levers in the January 2026 CEO Outlook?",
+      "ground_truth_answer": "The survey says 53% of CEOs intend to pursue acquisitions in the next 12 months. The leading acquisition objective is operational optimization and productivity gains, including digitalization, cited by 50% of CEOs. It also says 79% plan joint ventures or strategic alliances in 2026, up from 62% in 2025, because partnerships can unlock capabilities, accelerate innovation, share risk, and reduce the capital commitment of a full acquisition.",
+      "must_contain": [
+        "53%",
+        "pursue acquisitions",
+        "50%",
+        "operational optimization",
+        "productivity",
+        "79%",
+        "joint ventures",
+        "strategic alliances",
+        "62% in 2025"
+      ],
+      "evidence": [
+        {
+          "type": "text",
+          "source_path": "output_clean/ey-gl-ceo-outlook-survey-01-2026.md",
+          "page": 15,
+          "source_lines": "536-538",
+          "notes": "Acquisition intentions and objective."
+        },
+        {
+          "type": "text",
+          "source_path": "output_clean/ey-gl-ceo-outlook-survey-01-2026.md",
+          "page": 16,
+          "source_lines": "576-578",
+          "notes": "JV and alliance trend."
+        }
+      ],
+      "should_retrieve_image": false
+    },
+    {
+      "id": "T04",
+      "modality": "text_only",
+      "difficulty": "medium",
+      "retrieval_goal": "regulatory effective date and transition",
+      "question": "For IFRS 18, what is the effective date, what does it replace, and what transition approach is required?",
+      "ground_truth_answer": "IFRS 18 replaces IAS 1 Presentation of Financial Statements. IFRS 18 and the consequential amendments are effective for reporting periods beginning on or after 1 January 2027. Earlier application is permitted and must be disclosed. The standard is applied retrospectively, and entities must disclose a reconciliation between the presentation under IAS 1 and IFRS 18 for the comparative period immediately preceding first application.",
+      "must_contain": [
+        "replaces IAS 1",
+        "1 January 2027",
+        "earlier application is permitted",
+        "must be disclosed",
+        "retrospectively",
+        "reconciliation",
+        "IAS 1",
+        "IFRS 18"
+      ],
+      "evidence": [
+        {
+          "type": "text",
+          "source_path": "output_clean/ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md",
+          "page": 4,
+          "source_lines": "78-89",
+          "notes": "Overview and replacement of IAS 1."
+        },
+        {
+          "type": "text",
+          "source_path": "output_clean/ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md",
+          "page": 5,
+          "source_lines": "113-117",
+          "notes": "Effective date and retrospective adoption."
+        },
+        {
+          "type": "text",
+          "source_path": "output_clean/ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md",
+          "page": 117,
+          "source_lines": "3174-3178",
+          "notes": "Transition reconciliation requirement."
+        }
+      ],
+      "should_retrieve_image": false
+    },
+    {
+      "id": "T05",
+      "modality": "text_only",
+      "difficulty": "medium",
+      "retrieval_goal": "list extraction from dense standard text",
+      "question": "What five categories does IFRS 18 require for income and expenses in the statement of profit or loss, and what two additional subtotals support them?",
+      "ground_truth_answer": "IFRS 18 requires income and expenses in the statement of profit or loss to be classified into five categories: operating, investing, financing, income taxes, and discontinued operations. The two additional required subtotals are operating profit or loss and profit or loss before financing and income tax.",
+      "must_contain": [
+        "operating",
+        "investing",
+        "financing",
+        "income taxes",
+        "discontinued operations",
+        "operating profit or loss",
+        "profit or loss before financing and income tax"
+      ],
+      "evidence": [
+        {
+          "type": "text",
+          "source_path": "output_clean/ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md",
+          "page": 28,
+          "source_lines": "748-766",
+          "notes": "Five categories and two subtotals."
+        }
+      ],
+      "should_retrieve_image": false
+    },
+    {
+      "id": "T06",
+      "modality": "text_only",
+      "difficulty": "hard",
+      "retrieval_goal": "definition plus disclosure requirements",
+      "question": "Under IFRS 18, when is a performance measure an MPM, and what must the entity disclose about MPMs?",
+      "ground_truth_answer": "An MPM is a subtotal of income and expenses used in public communications outside the financial statements to communicate management's view of an aspect of the entity's financial performance as a whole, unless it is a required or specifically excluded subtotal. IFRS 18 requires information about all MPMs in a single note. The note must explain the aspect of performance communicated, why management believes the measure is useful, how the measure is calculated, and provide a reconciliation to the most directly comparable IFRS total or subtotal, including required tax and non-controlling-interest effects for reconciling items.",
+      "must_contain": [
+        "subtotal of income and expenses",
+        "public communications outside financial statements",
+        "management's view",
+        "entity as a whole",
+        "single note",
+        "how the measure is calculated",
+        "reconciliation",
+        "most directly comparable"
+      ],
+      "evidence": [
+        {
+          "type": "text",
+          "source_path": "output_clean/ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md",
+          "page": 94,
+          "source_lines": "2537-2541",
+          "notes": "MPM definition and purpose."
+        },
+        {
+          "type": "text",
+          "source_path": "output_clean/ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md",
+          "page": 103,
+          "source_lines": "2883-2905",
+          "notes": "MPM note disclosures and reconciliation."
+        }
+      ],
+      "should_retrieve_image": false
+    },
+    {
+      "id": "T07",
+      "modality": "text_only",
+      "difficulty": "hard",
+      "retrieval_goal": "financial statement table extraction",
+      "question": "In Good Group IFRS 18's 2025 consolidated statement of profit or loss, what are revenue, operating profit, profit before financing and income taxes, profit before income tax, and final profit?",
+      "ground_truth_answer": "For 2025, Good Group reports revenue from contracts with customers of EUR 179,058 thousand, operating profit of EUR 10,216 thousand, profit before financing and income taxes of EUR 12,498 thousand, profit before income tax of EUR 11,088 thousand, and final profit of EUR 8,216 thousand.",
+      "must_contain": [
+        "179,058",
+        "10,216",
+        "12,498",
+        "11,088",
+        "8,216",
+        "EUR",
+        "2025"
+      ],
+      "evidence": [
+        {
+          "type": "text",
+          "source_path": "output_clean/ey-sg-good-group-ifrs-18-12-2025.md",
+          "page": 12,
+          "source_lines": "321-347",
+          "notes": "Consolidated statement of profit or loss values."
+        }
+      ],
+      "should_retrieve_image": false
+    },
+    {
+      "id": "T08",
+      "modality": "text_only",
+      "difficulty": "medium",
+      "retrieval_goal": "methodology lookup",
+      "question": "What was the CSRD Barometer 2025 sample, timing, and mandate/voluntary composition?",
+      "ground_truth_answer": "The CSRD Barometer analyzed 200 CSRD-compliant sustainability statements for fiscal year 2024, published and selected up to 28 March 2025. The sample included EU/EEA companies plus selected Switzerland and UK undertakings; 191 of the 200 were publicly listed entities and 9 were non-PIEs. Among the listed PIEs, 94 were mandated by local jurisdictions to report under ESRS, while 97 PIEs and 9 non-PIEs reported voluntarily.",
+      "must_contain": [
+        "200",
+        "fiscal year 2024",
+        "28 March 2025",
+        "191",
+        "9",
+        "94",
+        "97",
+        "voluntarily"
+      ],
+      "evidence": [
+        {
+          "type": "text",
+          "source_path": "output_clean/ey-gl-ey-csrd-barometer-05-2025.md",
+          "page": 29,
+          "source_lines": "913-919",
+          "notes": "Sample date and scope."
+        },
+        {
+          "type": "text",
+          "source_path": "output_clean/ey-gl-ey-csrd-barometer-05-2025.md",
+          "page": 30,
+          "source_lines": "947-948",
+          "notes": "Mandated and voluntary composition."
+        }
+      ],
+      "should_retrieve_image": false
+    },
+    {
+      "id": "T09",
+      "modality": "text_only",
+      "difficulty": "medium",
+      "retrieval_goal": "numeric assurance summary",
+      "question": "What did the CSRD Barometer find about assurance levels, comparatives, independent assurance service providers, and qualified conclusions?",
+      "ground_truth_answer": "Limited assurance was the predominant form at 89%. Some companies obtained reasonable assurance on individual metrics at 11%, and one German financial services company, 0.5% of the sample, obtained reasonable assurance on the entire sustainability statement. Twenty-seven companies, 14%, did not provide comparatives; 173, or 87%, provided partial comparative figures, and 48, or 24%, had those figures partially assured. Only France had an independent assurance service provider in the sample, for one company. Two companies, 1%, received qualified conclusions.",
+      "must_contain": [
+        "89%",
+        "11%",
+        "0.5%",
+        "27",
+        "14%",
+        "173",
+        "87%",
+        "48",
+        "24%",
+        "France",
+        "two companies",
+        "1%"
+      ],
+      "evidence": [
+        {
+          "type": "text",
+          "source_path": "output_clean/ey-gl-ey-csrd-barometer-05-2025.md",
+          "page": 27,
+          "source_lines": "868-884",
+          "notes": "Assurance level, comparatives, IASP, and conclusions."
+        }
+      ],
+      "should_retrieve_image": false
+    },
+    {
+      "id": "T10",
+      "modality": "text_only",
+      "difficulty": "hard",
+      "retrieval_goal": "regulatory procedural summary",
+      "question": "What did the Assurance Eye April 2025 article say SEBI's digital assurance draft circular would require, who would be in scope, and by when?",
+      "ground_truth_answer": "SEBI's draft circular dated 03 February 2025 proposed a management statement and auditor or independent practitioner's report on digital assurance using information from external data repositories. Management would prepare a statement showing the external regulatory source, the amount per that source, the amount per books, reconciling items, and management explanations. Management would maintain records and provide auditors access to the external repositories; the auditor or practitioner would verify the statement and report on it. The proposal would be mandatory for the top 100 listed entities by market capitalization from FY 2024-25, for periods ending on or after 31 March 2025, with reports submitted to stock exchanges by 31 July 2025 and then by 31 July for each relevant financial year.",
+      "must_contain": [
+        "03 February 2025",
+        "external data repositories",
+        "management statement",
+        "auditor",
+        "independent practitioner",
+        "top 100 listed entities",
+        "FY 2024-25",
+        "31 March 2025",
+        "31 July 2025"
+      ],
+      "evidence": [
+        {
+          "type": "text",
+          "source_path": "output_clean/ey-assurance-eye-reporting-insights-april-2025.md",
+          "page": 24,
+          "source_lines": "793-810",
+          "notes": "Draft circular requirements and timing."
+        },
+        {
+          "type": "text",
+          "source_path": "output_clean/ey-assurance-eye-reporting-insights-april-2025.md",
+          "page": 25,
+          "source_lines": "821-823",
+          "notes": "Practical implications for top 100 listed entities."
+        }
+      ],
+      "should_retrieve_image": false
+    },
+    {
+      "id": "H01",
+      "modality": "hybrid_text_image",
+      "difficulty": "medium",
+      "retrieval_goal": "figure OCR plus explanatory synthesis",
+      "question": "Using the January 2026 CEO Outlook AI figure, which AI technologies are driving transformation and what is the strategic interpretation of the ranking?",
+      "ground_truth_answer": "The relevant figure ranks generative AI first at 54%, machine learning second at 45%, agentic AI at 37%, physical AI at 30%, and natural language processing at 27%. The interpretation is that CEOs are moving from isolated AI use cases toward integrated AI systems: GenAI is being integrated into enterprise workflows, machine learning remains the predictive backbone, and agentic/physical AI point to automation that can reshape tasks, decisions, and operations.",
+      "must_contain": [
+        "generative AI",
+        "54%",
+        "machine learning",
+        "45%",
+        "agentic AI",
+        "37%",
+        "physical AI",
+        "30%",
+        "natural language processing",
+        "27%"
+      ],
+      "evidence": [
+        {
+          "type": "text",
+          "source_path": "output_clean/ey-gl-ceo-outlook-survey-01-2026.md",
+          "page": 9,
+          "source_lines": "367-383",
+          "notes": "Extracted AI technology ranking and interpretation."
+        },
+        {
+          "type": "image",
+          "source_path": "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p9__imageFile10__scoreNA.png",
+          "page": 9,
+          "image_id": "imageFile10",
+          "notes": "Chart/figure to retrieve with the text answer."
+        }
+      ],
+      "should_retrieve_image": true
+    },
+    {
+      "id": "H02",
+      "modality": "hybrid_text_image",
+      "difficulty": "medium",
+      "retrieval_goal": "strategy figure retrieval",
+      "question": "A CEO asks for the three strategic AI questions from the January 2026 figure. What are they and what decision does each question force?",
+      "ground_truth_answer": "The three questions are: 1) Is AI a core enterprise capability or still a set of experiments? This forces a decision about embedding AI into capital allocation, workforce strategy, and the operating model. 2) Where should we scale AI and what should we stop? This forces prioritization of proven use cases, depth over breadth, and stopping weak experiments. 3) Are we using AI to optimize or to fundamentally reshape the business? This forces a choice between incremental optimization and redesigning products, services, and business models.",
+      "must_contain": [
+        "core enterprise capability",
+        "set of experiments",
+        "scale AI",
+        "what should we stop",
+        "optimize",
+        "fundamentally reshape the business"
+      ],
+      "evidence": [
+        {
+          "type": "text",
+          "source_path": "output_clean/ey-gl-ceo-outlook-survey-01-2026.md",
+          "page": 10,
+          "source_lines": "388-431",
+          "notes": "Extracted strategic AI question figure."
+        },
+        {
+          "type": "image",
+          "source_path": "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p10__imageFile12__scoreNA.png",
+          "page": 10,
+          "image_id": "imageFile12",
+          "notes": "Strategic AI questions figure."
+        }
+      ],
+      "should_retrieve_image": true
+    },
+    {
+      "id": "H03",
+      "modality": "hybrid_text_image",
+      "difficulty": "hard",
+      "retrieval_goal": "adjacent text plus figure synthesis",
+      "question": "From the January 2026 transformation page, what three strategic questions should CEOs ask to generate self-made growth under constrained external demand?",
+      "ground_truth_answer": "The three figure questions are: where will the next wave of growth come from if external demand remains constrained; are technology and talent confidence being converted into measurable productivity and value creation; and does the organization have the capabilities and operating model to scale change across the enterprise. The answer should connect these to productivity-funded reinvestment, embedding AI and automation into core processes, and agile enterprise-wide operating models.",
+      "must_contain": [
+        "next wave of growth",
+        "external demand remains constrained",
+        "technology and talent confidence",
+        "measurable productivity",
+        "operating model",
+        "scale change"
+      ],
+      "evidence": [
+        {
+          "type": "text",
+          "source_path": "output_clean/ey-gl-ceo-outlook-survey-01-2026.md",
+          "page": 7,
+          "source_lines": "295-329",
+          "notes": "Strategic Questions Framework image extraction."
+        },
+        {
+          "type": "image",
+          "source_path": "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p7__imageFile6__scoreNA.png",
+          "page": 7,
+          "image_id": "imageFile6",
+          "notes": "Strategic questions framework figure."
+        }
+      ],
+      "should_retrieve_image": true
+    },
+    {
+      "id": "H04",
+      "modality": "hybrid_text_image",
+      "difficulty": "hard",
+      "retrieval_goal": "figure-guided strategic response",
+      "question": "The board is worried about geopolitical fragmentation. According to the January 2026 CEO figure, what three questions should management answer and what actions do those questions imply?",
+      "ground_truth_answer": "The three questions are whether the company is using AI and data to actively manage geopolitical uncertainty rather than merely report on it; whether global operating and digital models reflect today's fragmented reality rather than yesterday's assumptions; and whether leaders are acting with conviction to build resilience and growth rather than defaulting to delay. The implied actions are to build real-time visibility and scenario modeling, redesign supply chains and digital dependencies for regulatory divergence, and selectively accelerate investment in AI, partnerships, and strategic capabilities.",
+      "must_contain": [
+        "AI and data",
+        "geopolitical uncertainty",
+        "global operating and digital models",
+        "fragmented reality",
+        "resilience and growth",
+        "delay",
+        "scenario modeling"
+      ],
+      "evidence": [
+        {
+          "type": "text",
+          "source_path": "output_clean/ey-gl-ceo-outlook-survey-01-2026.md",
+          "page": 13,
+          "source_lines": "461-491",
+          "notes": "Key geopolitical questions for CEOs."
+        },
+        {
+          "type": "image",
+          "source_path": "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p13__imageFile17__score3.png",
+          "page": 13,
+          "image_id": "imageFile17",
+          "notes": "Key questions and considerations for CEOs."
+        }
+      ],
+      "should_retrieve_image": true
+    },
+    {
+      "id": "H05",
+      "modality": "hybrid_text_image",
+      "difficulty": "hard",
+      "retrieval_goal": "decision-tree reconstruction",
+      "question": "According to the IFRS 18 aggregated-items decision flowchart, how should an entity label an 'other' balance and decide whether to disclose more information?",
+      "ground_truth_answer": "First, the entity asks whether there is a more informative label than 'other'. If yes, use that more informative label; if no, use the most precise label possible, such as other operating expenses or other finance expenses. Next, it asks whether the aggregated items comprise only immaterial items. If not, disclose material information. If yes, it asks whether the amount is so large that users might reasonably question whether material items are included. If yes, provide further information about the amount; if no, no further consideration is needed.",
+      "must_contain": [
+        "more informative label",
+        "other",
+        "most precise label",
+        "only immaterial items",
+        "disclose material information",
+        "users might reasonably question",
+        "provide further information",
+        "no further consideration"
+      ],
+      "evidence": [
+        {
+          "type": "text",
+          "source_path": "output_clean/ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md",
+          "page": 27,
+          "source_lines": "670-736",
+          "notes": "IFRS 18 decision flowchart extraction."
+        },
+        {
+          "type": "image",
+          "source_path": "filtered_images/ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025__p27__imageFile4__scoreNA.png",
+          "page": 27,
+          "image_id": "imageFile4",
+          "notes": "Aggregated-items decision flowchart."
+        }
+      ],
+      "should_retrieve_image": true
+    },
+    {
+      "id": "H06",
+      "modality": "hybrid_text_image",
+      "difficulty": "hard",
+      "retrieval_goal": "financial statement figure interpretation",
+      "question": "Using the IFRS 18 statement-of-profit-or-loss figure, explain which items sit in operating, investing, financing, income taxes, and discontinued operations, and name the new items highlighted by the figure.",
+      "ground_truth_answer": "Operating includes revenue, cost of sales, gross profit, other operating income, selling, R&D, general and administrative expenses, goodwill impairment, other operating expenses, and operating profit. Investing includes share of profit from associates and joint ventures, gains on disposals of associates and joint ventures, and profit before financing and income tax. Financing includes interest expenses. Income taxes includes income tax expense, and discontinued operations includes loss from discontinued operations. The new highlighted items are operating profit and profit before financing and income tax.",
+      "must_contain": [
+        "operating",
+        "investing",
+        "financing",
+        "income taxes",
+        "discontinued operations",
+        "operating profit",
+        "profit before financing and income tax",
+        "new item"
+      ],
+      "evidence": [
+        {
+          "type": "text",
+          "source_path": "output_clean/ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md",
+          "page": 29,
+          "source_lines": "776-823",
+          "notes": "Statement of profit or loss figure extraction."
+        },
+        {
+          "type": "image",
+          "source_path": "filtered_images/ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025__p29__imageFile5__scoreNA.png",
+          "page": 29,
+          "image_id": "imageFile5",
+          "notes": "IFRS 18 statement-of-profit-or-loss figure."
+        }
+      ],
+      "should_retrieve_image": true
+    },
+    {
+      "id": "H07",
+      "modality": "hybrid_text_image",
+      "difficulty": "hard",
+      "retrieval_goal": "chart interpretation with sector outliers",
+      "question": "In the CSRD Barometer Scope 3 GHG intensity chart, which sectors appear as the highest-intensity outliers and what ranges should the response report?",
+      "ground_truth_answer": "The chart extraction identifies EM as the highest-intensity sector, with values reaching roughly 25,000 t CO2e per million euro. CG is the next significant high-intensity sector, with a cluster around roughly 10,000 to 12,000 t CO2e per million euro. Lower-intensity sectors such as TC, RR, and IS are generally mostly below about 2,000 t CO2e per million euro. The answer should mention that the scatter plot shows variability and outliers across sectors.",
+      "must_contain": [
+        "EM",
+        "25,000",
+        "CG",
+        "10,000",
+        "12,000",
+        "t CO2e per m Euro",
+        "TC",
+        "RR",
+        "IS",
+        "below 2,000"
+      ],
+      "evidence": [
+        {
+          "type": "text",
+          "source_path": "output_clean/ey-gl-ey-csrd-barometer-05-2025.md",
+          "page": 17,
+          "source_lines": "536-577",
+          "notes": "Scope 3 GHG intensity chart extraction."
+        },
+        {
+          "type": "image",
+          "source_path": "filtered_images/ey-gl-ey-csrd-barometer-05-2025__p17__imageFile7__scoreNA.png",
+          "page": 17,
+          "image_id": "imageFile7",
+          "notes": "Scope 3 intensity scatter plot."
+        }
+      ],
+      "should_retrieve_image": true
+    },
+    {
+      "id": "H08",
+      "modality": "hybrid_text_image",
+      "difficulty": "hard",
+      "retrieval_goal": "audit process flow reconstruction",
+      "question": "From the IAASB ISA for LCE risk assessment flowchart, reconstruct the main flow from planning information to audit responses.",
+      "ground_truth_answer": "The flow starts with information from planning activities, engagement team discussion, client acceptance and continuance, other engagements, inquiries of management and others, and obtaining an understanding of the entity, its internal control, control environment, financial reporting process, service organizations, control activities, control deficiencies, entity environment, and applicable framework. The auditor then identifies and assesses financial statement level risks and assertion level risks, determines risks for which substantive procedures alone are insufficient, identifies significant classes of transactions, balances, disclosures and relevant assertions, determines significant risks, decides whether to test operating effectiveness of controls, assesses control risk if controls are tested, documents the work, revises risk assessment as needed, evaluates whether ISA for LCE remains appropriate, and proceeds to audit responses.",
+      "must_contain": [
+        "planning activities",
+        "engagement team",
+        "understanding",
+        "internal control",
+        "financial statement level risks",
+        "assertion level risks",
+        "significant risks",
+        "test operating effectiveness of controls",
+        "control risk",
+        "documentation",
+        "Audit Responses"
+      ],
+      "evidence": [
+        {
+          "type": "text",
+          "source_path": "output_clean/IAASB-2025-Handbook-Volume-2.md",
+          "page": 121,
+          "source_lines": "3653-3753",
+          "notes": "Risk assessment flowchart extraction."
+        },
+        {
+          "type": "image",
+          "source_path": "filtered_images/IAASB-2025-Handbook-Volume-2__p121__imageFile68__scoreNA.png",
+          "page": 121,
+          "image_id": "imageFile68",
+          "notes": "ISA for LCE risk assessment flowchart."
+        }
+      ],
+      "should_retrieve_image": true
+    },
+    {
+      "id": "H09",
+      "modality": "hybrid_text_image",
+      "difficulty": "medium",
+      "retrieval_goal": "ranked figure extraction",
+      "question": "According to the January 2025 CEO Outlook investment-hotspots figure, what are the top five capital investment destinations and one risk or caveat for each?",
+      "ground_truth_answer": "The top five destinations are the United States, Canada, Germany, Mexico, and the United Kingdom. The United States is attractive because of innovation, deep capital markets, technology leadership, and industry clusters, but protectionist policy or monetary policy uncertainty could hurt confidence. Canada offers stable regulation, talent, technology infrastructure, and North American positioning, but prolonged trade tension with the US or political uncertainty could curtail investment. Germany has engineering and manufacturing strengths, but political turmoil and economic-model reset create uncertainty. Mexico benefits from labor costs, proximity to the US, manufacturing capability, and trade agreements, but US tariff or protectionist pressure could reduce attractiveness. The UK has financial services, flexible regulation, talent, and global connectivity, but future trading relationships remain a possible headwind or tailwind.",
+      "must_contain": [
+        "United States",
+        "Canada",
+        "Germany",
+        "Mexico",
+        "United Kingdom",
+        "protectionist",
+        "trade tensions",
+        "political turmoil",
+        "tariffs",
+        "trading relationships"
+      ],
+      "evidence": [
+        {
+          "type": "text",
+          "source_path": "output_clean/ey-ceo-outlook-pulse-survey-global-report-january-2025.md",
+          "page": 14,
+          "source_lines": "367-404",
+          "notes": "Investment hotspots figure extraction."
+        },
+        {
+          "type": "image",
+          "source_path": "filtered_images/ey-ceo-outlook-pulse-survey-global-report-january-2025__p14__imageFile7__score3.png",
+          "page": 14,
+          "image_id": "imageFile7",
+          "notes": "Top five investment destinations figure."
+        }
+      ],
+      "should_retrieve_image": true
+    },
+    {
+      "id": "H10",
+      "modality": "hybrid_text_image",
+      "difficulty": "hard",
+      "retrieval_goal": "comparative infographic extraction",
+      "question": "Using the August/September 2025 CEO transformation-leaders infographic, compare transformation leaders with others on optimism, localization, regionalization, and portfolio strategy.",
+      "ground_truth_answer": "The infographic shows transformation leaders outperforming others across several dimensions. On optimism, 56% of transformation leaders reported optimism over the past 12 months versus 18% of others, and 71% expected optimism over the next 12 months versus 34% of others. Localization plans were already completed by 62% of leaders versus 34% of others, and regionalization plans by 58% versus 15%. For portfolio strategy, 100% of leaders planned to increase investment to accelerate transformation versus 45% of others; 88% intended to finance transformation through revenue growth or margin improvement versus 54%; 57% planned M&A versus 46%; and 47% planned divestment versus 29%.",
+      "must_contain": [
+        "56%",
+        "18%",
+        "71%",
+        "34%",
+        "62%",
+        "58%",
+        "15%",
+        "100%",
+        "45%",
+        "88%",
+        "54%",
+        "57%",
+        "46%",
+        "47%",
+        "29%"
+      ],
+      "evidence": [
+        {
+          "type": "text",
+          "source_path": "output_clean/ey-gl-ceo-outlook-survey-08-2025.md",
+          "page": 3,
+          "source_lines": "88-137",
+          "notes": "Transformation leaders infographic extraction."
+        },
+        {
+          "type": "image",
+          "source_path": "filtered_images/ey-gl-ceo-outlook-survey-08-2025__p3__imageFile6__score2.png",
+          "page": 3,
+          "image_id": "imageFile6",
+          "notes": "Transformation leaders infographic."
+        }
+      ],
+      "should_retrieve_image": true
+    }
+  ]
+}

@@ -9,14 +9,14 @@ Setup (pick one):
     # or pass --api-key on the command line
 
 Usage:
-    python test_kimi_image.py                      # opens a file-picker dialog
-    python test_kimi_image.py path/to/image.png    # or pass the path directly
-    python test_kimi_image.py "filtered_images/ey-frd-series-spring-2025__p11__imageFile93__score3.png"
-    python test_kimi_image.py img.png --prompt "Transcribe every number in this chart."
-    python test_kimi_image.py img.png --stream
-    python test_kimi_image.py img.png --model meta/llama-3.2-90b-vision-instruct
+    python scripts/images/test_kimi_image.py                      # opens a file-picker dialog
+    python scripts/images/test_kimi_image.py path/to/image.png    # or pass the path directly
+    python scripts/images/test_kimi_image.py "filtered_images/ey-frd-series-spring-2025__p11__imageFile93__score3.png"
+    python scripts/images/test_kimi_image.py img.png --prompt "Transcribe every number in this chart."
+    python scripts/images/test_kimi_image.py img.png --stream
+    python scripts/images/test_kimi_image.py img.png --model meta/llama-3.2-90b-vision-instruct
 
-Tip: instead of typing a long path, run `python test_kimi_image.py ` (with a
+Tip: instead of typing a long path, run `python scripts/images/test_kimi_image.py ` (with a
 trailing space) and DRAG the image from Explorer into the terminal to paste it.
 """
 
