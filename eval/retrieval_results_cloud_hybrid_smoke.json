@@ -1,0 +1,1228 @@
+{
+  "run_name": "qdrant-bge-m3-hybrid-top5",
+  "run_date": "2026-07-01",
+  "notes": "Automatically generated retrieval benchmark results. Retrieval uses Qdrant vector candidates, optional local BM25 candidates, lightweight reranking, and extractive answers from the top retrieved contexts.",
+  "qdrant_url": "https://21570bba-afe9-4fdd-9da7-2a85cc83a050.eu-west-1-0.aws.cloud.qdrant.io",
+  "ollama_url": "http://localhost:11434",
+  "embedding_model": "bge-m3",
+  "indexing_types": [
+    "langchain_markdown_recursive",
+    "llamaindex_semantic",
+    "haystack_document_splitter",
+    "chonkie_semantic"
+  ],
+  "retrieval_mode": "hybrid_vector_bm25_rerank",
+  "candidate_k": 20,
+  "bm25_k": 20,
+  "window_radius": 1,
+  "results": [
+    {
+      "scenario_id": "H01",
+      "indexing_type": "langchain_markdown_recursive",
+      "query": "Using the January 2026 CEO Outlook AI figure, which AI technologies are driving transformation and what is the strategic interpretation of the ranking?",
+      "retrieved_answer": "Retrieved response (extractive, from reranked contexts):\n\n[rank 1, ey-gl-ceo-outlook-survey-01-2026.md, page 9, score 0.8654, What types of AI are driving the transformation? > At the same time:]\n[current, page 9]\n# What types of AI are driving the transformation?\n\nAt 54%, generative AI (Gen AI) tops the list of transformative technologies, selected by over half of CEOs, reflecting how rapidly it has moved from experimentation to enterprise integration, particularly across content generation, coding, customer engagement and knowledge-intensive workflows.\n\nMachine learning follows closely (45%), remaining the analytical backbone for prediction, forecasting and decision intelligence. Together, these technologies show that companies are balancing the new with the proven.\n\n## At the same time:\n\n- **Agentic AI (37%)** signals a shift from AI as assistant to AI as operator, taking on tasks that previously required human intervention.\n\n- **Physical AI (30%)** demonstrates continued momentum in robotics and automation, strengthening operational adaptability where labor, supply chain, or cost pressures persist.\n\n- **Natural language processing (27%)** continues to underpin everyday interactions but now competes with Gen AI for transformational attention.\n\nOverall, the evidence points to a meaningful and structural shift: companies are moving from isolated AI use cases to integrated AI systems that could reshape workflows, automate decisions and augment human capability at scale. AI is no longer simply an efficiency tool \u2013 it is becoming a strategic engine for transformation, adaptability and growth.\n\n[rank 2, ey-gl-ceo-outlook-survey-01-2026.md, page 10, score 0.8210, Three Strategic AI Questions for CEOs]\n[current, page 10]\n# Three Strategic AI Questions for CEOs\n\n1\n\n**Strategic question**\n\n**Is AI a core enterprise capability \u2013 or still a set of experiments?**\n\nWith initiatives exceeding expectations for most CEOs, the question is whether AI is being embedded into capital allocation, workforce strategy and operating model design, or still confined to pilots and pockets of innovation.\n\n---\n\n2\n\n**Strategic question**\n\n**Where should we scale AI \u2013 and what should we stop?**\n\nAs AI enters a phase of disciplined scaling, CEOs must decide:\n\n- Which proven use cases deserve deep, end-to-end integration across value chains\n- Where to prioritize depth over breadth\n- Which experiments no longer justify continued investment\n\nThe strategic challenge is maintaining laser focus: scaling what works to capture full-enterprise productivity and competitive advantage.\n\n---\n\n3\n\n**Strategic question**\n\n**Are we using AI to optimize \u2013 or to fundamentally reshape the business?**\n\nWith confidence in outcomes rising and competitors accelerating investment, CEOs must ask whether they are using AI merely to optimize today's operations, or to redefine products, services and business models. As AI shifts from assistant to cooperator, speed and ambition will increasingly separate leaders from laggards.\n\n---\n\n*9 | EY-Parthenon CEO Outlook Survey \u2013 January 2026*\n\n[rank 3, ey-gl-ceo-outlook-survey-01-2026.md, page 13, score 0.7677, Key questions and considerations for CEOs > Strategic question]\n[current, page 13]\n# Key questions and considerations for CEOs\n\n---\n\n1\n\n### Strategic question\n\nAre we using AI and data to actively manage geopolitical uncertainty \u2013 or merely to report on it?\n\nReal-time visibility, scenario modeling and faster decision-making are required as policies and trade conditions shift. Embedding AI into planning and execution allows uncertainty to be managed as a strategic variable rather than absorbed as a risk.\n\n---\n\n2\n\n### Strategic question\n\nDo our global operating and digital models reflect today's fragmented reality \u2013 or yesterday's assumptions?\n\nForced fragmentation across trade, technology and data requires more diversified supply chains, modular operating models and clearer control over critical digital dependencies. Resilience will increasingly depend on how deliberately organizations redesign for regulatory divergence and geopolitical friction.\n\n---\n\n3\n\n### Strategic question\n\nAre we acting with conviction to build resilience and growth \u2013 or defaulting to delay in the face of uncertainty?\n\nLeading CEOs are accelerating investment selectively, balancing cost discipline with targeted bets on AI, partnerships and strategic capabilities. Positive intent in action means preserving momentum by reallocating capital and talent toward controllable sources of advantage rather than waiting for stability.\n\n---\n\n12 | EY-Parthenon CEO Survey | January 2026",
+      "retrieved_image_paths": [
+        "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p9__imageFile10__scoreNA.png",
+        "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p10__imageFile12__scoreNA.png",
+        "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p13__imageFile17__score3.png",
+        "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p11__imageFile15__scoreNA.png"
+      ],
+      "retrieved_contexts": [
+        {
+          "rank": 1,
+          "score": 0.8653846153846154,
+          "vector_score": 0.73199576,
+          "bm25_score": 62.30179834114153,
+          "lexical_score": 0.46153846153846156,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-ceo-outlook-survey-01-2026.md",
+          "page": 9,
+          "page_end": 9,
+          "chunk_id": "langchain_markdown_recursive:ey-gl-ceo-outlook-survey-01-2026:000568:d6e9bbe8260cb253",
+          "parent_id": "ey-gl-ceo-outlook-survey-01-2026:p9:1aaa59584032",
+          "section_id": "ey-gl-ceo-outlook-survey-01-2026:p9:1aaa59584032",
+          "retrieval_role": "atomic_block",
+          "page_type": "image_extraction",
+          "content_type": "figure",
+          "heading_path": [
+            "What types of AI are driving the transformation?",
+            "At the same time:"
+          ],
+          "image_paths": [
+            "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p9__imageFile10__scoreNA.png"
+          ],
+          "primary_image_path": "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p9__imageFile10__scoreNA.png",
+          "text": "[current, page 9]\n# What types of AI are driving the transformation?\n\nAt 54%, generative AI (Gen AI) tops the list of transformative technologies, selected by over half of CEOs, reflecting how rapidly it has moved from experimentation to enterprise integration, particularly across content generation, coding, customer engagement and knowledge-intensive workflows.\n\nMachine learning follows closely (45%), remaining the analytical backbone for prediction, forecasting and decision intelligence. Together, these technologies show that companies are balancing the new with the proven.\n\n## At the same time:\n\n- **Agentic AI (37%)** signals a shift from AI as assistant to AI as operator, taking on tasks that previously required human intervention.\n\n- **Physical AI (30%)** demonstrates continued momentum in robotics and automation, strengthening operational adaptability where labor, supply chain, or cost pressures persist.\n\n- **Natural language processing (27%)** continues to underpin everyday interactions but now competes with Gen AI for transformational attention.\n\nOverall, the evidence points to a meaningful and structural shift: companies are moving from isolated AI use cases to integrated AI systems that could reshape workflows, automate decisions and augment human capability at scale. AI is no longer simply an efficiency tool \u2013 it is becoming a strategic engine for transformation, adaptability and growth."
+        },
+        {
+          "rank": 2,
+          "score": 0.8210115450404244,
+          "vector_score": 0.62130266,
+          "bm25_score": 58.617225689576216,
+          "lexical_score": 0.6153846153846154,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-ceo-outlook-survey-01-2026.md",
+          "page": 10,
+          "page_end": 10,
+          "chunk_id": "langchain_markdown_recursive:ey-gl-ceo-outlook-survey-01-2026:000569:5e6a6e8407f3937f",
+          "parent_id": "ey-gl-ceo-outlook-survey-01-2026:p10:92615fb3f5de",
+          "section_id": "ey-gl-ceo-outlook-survey-01-2026:p10:92615fb3f5de",
+          "retrieval_role": "atomic_block",
+          "page_type": "image_extraction",
+          "content_type": "figure",
+          "heading_path": [
+            "Three Strategic AI Questions for CEOs"
+          ],
+          "image_paths": [
+            "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p10__imageFile12__scoreNA.png"
+          ],
+          "primary_image_path": "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p10__imageFile12__scoreNA.png",
+          "text": "[current, page 10]\n# Three Strategic AI Questions for CEOs\n\n1\n\n**Strategic question**\n\n**Is AI a core enterprise capability \u2013 or still a set of experiments?**\n\nWith initiatives exceeding expectations for most CEOs, the question is whether AI is being embedded into capital allocation, workforce strategy and operating model design, or still confined to pilots and pockets of innovation.\n\n---\n\n2\n\n**Strategic question**\n\n**Where should we scale AI \u2013 and what should we stop?**\n\nAs AI enters a phase of disciplined scaling, CEOs must decide:\n\n- Which proven use cases deserve deep, end-to-end integration across value chains\n- Where to prioritize depth over breadth\n- Which experiments no longer justify continued investment\n\nThe strategic challenge is maintaining laser focus: scaling what works to capture full-enterprise productivity and competitive advantage.\n\n---\n\n3\n\n**Strategic question**\n\n**Are we using AI to optimize \u2013 or to fundamentally reshape the business?**\n\nWith confidence in outcomes rising and competitors accelerating investment, CEOs must ask whether they are using AI merely to optimize today's operations, or to redefine products, services and business models. As AI shifts from assistant to cooperator, speed and ambition will increasingly separate leaders from laggards.\n\n---\n\n*9 | EY-Parthenon CEO Outlook Survey \u2013 January 2026*"
+        },
+        {
+          "rank": 3,
+          "score": 0.7676993716466501,
+          "vector_score": 0.63457024,
+          "bm25_score": 48.09127441157204,
+          "lexical_score": 0.5384615384615384,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-ceo-outlook-survey-01-2026.md",
+          "page": 13,
+          "page_end": 13,
+          "chunk_id": "langchain_markdown_recursive:ey-gl-ceo-outlook-survey-01-2026:000572:c8c25d8a8cff8cd9",
+          "parent_id": "ey-gl-ceo-outlook-survey-01-2026:p13:b4be7c4800dd",
+          "section_id": "ey-gl-ceo-outlook-survey-01-2026:p13:b4be7c4800dd",
+          "retrieval_role": "atomic_block",
+          "page_type": "image_extraction",
+          "content_type": "figure",
+          "heading_path": [
+            "Key questions and considerations for CEOs",
+            "Strategic question"
+          ],
+          "image_paths": [
+            "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p13__imageFile17__score3.png"
+          ],
+          "primary_image_path": "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p13__imageFile17__score3.png",
+          "text": "[current, page 13]\n# Key questions and considerations for CEOs\n\n---\n\n1\n\n### Strategic question\n\nAre we using AI and data to actively manage geopolitical uncertainty \u2013 or merely to report on it?\n\nReal-time visibility, scenario modeling and faster decision-making are required as policies and trade conditions shift. Embedding AI into planning and execution allows uncertainty to be managed as a strategic variable rather than absorbed as a risk.\n\n---\n\n2\n\n### Strategic question\n\nDo our global operating and digital models reflect today's fragmented reality \u2013 or yesterday's assumptions?\n\nForced fragmentation across trade, technology and data requires more diversified supply chains, modular operating models and clearer control over critical digital dependencies. Resilience will increasingly depend on how deliberately organizations redesign for regulatory divergence and geopolitical friction.\n\n---\n\n3\n\n### Strategic question\n\nAre we acting with conviction to build resilience and growth \u2013 or defaulting to delay in the face of uncertainty?\n\nLeading CEOs are accelerating investment selectively, balancing cost discipline with targeted bets on AI, partnerships and strategic capabilities. Positive intent in action means preserving momentum by reallocating capital and talent toward controllable sources of advantage rather than waiting for stability.\n\n---\n\n12 | EY-Parthenon CEO Survey | January 2026"
+        },
+        {
+          "rank": 4,
+          "score": 0.6496528100376637,
+          "vector_score": 0.6608886,
+          "bm25_score": 33.810980010680005,
+          "lexical_score": 0.23076923076923078,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-ceo-outlook-survey-01-2026.md",
+          "page": 8,
+          "page_end": 8,
+          "chunk_id": "langchain_markdown_recursive:ey-gl-ceo-outlook-survey-01-2026:000565:bda47582b8673a66",
+          "parent_id": "ey-gl-ceo-outlook-survey-01-2026:p8:d82772ac8e1a",
+          "section_id": "ey-gl-ceo-outlook-survey-01-2026:p8:d82772ac8e1a",
+          "retrieval_role": "child_chunk",
+          "page_type": "content",
+          "content_type": "text",
+          "heading_path": [
+            "Strategic Questions Framework"
+          ],
+          "image_paths": [],
+          "primary_image_path": "",
+          "text": "[current, page 8]\nFrom experiment to engine: how  \nCEOs are moving from AI experimentation to disciplined scaling, embedding generative AI, automation and data across the enterprise to drive adaptability and competitive advantage.  \nEven though CEOs tend to be more optimistic than others, their outlook is clearly shifting. While some commentators might declare that AI investment is overheating, the experience of surveyed CEOs paints a very different picture \u2014 one in which AI is already delivering results above expectations and strengthening organizational adaptability in a rapidly shifting world.  \nThe vast majority of CEOs report that their AI initiatives have met or exceeded expectations, with only a small minority falling short of targets. This points to AI becoming an increasingly reliable driver of productivity, revenue growth, customer experience and operating model efficiency. Notably, the greatest value is likely to be accrued by the 20% of organizations whose AI investments are already delivering significantly above-expectation returns.  \nMany AI deployments demonstrate solid economic fundamentals: automation of routine work, faster and more accurate forecasting, improved risk detection, accelerated product development and enhanced decision-making across the value chain."
+        },
+        {
+          "rank": 5,
+          "score": 0.6329261594618483,
+          "vector_score": 0.5912983,
+          "bm25_score": 35.51150762831513,
+          "lexical_score": 0.3076923076923077,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-ceo-outlook-survey-01-2026.md",
+          "page": 11,
+          "page_end": 11,
+          "chunk_id": "langchain_markdown_recursive:ey-gl-ceo-outlook-survey-01-2026:000570:91e34b26a1d5c7b8",
+          "parent_id": "ey-gl-ceo-outlook-survey-01-2026:p11:e060cfee1f43",
+          "section_id": "ey-gl-ceo-outlook-survey-01-2026:p11:e060cfee1f43",
+          "retrieval_role": "atomic_block",
+          "page_type": "image_extraction",
+          "content_type": "figure",
+          "heading_path": [
+            "CEOs Identify Five Key Strategies for Organizational Growth"
+          ],
+          "image_paths": [
+            "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p11__imageFile15__scoreNA.png"
+          ],
+          "primary_image_path": "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p11__imageFile15__scoreNA.png",
+          "text": "[current, page 11]\n# CEOs Identify Five Key Strategies for Organizational Growth\n\nCEOs identify five key strategies to navigate today's fractured global environment and accelerate organizational growth.\n\n1. **Investing in AI and digital technologies**\n2. **Improving geopolitical risk management**\n3. **Managing costs effectively**\n4. **Diversifying supply chains**\n5. **Deepening strategic Lean strategic partnerships**"
+        }
+      ],
+      "latency_ms": 808,
+      "top_k": 5,
+      "candidate_k": 20,
+      "retrieval_mode": "hybrid_vector_bm25_rerank",
+      "window_radius": 1,
+      "human_score": null,
+      "human_notes": "",
+      "collection": "ey_rag_langchain_markdown_recursive",
+      "retrieval_status": "ok"
+    },
+    {
+      "scenario_id": "H01",
+      "indexing_type": "llamaindex_semantic",
+      "query": "Using the January 2026 CEO Outlook AI figure, which AI technologies are driving transformation and what is the strategic interpretation of the ranking?",
+      "retrieved_answer": "Retrieved response (extractive, from reranked contexts):\n\n[rank 1, ey-gl-ceo-outlook-survey-01-2026.md, page 9, score 0.8654, What types of AI are driving the transformation? > At the same time:]\n[current, page 9]\n# What types of AI are driving the transformation?\n\nAt 54%, generative AI (Gen AI) tops the list of transformative technologies, selected by over half of CEOs, reflecting how rapidly it has moved from experimentation to enterprise integration, particularly across content generation, coding, customer engagement and knowledge-intensive workflows.\n\nMachine learning follows closely (45%), remaining the analytical backbone for prediction, forecasting and decision intelligence. Together, these technologies show that companies are balancing the new with the proven.\n\n## At the same time:\n\n- **Agentic AI (37%)** signals a shift from AI as assistant to AI as operator, taking on tasks that previously required human intervention.\n\n- **Physical AI (30%)** demonstrates continued momentum in robotics and automation, strengthening operational adaptability where labor, supply chain, or cost pressures persist.\n\n- **Natural language processing (27%)** continues to underpin everyday interactions but now competes with Gen AI for transformational attention.\n\nOverall, the evidence points to a meaningful and structural shift: companies are moving from isolated AI use cases to integrated AI systems that could reshape workflows, automate decisions and augment human capability at scale. AI is no longer simply an efficiency tool \u2013 it is becoming a strategic engine for transformation, adaptability and growth.\n\n[rank 2, ey-gl-ceo-outlook-survey-01-2026.md, page 10, score 0.8244, Three Strategic AI Questions for CEOs]\n[current, page 10]\n# Three Strategic AI Questions for CEOs\n\n1\n\n**Strategic question**\n\n**Is AI a core enterprise capability \u2013 or still a set of experiments?**\n\nWith initiatives exceeding expectations for most CEOs, the question is whether AI is being embedded into capital allocation, workforce strategy and operating model design, or still confined to pilots and pockets of innovation.\n\n---\n\n2\n\n**Strategic question**\n\n**Where should we scale AI \u2013 and what should we stop?**\n\nAs AI enters a phase of disciplined scaling, CEOs must decide:\n\n- Which proven use cases deserve deep, end-to-end integration across value chains\n- Where to prioritize depth over breadth\n- Which experiments no longer justify continued investment\n\nThe strategic challenge is maintaining laser focus: scaling what works to capture full-enterprise productivity and competitive advantage.\n\n---\n\n3\n\n**Strategic question**\n\n**Are we using AI to optimize \u2013 or to fundamentally reshape the business?**\n\nWith confidence in outcomes rising and competitors accelerating investment, CEOs must ask whether they are using AI merely to optimize today's operations, or to redefine products, services and business models. As AI shifts from assistant to cooperator, speed and ambition will increasingly separate leaders from laggards.\n\n---\n\n*9 | EY-Parthenon CEO Outlook Survey \u2013 January 2026*\n\n[rank 3, ey-gl-ceo-outlook-survey-01-2026.md, page 13, score 0.7689, Key questions and considerations for CEOs > Strategic question]\n[current, page 13]\n# Key questions and considerations for CEOs\n\n---\n\n1\n\n### Strategic question\n\nAre we using AI and data to actively manage geopolitical uncertainty \u2013 or merely to report on it?\n\nReal-time visibility, scenario modeling and faster decision-making are required as policies and trade conditions shift. Embedding AI into planning and execution allows uncertainty to be managed as a strategic variable rather than absorbed as a risk.\n\n---\n\n2\n\n### Strategic question\n\nDo our global operating and digital models reflect today's fragmented reality \u2013 or yesterday's assumptions?\n\nForced fragmentation across trade, technology and data requires more diversified supply chains, modular operating models and clearer control over critical digital dependencies. Resilience will increasingly depend on how deliberately organizations redesign for regulatory divergence and geopolitical friction.\n\n---\n\n3\n\n### Strategic question\n\nAre we acting with conviction to build resilience and growth \u2013 or defaulting to delay in the face of uncertainty?\n\nLeading CEOs are accelerating investment selectively, balancing cost discipline with targeted bets on AI, partnerships and strategic capabilities. Positive intent in action means preserving momentum by reallocating capital and talent toward controllable sources of advantage rather than waiting for stability.\n\n---\n\n12 | EY-Parthenon CEO Survey | January 2026",
+      "retrieved_image_paths": [
+        "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p9__imageFile10__scoreNA.png",
+        "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p10__imageFile12__scoreNA.png",
+        "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p13__imageFile17__score3.png",
+        "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p17__imageFile22__scoreNA.png"
+      ],
+      "retrieved_contexts": [
+        {
+          "rank": 1,
+          "score": 0.8653846153846154,
+          "vector_score": 0.73199576,
+          "bm25_score": 62.85348992818554,
+          "lexical_score": 0.46153846153846156,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-ceo-outlook-survey-01-2026.md",
+          "page": 9,
+          "page_end": 9,
+          "chunk_id": "llamaindex_semantic:ey-gl-ceo-outlook-survey-01-2026:000538:3ac03a9866e31ae0",
+          "parent_id": "ey-gl-ceo-outlook-survey-01-2026:p9:1aaa59584032",
+          "section_id": "ey-gl-ceo-outlook-survey-01-2026:p9:1aaa59584032",
+          "retrieval_role": "atomic_block",
+          "page_type": "image_extraction",
+          "content_type": "figure",
+          "heading_path": [
+            "What types of AI are driving the transformation?",
+            "At the same time:"
+          ],
+          "image_paths": [
+            "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p9__imageFile10__scoreNA.png"
+          ],
+          "primary_image_path": "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p9__imageFile10__scoreNA.png",
+          "text": "[current, page 9]\n# What types of AI are driving the transformation?\n\nAt 54%, generative AI (Gen AI) tops the list of transformative technologies, selected by over half of CEOs, reflecting how rapidly it has moved from experimentation to enterprise integration, particularly across content generation, coding, customer engagement and knowledge-intensive workflows.\n\nMachine learning follows closely (45%), remaining the analytical backbone for prediction, forecasting and decision intelligence. Together, these technologies show that companies are balancing the new with the proven.\n\n## At the same time:\n\n- **Agentic AI (37%)** signals a shift from AI as assistant to AI as operator, taking on tasks that previously required human intervention.\n\n- **Physical AI (30%)** demonstrates continued momentum in robotics and automation, strengthening operational adaptability where labor, supply chain, or cost pressures persist.\n\n- **Natural language processing (27%)** continues to underpin everyday interactions but now competes with Gen AI for transformational attention.\n\nOverall, the evidence points to a meaningful and structural shift: companies are moving from isolated AI use cases to integrated AI systems that could reshape workflows, automate decisions and augment human capability at scale. AI is no longer simply an efficiency tool \u2013 it is becoming a strategic engine for transformation, adaptability and growth."
+        },
+        {
+          "rank": 2,
+          "score": 0.8243612184319353,
+          "vector_score": 0.62130266,
+          "bm25_score": 59.978444495004226,
+          "lexical_score": 0.6153846153846154,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-ceo-outlook-survey-01-2026.md",
+          "page": 10,
+          "page_end": 10,
+          "chunk_id": "llamaindex_semantic:ey-gl-ceo-outlook-survey-01-2026:000539:675f9e152658e91f",
+          "parent_id": "ey-gl-ceo-outlook-survey-01-2026:p10:92615fb3f5de",
+          "section_id": "ey-gl-ceo-outlook-survey-01-2026:p10:92615fb3f5de",
+          "retrieval_role": "atomic_block",
+          "page_type": "image_extraction",
+          "content_type": "figure",
+          "heading_path": [
+            "Three Strategic AI Questions for CEOs"
+          ],
+          "image_paths": [
+            "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p10__imageFile12__scoreNA.png"
+          ],
+          "primary_image_path": "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p10__imageFile12__scoreNA.png",
+          "text": "[current, page 10]\n# Three Strategic AI Questions for CEOs\n\n1\n\n**Strategic question**\n\n**Is AI a core enterprise capability \u2013 or still a set of experiments?**\n\nWith initiatives exceeding expectations for most CEOs, the question is whether AI is being embedded into capital allocation, workforce strategy and operating model design, or still confined to pilots and pockets of innovation.\n\n---\n\n2\n\n**Strategic question**\n\n**Where should we scale AI \u2013 and what should we stop?**\n\nAs AI enters a phase of disciplined scaling, CEOs must decide:\n\n- Which proven use cases deserve deep, end-to-end integration across value chains\n- Where to prioritize depth over breadth\n- Which experiments no longer justify continued investment\n\nThe strategic challenge is maintaining laser focus: scaling what works to capture full-enterprise productivity and competitive advantage.\n\n---\n\n3\n\n**Strategic question**\n\n**Are we using AI to optimize \u2013 or to fundamentally reshape the business?**\n\nWith confidence in outcomes rising and competitors accelerating investment, CEOs must ask whether they are using AI merely to optimize today's operations, or to redefine products, services and business models. As AI shifts from assistant to cooperator, speed and ambition will increasingly separate leaders from laggards.\n\n---\n\n*9 | EY-Parthenon CEO Outlook Survey \u2013 January 2026*"
+        },
+        {
+          "rank": 3,
+          "score": 0.7688945909681363,
+          "vector_score": 0.63457024,
+          "bm25_score": 48.8176245416162,
+          "lexical_score": 0.5384615384615384,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-ceo-outlook-survey-01-2026.md",
+          "page": 13,
+          "page_end": 13,
+          "chunk_id": "llamaindex_semantic:ey-gl-ceo-outlook-survey-01-2026:000541:1ed7efa06ccc0465",
+          "parent_id": "ey-gl-ceo-outlook-survey-01-2026:p13:b4be7c4800dd",
+          "section_id": "ey-gl-ceo-outlook-survey-01-2026:p13:b4be7c4800dd",
+          "retrieval_role": "atomic_block",
+          "page_type": "image_extraction",
+          "content_type": "figure",
+          "heading_path": [
+            "Key questions and considerations for CEOs",
+            "Strategic question"
+          ],
+          "image_paths": [
+            "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p13__imageFile17__score3.png"
+          ],
+          "primary_image_path": "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p13__imageFile17__score3.png",
+          "text": "[current, page 13]\n# Key questions and considerations for CEOs\n\n---\n\n1\n\n### Strategic question\n\nAre we using AI and data to actively manage geopolitical uncertainty \u2013 or merely to report on it?\n\nReal-time visibility, scenario modeling and faster decision-making are required as policies and trade conditions shift. Embedding AI into planning and execution allows uncertainty to be managed as a strategic variable rather than absorbed as a risk.\n\n---\n\n2\n\n### Strategic question\n\nDo our global operating and digital models reflect today's fragmented reality \u2013 or yesterday's assumptions?\n\nForced fragmentation across trade, technology and data requires more diversified supply chains, modular operating models and clearer control over critical digital dependencies. Resilience will increasingly depend on how deliberately organizations redesign for regulatory divergence and geopolitical friction.\n\n---\n\n3\n\n### Strategic question\n\nAre we acting with conviction to build resilience and growth \u2013 or defaulting to delay in the face of uncertainty?\n\nLeading CEOs are accelerating investment selectively, balancing cost discipline with targeted bets on AI, partnerships and strategic capabilities. Positive intent in action means preserving momentum by reallocating capital and talent toward controllable sources of advantage rather than waiting for stability.\n\n---\n\n12 | EY-Parthenon CEO Survey | January 2026"
+        },
+        {
+          "rank": 4,
+          "score": 0.7399314309020929,
+          "vector_score": 0.58529973,
+          "bm25_score": 44.316181816833435,
+          "lexical_score": 0.6153846153846154,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-ceo-outlook-survey-01-2026.md",
+          "page": 17,
+          "page_end": 17,
+          "chunk_id": "llamaindex_semantic:ey-gl-ceo-outlook-survey-01-2026:000542:3f928d85055d8af2",
+          "parent_id": "ey-gl-ceo-outlook-survey-01-2026:p17:9536d8183363",
+          "section_id": "ey-gl-ceo-outlook-survey-01-2026:p17:9536d8183363",
+          "retrieval_role": "atomic_block",
+          "page_type": "image_extraction",
+          "content_type": "figure",
+          "heading_path": [
+            "Key questions and considerations for CEOs",
+            "Strategic question"
+          ],
+          "image_paths": [
+            "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p17__imageFile22__scoreNA.png"
+          ],
+          "primary_image_path": "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p17__imageFile22__scoreNA.png",
+          "text": "[current, page 17]\n```markdown\n1\n\n## Strategic question\n\n**Are we using transactions as a tactical growth lever \u2013 or as a deliberate accelerator to reimagine our enterprise?**\n\nLeading CEOs are aligning M&A tightly to transformation priorities, using acquisitions to accelerate productivity, digitalization and operating model change. When deployed strategically, transactions can pull forward years of organic transformation by importing capabilities, technology, and talent.\n\n---\n\n2\n\n## Strategic question\n\n**Do we have the discipline to capture transformational value \u2013 or are we relying on deal logic alone?**\n\nThe speed advantage of M&A is only realized when integration is treated as a value creation engine from the earliest stages of the deal lifecycle. Clear articulation, tracking and ownership of value drivers from diligence through execution are essential to convert strategic intent into measurable outcomes.\n\n---\n\n3\n\n## Strategic question\n\n**Can our deal strategy withstand rising geopolitical and regulatory scrutiny without sacrificing ambition?**\n\nGeopolitical fragmentation and heightened regulatory oversight have raised the execution risk of cross-border deals, demanding greater selectivity and foresight. CEOs need to balance strategic reach with regulatory realism, building deal theses that anticipate scrutiny, localize where needed, and preserve flexibility in an increasingly regionalized world.\n\n---\n\n16 | EY-Parthenon CEO Outlook Survey \u2013 January 2026\n```"
+        },
+        {
+          "rank": 5,
+          "score": 0.6461539909535561,
+          "vector_score": 0.647262,
+          "bm25_score": 35.33683825160929,
+          "lexical_score": 0.23076923076923078,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-ceo-outlook-survey-01-2026.md",
+          "page": 8,
+          "page_end": 8,
+          "chunk_id": "llamaindex_semantic:ey-gl-ceo-outlook-survey-01-2026:000550:9572356485ab58da",
+          "parent_id": "ey-gl-ceo-outlook-survey-01-2026:p8:d82772ac8e1a",
+          "section_id": "ey-gl-ceo-outlook-survey-01-2026:p8:d82772ac8e1a",
+          "retrieval_role": "child_chunk",
+          "page_type": "content",
+          "content_type": "text",
+          "heading_path": [
+            "Strategic Questions Framework"
+          ],
+          "image_paths": [],
+          "primary_image_path": "",
+          "text": "[current, page 8]\nFrom experiment to engine: how\n\nCEOs are moving from AI experimentation to disciplined scaling, embedding generative AI, automation and data across the enterprise to drive adaptability and competitive advantage.\n\nEven though CEOs tend to be more optimistic than others, their outlook is clearly shifting. While some commentators might declare that AI investment is overheating, the experience of surveyed CEOs paints a very different picture \u2014 one in which AI is already delivering results above expectations and strengthening organizational adaptability in a rapidly shifting world.\n\nThe vast majority of CEOs report that their AI initiatives have met or exceeded expectations, with only a small minority falling short of targets. This points to AI becoming an increasingly reliable driver of productivity, revenue growth, customer experience and operating model efficiency."
+        }
+      ],
+      "latency_ms": 782,
+      "top_k": 5,
+      "candidate_k": 20,
+      "retrieval_mode": "hybrid_vector_bm25_rerank",
+      "window_radius": 1,
+      "human_score": null,
+      "human_notes": "",
+      "collection": "ey_rag_llamaindex_semantic",
+      "retrieval_status": "ok"
+    },
+    {
+      "scenario_id": "H01",
+      "indexing_type": "haystack_document_splitter",
+      "query": "Using the January 2026 CEO Outlook AI figure, which AI technologies are driving transformation and what is the strategic interpretation of the ranking?",
+      "retrieved_answer": "Retrieved response (extractive, from reranked contexts):\n\n[rank 1, ey-gl-ceo-outlook-survey-01-2026.md, page 9, score 0.8654, What types of AI are driving the transformation? > At the same time:]\n[current, page 9]\n# What types of AI are driving the transformation?\n\nAt 54%, generative AI (Gen AI) tops the list of transformative technologies, selected by over half of CEOs, reflecting how rapidly it has moved from experimentation to enterprise integration, particularly across content generation, coding, customer engagement and knowledge-intensive workflows.\n\nMachine learning follows closely (45%), remaining the analytical backbone for prediction, forecasting and decision intelligence. Together, these technologies show that companies are balancing the new with the proven.\n\n## At the same time:\n\n- **Agentic AI (37%)** signals a shift from AI as assistant to AI as operator, taking on tasks that previously required human intervention.\n\n- **Physical AI (30%)** demonstrates continued momentum in robotics and automation, strengthening operational adaptability where labor, supply chain, or cost pressures persist.\n\n- **Natural language processing (27%)** continues to underpin everyday interactions but now competes with Gen AI for transformational attention.\n\nOverall, the evidence points to a meaningful and structural shift: companies are moving from isolated AI use cases to integrated AI systems that could reshape workflows, automate decisions and augment human capability at scale. AI is no longer simply an efficiency tool \u2013 it is becoming a strategic engine for transformation, adaptability and growth.\n\n[rank 2, ey-gl-ceo-outlook-survey-01-2026.md, page 10, score 0.8238, Three Strategic AI Questions for CEOs]\n[current, page 10]\n# Three Strategic AI Questions for CEOs\n\n1\n\n**Strategic question**\n\n**Is AI a core enterprise capability \u2013 or still a set of experiments?**\n\nWith initiatives exceeding expectations for most CEOs, the question is whether AI is being embedded into capital allocation, workforce strategy and operating model design, or still confined to pilots and pockets of innovation.\n\n---\n\n2\n\n**Strategic question**\n\n**Where should we scale AI \u2013 and what should we stop?**\n\nAs AI enters a phase of disciplined scaling, CEOs must decide:\n\n- Which proven use cases deserve deep, end-to-end integration across value chains\n- Where to prioritize depth over breadth\n- Which experiments no longer justify continued investment\n\nThe strategic challenge is maintaining laser focus: scaling what works to capture full-enterprise productivity and competitive advantage.\n\n---\n\n3\n\n**Strategic question**\n\n**Are we using AI to optimize \u2013 or to fundamentally reshape the business?**\n\nWith confidence in outcomes rising and competitors accelerating investment, CEOs must ask whether they are using AI merely to optimize today's operations, or to redefine products, services and business models. As AI shifts from assistant to cooperator, speed and ambition will increasingly separate leaders from laggards.\n\n---\n\n*9 | EY-Parthenon CEO Outlook Survey \u2013 January 2026*\n\n[rank 3, ey-gl-ceo-outlook-survey-01-2026.md, page 13, score 0.7707, Key questions and considerations for CEOs > Strategic question]\n[current, page 13]\n# Key questions and considerations for CEOs\n\n---\n\n1\n\n### Strategic question\n\nAre we using AI and data to actively manage geopolitical uncertainty \u2013 or merely to report on it?\n\nReal-time visibility, scenario modeling and faster decision-making are required as policies and trade conditions shift. Embedding AI into planning and execution allows uncertainty to be managed as a strategic variable rather than absorbed as a risk.\n\n---\n\n2\n\n### Strategic question\n\nDo our global operating and digital models reflect today's fragmented reality \u2013 or yesterday's assumptions?\n\nForced fragmentation across trade, technology and data requires more diversified supply chains, modular operating models and clearer control over critical digital dependencies. Resilience will increasingly depend on how deliberately organizations redesign for regulatory divergence and geopolitical friction.\n\n---\n\n3\n\n### Strategic question\n\nAre we acting with conviction to build resilience and growth \u2013 or defaulting to delay in the face of uncertainty?\n\nLeading CEOs are accelerating investment selectively, balancing cost discipline with targeted bets on AI, partnerships and strategic capabilities. Positive intent in action means preserving momentum by reallocating capital and talent toward controllable sources of advantage rather than waiting for stability.\n\n---\n\n12 | EY-Parthenon CEO Survey | January 2026",
+      "retrieved_image_paths": [
+        "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p9__imageFile10__scoreNA.png",
+        "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p10__imageFile12__scoreNA.png",
+        "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p13__imageFile17__score3.png",
+        "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p17__imageFile22__scoreNA.png"
+      ],
+      "retrieved_contexts": [
+        {
+          "rank": 1,
+          "score": 0.8653846153846154,
+          "vector_score": 0.73199576,
+          "bm25_score": 62.99417126198167,
+          "lexical_score": 0.46153846153846156,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-ceo-outlook-survey-01-2026.md",
+          "page": 9,
+          "page_end": 9,
+          "chunk_id": "haystack_document_splitter:ey-gl-ceo-outlook-survey-01-2026:000273:fd6e49c5a2889bc4",
+          "parent_id": "ey-gl-ceo-outlook-survey-01-2026:p9:1aaa59584032",
+          "section_id": "ey-gl-ceo-outlook-survey-01-2026:p9:1aaa59584032",
+          "retrieval_role": "atomic_block",
+          "page_type": "image_extraction",
+          "content_type": "figure",
+          "heading_path": [
+            "What types of AI are driving the transformation?",
+            "At the same time:"
+          ],
+          "image_paths": [
+            "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p9__imageFile10__scoreNA.png"
+          ],
+          "primary_image_path": "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p9__imageFile10__scoreNA.png",
+          "text": "[current, page 9]\n# What types of AI are driving the transformation?\n\nAt 54%, generative AI (Gen AI) tops the list of transformative technologies, selected by over half of CEOs, reflecting how rapidly it has moved from experimentation to enterprise integration, particularly across content generation, coding, customer engagement and knowledge-intensive workflows.\n\nMachine learning follows closely (45%), remaining the analytical backbone for prediction, forecasting and decision intelligence. Together, these technologies show that companies are balancing the new with the proven.\n\n## At the same time:\n\n- **Agentic AI (37%)** signals a shift from AI as assistant to AI as operator, taking on tasks that previously required human intervention.\n\n- **Physical AI (30%)** demonstrates continued momentum in robotics and automation, strengthening operational adaptability where labor, supply chain, or cost pressures persist.\n\n- **Natural language processing (27%)** continues to underpin everyday interactions but now competes with Gen AI for transformational attention.\n\nOverall, the evidence points to a meaningful and structural shift: companies are moving from isolated AI use cases to integrated AI systems that could reshape workflows, automate decisions and augment human capability at scale. AI is no longer simply an efficiency tool \u2013 it is becoming a strategic engine for transformation, adaptability and growth."
+        },
+        {
+          "rank": 2,
+          "score": 0.8238297474239619,
+          "vector_score": 0.62130266,
+          "bm25_score": 59.97877247798651,
+          "lexical_score": 0.6153846153846154,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-ceo-outlook-survey-01-2026.md",
+          "page": 10,
+          "page_end": 10,
+          "chunk_id": "haystack_document_splitter:ey-gl-ceo-outlook-survey-01-2026:000274:60c2b1c3385e27f2",
+          "parent_id": "ey-gl-ceo-outlook-survey-01-2026:p10:92615fb3f5de",
+          "section_id": "ey-gl-ceo-outlook-survey-01-2026:p10:92615fb3f5de",
+          "retrieval_role": "atomic_block",
+          "page_type": "image_extraction",
+          "content_type": "figure",
+          "heading_path": [
+            "Three Strategic AI Questions for CEOs"
+          ],
+          "image_paths": [
+            "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p10__imageFile12__scoreNA.png"
+          ],
+          "primary_image_path": "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p10__imageFile12__scoreNA.png",
+          "text": "[current, page 10]\n# Three Strategic AI Questions for CEOs\n\n1\n\n**Strategic question**\n\n**Is AI a core enterprise capability \u2013 or still a set of experiments?**\n\nWith initiatives exceeding expectations for most CEOs, the question is whether AI is being embedded into capital allocation, workforce strategy and operating model design, or still confined to pilots and pockets of innovation.\n\n---\n\n2\n\n**Strategic question**\n\n**Where should we scale AI \u2013 and what should we stop?**\n\nAs AI enters a phase of disciplined scaling, CEOs must decide:\n\n- Which proven use cases deserve deep, end-to-end integration across value chains\n- Where to prioritize depth over breadth\n- Which experiments no longer justify continued investment\n\nThe strategic challenge is maintaining laser focus: scaling what works to capture full-enterprise productivity and competitive advantage.\n\n---\n\n3\n\n**Strategic question**\n\n**Are we using AI to optimize \u2013 or to fundamentally reshape the business?**\n\nWith confidence in outcomes rising and competitors accelerating investment, CEOs must ask whether they are using AI merely to optimize today's operations, or to redefine products, services and business models. As AI shifts from assistant to cooperator, speed and ambition will increasingly separate leaders from laggards.\n\n---\n\n*9 | EY-Parthenon CEO Outlook Survey \u2013 January 2026*"
+        },
+        {
+          "rank": 3,
+          "score": 0.7706627308629765,
+          "vector_score": 0.63457024,
+          "bm25_score": 49.37242023854395,
+          "lexical_score": 0.5384615384615384,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-ceo-outlook-survey-01-2026.md",
+          "page": 13,
+          "page_end": 13,
+          "chunk_id": "haystack_document_splitter:ey-gl-ceo-outlook-survey-01-2026:000276:3efc3b5bc05ed849",
+          "parent_id": "ey-gl-ceo-outlook-survey-01-2026:p13:b4be7c4800dd",
+          "section_id": "ey-gl-ceo-outlook-survey-01-2026:p13:b4be7c4800dd",
+          "retrieval_role": "atomic_block",
+          "page_type": "image_extraction",
+          "content_type": "figure",
+          "heading_path": [
+            "Key questions and considerations for CEOs",
+            "Strategic question"
+          ],
+          "image_paths": [
+            "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p13__imageFile17__score3.png"
+          ],
+          "primary_image_path": "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p13__imageFile17__score3.png",
+          "text": "[current, page 13]\n# Key questions and considerations for CEOs\n\n---\n\n1\n\n### Strategic question\n\nAre we using AI and data to actively manage geopolitical uncertainty \u2013 or merely to report on it?\n\nReal-time visibility, scenario modeling and faster decision-making are required as policies and trade conditions shift. Embedding AI into planning and execution allows uncertainty to be managed as a strategic variable rather than absorbed as a risk.\n\n---\n\n2\n\n### Strategic question\n\nDo our global operating and digital models reflect today's fragmented reality \u2013 or yesterday's assumptions?\n\nForced fragmentation across trade, technology and data requires more diversified supply chains, modular operating models and clearer control over critical digital dependencies. Resilience will increasingly depend on how deliberately organizations redesign for regulatory divergence and geopolitical friction.\n\n---\n\n3\n\n### Strategic question\n\nAre we acting with conviction to build resilience and growth \u2013 or defaulting to delay in the face of uncertainty?\n\nLeading CEOs are accelerating investment selectively, balancing cost discipline with targeted bets on AI, partnerships and strategic capabilities. Positive intent in action means preserving momentum by reallocating capital and talent toward controllable sources of advantage rather than waiting for stability.\n\n---\n\n12 | EY-Parthenon CEO Survey | January 2026"
+        },
+        {
+          "rank": 4,
+          "score": 0.7437400241900896,
+          "vector_score": 0.58529973,
+          "bm25_score": 45.37504887668016,
+          "lexical_score": 0.6153846153846154,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-ceo-outlook-survey-01-2026.md",
+          "page": 17,
+          "page_end": 17,
+          "chunk_id": "haystack_document_splitter:ey-gl-ceo-outlook-survey-01-2026:000277:64cde9fe28f6c374",
+          "parent_id": "ey-gl-ceo-outlook-survey-01-2026:p17:9536d8183363",
+          "section_id": "ey-gl-ceo-outlook-survey-01-2026:p17:9536d8183363",
+          "retrieval_role": "atomic_block",
+          "page_type": "image_extraction",
+          "content_type": "figure",
+          "heading_path": [
+            "Key questions and considerations for CEOs",
+            "Strategic question"
+          ],
+          "image_paths": [
+            "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p17__imageFile22__scoreNA.png"
+          ],
+          "primary_image_path": "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p17__imageFile22__scoreNA.png",
+          "text": "[current, page 17]\n```markdown\n1\n\n## Strategic question\n\n**Are we using transactions as a tactical growth lever \u2013 or as a deliberate accelerator to reimagine our enterprise?**\n\nLeading CEOs are aligning M&A tightly to transformation priorities, using acquisitions to accelerate productivity, digitalization and operating model change. When deployed strategically, transactions can pull forward years of organic transformation by importing capabilities, technology, and talent.\n\n---\n\n2\n\n## Strategic question\n\n**Do we have the discipline to capture transformational value \u2013 or are we relying on deal logic alone?**\n\nThe speed advantage of M&A is only realized when integration is treated as a value creation engine from the earliest stages of the deal lifecycle. Clear articulation, tracking and ownership of value drivers from diligence through execution are essential to convert strategic intent into measurable outcomes.\n\n---\n\n3\n\n## Strategic question\n\n**Can our deal strategy withstand rising geopolitical and regulatory scrutiny without sacrificing ambition?**\n\nGeopolitical fragmentation and heightened regulatory oversight have raised the execution risk of cross-border deals, demanding greater selectivity and foresight. CEOs need to balance strategic reach with regulatory realism, building deal theses that anticipate scrutiny, localize where needed, and preserve flexibility in an increasingly regionalized world.\n\n---\n\n16 | EY-Parthenon CEO Outlook Survey \u2013 January 2026\n```"
+        },
+        {
+          "rank": 5,
+          "score": 0.6661003888744828,
+          "vector_score": 0.63236916,
+          "bm25_score": 37.90322177906267,
+          "lexical_score": 0.3076923076923077,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-ceo-outlook-survey-01-2026.md",
+          "page": 8,
+          "page_end": 8,
+          "chunk_id": "haystack_document_splitter:ey-gl-ceo-outlook-survey-01-2026:001380:0cb2aa171db2b012",
+          "parent_id": "ey-gl-ceo-outlook-survey-01-2026:p8:97133ede4322",
+          "section_id": "ey-gl-ceo-outlook-survey-01-2026:p8:97133ede4322",
+          "retrieval_role": "child_chunk",
+          "page_type": "content",
+          "content_type": "text",
+          "heading_path": [
+            "Strategic Questions Framework",
+            "Thinking specifically about revenue growth or operational efficiency, how have your organization\u2019s own AI initiatives performed against expectations so far?"
+          ],
+          "image_paths": [],
+          "primary_image_path": "",
+          "text": "[current, page 8]\nFrom experiment to engine: how\n\nCEOs are moving from AI experimentation to disciplined scaling, embedding generative AI, automation and data across the enterprise to drive adaptability and competitive advantage.\n\nEven though CEOs tend to be more optimistic than others, their outlook is clearly shifting. While some commentators might declare that AI investment is overheating, the experience of surveyed CEOs paints a very different picture \u2014 one in which AI is already delivering results above expectations and strengthening organizational adaptability in a rapidly shifting world.\n\nThe vast majority of CEOs report that their AI initiatives have met or exceeded expectations, with only a small minority falling short of targets. This points to AI becoming an increasingly reliable driver of productivity, revenue growth, customer experience and operating model efficiency. Notably, the greatest value is likely to be accrued by the 20% of organizations whose AI investments are already delivering significantly above-expectation returns.\n\nMany AI deployments demonstrate solid economic fundamentals: automation of routine work, faster and more accurate forecasting, improved risk detection, accelerated product development and enhanced decision-making across the value chain.\n\n###### AI outcomes compared to expectations: CEOs remain confident in digital transformation\n\n###### Thinking specifically about revenue growth or operational efficiency, how have your organization\u2019s own AI initiatives performed against expectations so far?\n\nThe respondents were asked to select one option only.\n\nSignificantly above expectations: AI has delivered much more value than anticipated\n\nSomewhat above expectations: AI has delivered slightly more value than expected\n\nIn line with expectations: AI\u2019s impact roughly meets initial expectations\n\nBelow expectations: AI\u2019s value delivery has fallen short of what we hoped\n\nFar below expectations: AI has yielded little to no\n\nmeasurable value so far\n\nNot applicable: we haven\u2019t implemented AI in our organization yet"
+        }
+      ],
+      "latency_ms": 809,
+      "top_k": 5,
+      "candidate_k": 20,
+      "retrieval_mode": "hybrid_vector_bm25_rerank",
+      "window_radius": 1,
+      "human_score": null,
+      "human_notes": "",
+      "collection": "ey_rag_haystack_document_splitter",
+      "retrieval_status": "ok"
+    },
+    {
+      "scenario_id": "H01",
+      "indexing_type": "chonkie_semantic",
+      "query": "Using the January 2026 CEO Outlook AI figure, which AI technologies are driving transformation and what is the strategic interpretation of the ranking?",
+      "retrieved_answer": "Retrieved response (extractive, from reranked contexts):\n\n[rank 1, ey-gl-ceo-outlook-survey-01-2026.md, page 9, score 0.8654, What types of AI are driving the transformation? > At the same time:]\n[current, page 9]\n# What types of AI are driving the transformation?\n\nAt 54%, generative AI (Gen AI) tops the list of transformative technologies, selected by over half of CEOs, reflecting how rapidly it has moved from experimentation to enterprise integration, particularly across content generation, coding, customer engagement and knowledge-intensive workflows.\n\nMachine learning follows closely (45%), remaining the analytical backbone for prediction, forecasting and decision intelligence. Together, these technologies show that companies are balancing the new with the proven.\n\n## At the same time:\n\n- **Agentic AI (37%)** signals a shift from AI as assistant to AI as operator, taking on tasks that previously required human intervention.\n\n- **Physical AI (30%)** demonstrates continued momentum in robotics and automation, strengthening operational adaptability where labor, supply chain, or cost pressures persist.\n\n- **Natural language processing (27%)** continues to underpin everyday interactions but now competes with Gen AI for transformational attention.\n\nOverall, the evidence points to a meaningful and structural shift: companies are moving from isolated AI use cases to integrated AI systems that could reshape workflows, automate decisions and augment human capability at scale. AI is no longer simply an efficiency tool \u2013 it is becoming a strategic engine for transformation, adaptability and growth.\n\n[rank 2, ey-gl-ceo-outlook-survey-01-2026.md, page 10, score 0.8219, Three Strategic AI Questions for CEOs]\n[current, page 10]\n# Three Strategic AI Questions for CEOs\n\n1\n\n**Strategic question**\n\n**Is AI a core enterprise capability \u2013 or still a set of experiments?**\n\nWith initiatives exceeding expectations for most CEOs, the question is whether AI is being embedded into capital allocation, workforce strategy and operating model design, or still confined to pilots and pockets of innovation.\n\n---\n\n2\n\n**Strategic question**\n\n**Where should we scale AI \u2013 and what should we stop?**\n\nAs AI enters a phase of disciplined scaling, CEOs must decide:\n\n- Which proven use cases deserve deep, end-to-end integration across value chains\n- Where to prioritize depth over breadth\n- Which experiments no longer justify continued investment\n\nThe strategic challenge is maintaining laser focus: scaling what works to capture full-enterprise productivity and competitive advantage.\n\n---\n\n3\n\n**Strategic question**\n\n**Are we using AI to optimize \u2013 or to fundamentally reshape the business?**\n\nWith confidence in outcomes rising and competitors accelerating investment, CEOs must ask whether they are using AI merely to optimize today's operations, or to redefine products, services and business models. As AI shifts from assistant to cooperator, speed and ambition will increasingly separate leaders from laggards.\n\n---\n\n*9 | EY-Parthenon CEO Outlook Survey \u2013 January 2026*\n\n[rank 3, ey-gl-ceo-outlook-survey-01-2026.md, page 13, score 0.7598, Key questions and considerations for CEOs > Strategic question]\n[current, page 13]\n# Key questions and considerations for CEOs\n\n---\n\n1\n\n### Strategic question\n\nAre we using AI and data to actively manage geopolitical uncertainty \u2013 or merely to report on it?\n\nReal-time visibility, scenario modeling and faster decision-making are required as policies and trade conditions shift. Embedding AI into planning and execution allows uncertainty to be managed as a strategic variable rather than absorbed as a risk.\n\n---\n\n2\n\n### Strategic question\n\nDo our global operating and digital models reflect today's fragmented reality \u2013 or yesterday's assumptions?\n\nForced fragmentation across trade, technology and data requires more diversified supply chains, modular operating models and clearer control over critical digital dependencies. Resilience will increasingly depend on how deliberately organizations redesign for regulatory divergence and geopolitical friction.\n\n---\n\n3\n\n### Strategic question\n\nAre we acting with conviction to build resilience and growth \u2013 or defaulting to delay in the face of uncertainty?\n\nLeading CEOs are accelerating investment selectively, balancing cost discipline with targeted bets on AI, partnerships and strategic capabilities. Positive intent in action means preserving momentum by reallocating capital and talent toward controllable sources of advantage rather than waiting for stability.\n\n---\n\n12 | EY-Parthenon CEO Survey | January 2026",
+      "retrieved_image_paths": [
+        "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p9__imageFile10__scoreNA.png",
+        "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p10__imageFile12__scoreNA.png",
+        "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p13__imageFile17__score3.png",
+        "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p11__imageFile15__scoreNA.png"
+      ],
+      "retrieved_contexts": [
+        {
+          "rank": 1,
+          "score": 0.8653846153846154,
+          "vector_score": 0.73199576,
+          "bm25_score": 63.146313466219084,
+          "lexical_score": 0.46153846153846156,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-ceo-outlook-survey-01-2026.md",
+          "page": 9,
+          "page_end": 9,
+          "chunk_id": "chonkie_semantic:ey-gl-ceo-outlook-survey-01-2026:001228:753ecf20757df238",
+          "parent_id": "ey-gl-ceo-outlook-survey-01-2026:p9:4a7d9b8c8231",
+          "section_id": "ey-gl-ceo-outlook-survey-01-2026:p9:1aaa59584032",
+          "retrieval_role": "atomic_block",
+          "page_type": "image_extraction",
+          "content_type": "figure",
+          "heading_path": [
+            "What types of AI are driving the transformation?",
+            "At the same time:"
+          ],
+          "image_paths": [
+            "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p9__imageFile10__scoreNA.png"
+          ],
+          "primary_image_path": "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p9__imageFile10__scoreNA.png",
+          "text": "[current, page 9]\n# What types of AI are driving the transformation?\n\nAt 54%, generative AI (Gen AI) tops the list of transformative technologies, selected by over half of CEOs, reflecting how rapidly it has moved from experimentation to enterprise integration, particularly across content generation, coding, customer engagement and knowledge-intensive workflows.\n\nMachine learning follows closely (45%), remaining the analytical backbone for prediction, forecasting and decision intelligence. Together, these technologies show that companies are balancing the new with the proven.\n\n## At the same time:\n\n- **Agentic AI (37%)** signals a shift from AI as assistant to AI as operator, taking on tasks that previously required human intervention.\n\n- **Physical AI (30%)** demonstrates continued momentum in robotics and automation, strengthening operational adaptability where labor, supply chain, or cost pressures persist.\n\n- **Natural language processing (27%)** continues to underpin everyday interactions but now competes with Gen AI for transformational attention.\n\nOverall, the evidence points to a meaningful and structural shift: companies are moving from isolated AI use cases to integrated AI systems that could reshape workflows, automate decisions and augment human capability at scale. AI is no longer simply an efficiency tool \u2013 it is becoming a strategic engine for transformation, adaptability and growth."
+        },
+        {
+          "rank": 2,
+          "score": 0.8219305668559537,
+          "vector_score": 0.62130266,
+          "bm25_score": 59.64392694827444,
+          "lexical_score": 0.6153846153846154,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-ceo-outlook-survey-01-2026.md",
+          "page": 10,
+          "page_end": 10,
+          "chunk_id": "chonkie_semantic:ey-gl-ceo-outlook-survey-01-2026:001229:87be9d9b1e4d2089",
+          "parent_id": "ey-gl-ceo-outlook-survey-01-2026:p10:df791e1e4ca9",
+          "section_id": "ey-gl-ceo-outlook-survey-01-2026:p10:92615fb3f5de",
+          "retrieval_role": "atomic_block",
+          "page_type": "image_extraction",
+          "content_type": "figure",
+          "heading_path": [
+            "Three Strategic AI Questions for CEOs"
+          ],
+          "image_paths": [
+            "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p10__imageFile12__scoreNA.png"
+          ],
+          "primary_image_path": "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p10__imageFile12__scoreNA.png",
+          "text": "[current, page 10]\n# Three Strategic AI Questions for CEOs\n\n1\n\n**Strategic question**\n\n**Is AI a core enterprise capability \u2013 or still a set of experiments?**\n\nWith initiatives exceeding expectations for most CEOs, the question is whether AI is being embedded into capital allocation, workforce strategy and operating model design, or still confined to pilots and pockets of innovation.\n\n---\n\n2\n\n**Strategic question**\n\n**Where should we scale AI \u2013 and what should we stop?**\n\nAs AI enters a phase of disciplined scaling, CEOs must decide:\n\n- Which proven use cases deserve deep, end-to-end integration across value chains\n- Where to prioritize depth over breadth\n- Which experiments no longer justify continued investment\n\nThe strategic challenge is maintaining laser focus: scaling what works to capture full-enterprise productivity and competitive advantage.\n\n---\n\n3\n\n**Strategic question**\n\n**Are we using AI to optimize \u2013 or to fundamentally reshape the business?**\n\nWith confidence in outcomes rising and competitors accelerating investment, CEOs must ask whether they are using AI merely to optimize today's operations, or to redefine products, services and business models. As AI shifts from assistant to cooperator, speed and ambition will increasingly separate leaders from laggards.\n\n---\n\n*9 | EY-Parthenon CEO Outlook Survey \u2013 January 2026*"
+        },
+        {
+          "rank": 3,
+          "score": 0.7597577887531071,
+          "vector_score": 0.63457024,
+          "bm25_score": 46.737235903550484,
+          "lexical_score": 0.5384615384615384,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-ceo-outlook-survey-01-2026.md",
+          "page": 13,
+          "page_end": 13,
+          "chunk_id": "chonkie_semantic:ey-gl-ceo-outlook-survey-01-2026:001236:77d44fdab0c7f052",
+          "parent_id": "ey-gl-ceo-outlook-survey-01-2026:p13:878376935663",
+          "section_id": "ey-gl-ceo-outlook-survey-01-2026:p13:b4be7c4800dd",
+          "retrieval_role": "atomic_block",
+          "page_type": "image_extraction",
+          "content_type": "figure",
+          "heading_path": [
+            "Key questions and considerations for CEOs",
+            "Strategic question"
+          ],
+          "image_paths": [
+            "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p13__imageFile17__score3.png"
+          ],
+          "primary_image_path": "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p13__imageFile17__score3.png",
+          "text": "[current, page 13]\n# Key questions and considerations for CEOs\n\n---\n\n1\n\n### Strategic question\n\nAre we using AI and data to actively manage geopolitical uncertainty \u2013 or merely to report on it?\n\nReal-time visibility, scenario modeling and faster decision-making are required as policies and trade conditions shift. Embedding AI into planning and execution allows uncertainty to be managed as a strategic variable rather than absorbed as a risk.\n\n---\n\n2\n\n### Strategic question\n\nDo our global operating and digital models reflect today's fragmented reality \u2013 or yesterday's assumptions?\n\nForced fragmentation across trade, technology and data requires more diversified supply chains, modular operating models and clearer control over critical digital dependencies. Resilience will increasingly depend on how deliberately organizations redesign for regulatory divergence and geopolitical friction.\n\n---\n\n3\n\n### Strategic question\n\nAre we acting with conviction to build resilience and growth \u2013 or defaulting to delay in the face of uncertainty?\n\nLeading CEOs are accelerating investment selectively, balancing cost discipline with targeted bets on AI, partnerships and strategic capabilities. Positive intent in action means preserving momentum by reallocating capital and talent toward controllable sources of advantage rather than waiting for stability.\n\n---\n\n12 | EY-Parthenon CEO Survey | January 2026"
+        },
+        {
+          "rank": 4,
+          "score": 0.6440252755115887,
+          "vector_score": 0.6365962,
+          "bm25_score": 36.61995610429278,
+          "lexical_score": 0.23076923076923078,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-ceo-outlook-survey-01-2026.md",
+          "page": 8,
+          "page_end": 8,
+          "chunk_id": "chonkie_semantic:ey-gl-ceo-outlook-survey-01-2026:001224:6a492907ef02e430",
+          "parent_id": "ey-gl-ceo-outlook-survey-01-2026:p8:3960c18075c9",
+          "section_id": "ey-gl-ceo-outlook-survey-01-2026:p8:d82772ac8e1a",
+          "retrieval_role": "child_chunk",
+          "page_type": "content",
+          "content_type": "text",
+          "heading_path": [
+            "Strategic Questions Framework"
+          ],
+          "image_paths": [],
+          "primary_image_path": "",
+          "text": "[current, page 8]\nFrom experiment to engine: how\n\nCEOs are moving from AI experimentation to disciplined scaling, embedding generative AI, automation and data across the enterprise to drive adaptability and competitive advantage.\n\nEven though CEOs tend to be more optimistic than others, their outlook is clearly shifting. While some commentators might declare that AI investment is overheating, the experience of surveyed CEOs paints a very different picture \u2014 one in which AI is already delivering results above expectations and strengthening organizational adaptability in a rapidly shifting world.\n\nThe vast majority of CEOs report that their AI initiatives have met or exceeded expectations, with only a small minority falling short of targets.\n\n[neighbor, page 8]\nThe respondents were asked to select one option only.\n\nSignificantly above expectations: AI has delivered much more value than anticipated\n\nSomewhat above expectations: AI has delivered slightly more value than expected\n\nIn line with expectations: AI\u2019s impact roughly meets initial expectations\n\nBelow expectations: AI\u2019s value delivery has fallen short of what we hoped\n\nFar below expectations: AI has yielded little to no"
+        },
+        {
+          "rank": 5,
+          "score": 0.6313414328075744,
+          "vector_score": 0.5912983,
+          "bm25_score": 35.59259565150352,
+          "lexical_score": 0.3076923076923077,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-ceo-outlook-survey-01-2026.md",
+          "page": 11,
+          "page_end": 11,
+          "chunk_id": "chonkie_semantic:ey-gl-ceo-outlook-survey-01-2026:001230:70650a8296b6d252",
+          "parent_id": "ey-gl-ceo-outlook-survey-01-2026:p11:be5936ac4486",
+          "section_id": "ey-gl-ceo-outlook-survey-01-2026:p11:e060cfee1f43",
+          "retrieval_role": "atomic_block",
+          "page_type": "image_extraction",
+          "content_type": "figure",
+          "heading_path": [
+            "CEOs Identify Five Key Strategies for Organizational Growth"
+          ],
+          "image_paths": [
+            "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p11__imageFile15__scoreNA.png"
+          ],
+          "primary_image_path": "filtered_images/ey-gl-ceo-outlook-survey-01-2026__p11__imageFile15__scoreNA.png",
+          "text": "[current, page 11]\n# CEOs Identify Five Key Strategies for Organizational Growth\n\nCEOs identify five key strategies to navigate today's fractured global environment and accelerate organizational growth.\n\n1. **Investing in AI and digital technologies**\n2. **Improving geopolitical risk management**\n3. **Managing costs effectively**\n4. **Diversifying supply chains**\n5. **Deepening strategic Lean strategic partnerships**"
+        }
+      ],
+      "latency_ms": 772,
+      "top_k": 5,
+      "candidate_k": 20,
+      "retrieval_mode": "hybrid_vector_bm25_rerank",
+      "window_radius": 1,
+      "human_score": null,
+      "human_notes": "",
+      "collection": "ey_rag_chonkie_semantic",
+      "retrieval_status": "ok"
+    },
+    {
+      "scenario_id": "H05",
+      "indexing_type": "langchain_markdown_recursive",
+      "query": "According to the IFRS 18 aggregated-items decision flowchart, how should an entity label an 'other' balance and decide whether to disclose more information?",
+      "retrieved_answer": "Retrieved response (extractive, from reranked contexts):\n\n[rank 1, ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md, page 27, score 0.8664, Flowchart: Determining Information Label and Disclosure for Aggregated Items > Flow Summary (Sequential Path)]\n[current, page 27]\n# Flowchart: Determining Information Label and Disclosure for Aggregated Items\n\n## Overall Structure\nThis is a vertical flowchart with three main horizontal sections, separated by horizontal dividers. Decision points use diamond shapes (represented here as questions), with \"Yes\" and \"No\" branches leading to different outcomes. Certain sections have bracket labels on the left side indicating the purpose of that section.\n\n---\n\n## Section 1: Determining Information Label\n\n**[Left bracket label: Determining Information Label]**\n\n### Decision Point 1:\n**\"Is there a more informative label for the aggregated items than 'other'?\"**\n\n- **Yes** \u2192\n  - **Action:** \"Use the more informative label for the aggregated item\"\n  - *Reference: [IFRS 18.B25]*\n  - *Background color: Teal/Green*\n\n- **No** \u2192\n  - **Action:** \"Use a label that describes the aggregated item as precisely as possible.\"\n  - *Example given:* \"For example, 'other operating expenses' or 'other finance expenses'\"\n  - *Reference: [IFRS 18.B25(a)]*\n  - *Background color: Yellow*\n\n---\n\n## Section 2: Determining Information to Disclose for Aggregated Items\n\n**[Left bracket label: Determining Information to disclose for aggregated items]**\n\n### Decision Point 2:\n**\"Do the aggregated items comprise only immaterial items?\"**\n\n- **No** \u2192\n  - **Action:** \"Disclose material Information\"\n  - *Reference: [IFRS 18.41]*\n  - *Background color: Teal/Green*\n\n- **Yes** \u2192 Proceed to Decision Point 3\n\n### Decision Point 3:\n**\"Is the aggregated amount sufficiently large that users might reasonably question whether it includes material items?\"**\n\n- **Yes** \u2192\n  - **Action:** \"Provide further information about the amount.\"\n  - *Examples provided:*\n    - \"An explanation that no material items are included in the amount\"\n    - **Or**\n    - \"An explanation that the amount comprises several immaterial items, along with an indication of the nature and amount of the largest item\"\n  - *Reference: [IFRS 18.B26(a)]*\n  - *Background color: Yellow*\n\n- **No** \u2192\n  - **Action:** \"No further consideration needed\"\n  - *Background color: Grey*\n\n---\n\n## Flow Summary (Sequential Path)\n\n| Step | Decision | Condition | Action |\n|:---|:---|:---|:---|\n| 1 | Is there a more informative label than 'other'? | Yes | Use the more informative label [IFRS 18.B25] |\n| 1 | Is there a more informative label than 'other'? | No | Use most precise label possible (e.g., \"other operating expenses\") [IFRS 18.B25(a)] |\n| 2 | Do item ... [truncated]\n\n[rank 2, ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md, page 26, score 0.8064, A closer look at IFRS 18 > 2 Roles, aggregation and labelling > Appendix A Defined terms > 2.3 Description of items > 2.3.1 Using the label \u2018other\u2019]\n[current, page 26]\n##### 2.3.1 Using the label \u2018other\u2019  \nCurrently, some entities present or disclose a large amount of \u2018other\u2019 income or expenses without explaining what those \u2018other\u2019 items include; this is a matter of concern for users. The Board noted that using the label \u2018other\u2019 for such an aggregation is usually unhelpful and, therefore, it developed the application guidance below to help entities determine a more informative label and provide more useful information. [IFRS 18.B25, IFRS 18.BC79].  \nExtract from IFRS 18 B25 An entity shall label items presented or disclosed as \u2018other\u2019 only if  \nit cannot find a more informative label. Examples of how an entity might find a more informative label are:  \n- (a) if an item for which information is material is aggregated with items for which information is not material, finding a label that describes the item for which information is material; and  \n- (b) if items for which information is not material are aggregated:  \n- (i) aggregating items that share similar characteristics and describing them in a way that faithfully represents the similar characteristics; or  \n- (ii) aggregating items with other items that do not share similar characteristics and describing them in a way that faithfully represents the dissimilar characteristics of the items.  \nIf an entity cannot find a more informative label than \u2018other\u2019: [IFRS 18.B26]\n\n[rank 3, ey-sg-good-group-ifrs-18-12-2025.md, page 18, score 0.7919, - IFRS 18 > Consolidated statement of financial position (Cont.) > as at 31 December 2025 > Commentary on IFRS accounting standards]\n[current, page 18]\n###### Commentary on IFRS accounting standards  \nIFRS 18 quires an entity to present a statement of financial position at the beginning of the earliest comparative period when: it applies an accounting policy retrospectively; it makes a retrospective restatement of items in its financial statements; or when it reclassifies items in its financial statements (IFRS 18.10(g)), and the change has a material effect on the statement of financial position. In these situations, IFRS 18.37 states that an entity must present, at a minimum, three statements of financial position, two of each of the other statements and the related notes. The three statements of financial position include the statement of financial position as at the current annual period year end, the statement of financial position as at the previous annual period year end, and the statement of financial position as at the beginning of the previous annual period (\u2019the opening balance sheet\u2019, often referred to as the \u2018third balance sheet\u2019). As the Group restated the financial statements to correct an error retrospectively, it has included a third balance sheet as at 1 January 2024. Such an additional balance sheet is only required if the adjustment to opening balances is considered to be material (IFRS 18.37(b)). However, the notes related to the third balance sheet are not required, nor are additional statements of profit or loss and other comprehensive income, changes in equity or cash flows (IFRS 18.39).  \nThere is no specific requirement to identify restatements to prior period financial statements on the face of the financial statements. IAS 8 requires details to be provided only in the notes. The Group illustrates how an entity may supplement the requirements of IAS 8 so that it is clear to the reader that amounts in the prior period financial statements have been adjusted in comparative period(s) of the current period financial statements.  \nUnder IFRS 18, the Group consistently applies aggregation and disaggregation principles across all primary financial statements. Items with similar characteristics are aggregated, while items with dissimilar characteristics are disaggregated when disaggregated information is material.  \nThe Group uses the label \u2018other\u2019 in a statement of financial position if there is not a more informative label for the aggregated item than \u2018other\u2019. To assess whether the label \u2018other\u2019 is appropriate, the Group has considered whether the ... [truncated]",
+      "retrieved_image_paths": [
+        "filtered_images/ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025__p27__imageFile4__scoreNA.png"
+      ],
+      "retrieved_contexts": [
+        {
+          "rank": 1,
+          "score": 0.8664278720717861,
+          "vector_score": 0.682492,
+          "bm25_score": 36.397605174665685,
+          "lexical_score": 0.5882352941176471,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md",
+          "page": 27,
+          "page_end": 27,
+          "chunk_id": "langchain_markdown_recursive:ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:000379:0768aca0a2e3a637",
+          "parent_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p27:5926bd2cc10f",
+          "section_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p27:5926bd2cc10f",
+          "retrieval_role": "atomic_block",
+          "page_type": "image_extraction",
+          "content_type": "figure_table",
+          "heading_path": [
+            "Flowchart: Determining Information Label and Disclosure for Aggregated Items",
+            "Flow Summary (Sequential Path)"
+          ],
+          "image_paths": [
+            "filtered_images/ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025__p27__imageFile4__scoreNA.png"
+          ],
+          "primary_image_path": "filtered_images/ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025__p27__imageFile4__scoreNA.png",
+          "text": "[current, page 27]\n# Flowchart: Determining Information Label and Disclosure for Aggregated Items\n\n## Overall Structure\nThis is a vertical flowchart with three main horizontal sections, separated by horizontal dividers. Decision points use diamond shapes (represented here as questions), with \"Yes\" and \"No\" branches leading to different outcomes. Certain sections have bracket labels on the left side indicating the purpose of that section.\n\n---\n\n## Section 1: Determining Information Label\n\n**[Left bracket label: Determining Information Label]**\n\n### Decision Point 1:\n**\"Is there a more informative label for the aggregated items than 'other'?\"**\n\n- **Yes** \u2192\n  - **Action:** \"Use the more informative label for the aggregated item\"\n  - *Reference: [IFRS 18.B25]*\n  - *Background color: Teal/Green*\n\n- **No** \u2192\n  - **Action:** \"Use a label that describes the aggregated item as precisely as possible.\"\n  - *Example given:* \"For example, 'other operating expenses' or 'other finance expenses'\"\n  - *Reference: [IFRS 18.B25(a)]*\n  - *Background color: Yellow*\n\n---\n\n## Section 2: Determining Information to Disclose for Aggregated Items\n\n**[Left bracket label: Determining Information to disclose for aggregated items]**\n\n### Decision Point 2:\n**\"Do the aggregated items comprise only immaterial items?\"**\n\n- **No** \u2192\n  - **Action:** \"Disclose material Information\"\n  - *Reference: [IFRS 18.41]*\n  - *Background color: Teal/Green*\n\n- **Yes** \u2192 Proceed to Decision Point 3\n\n### Decision Point 3:\n**\"Is the aggregated amount sufficiently large that users might reasonably question whether it includes material items?\"**\n\n- **Yes** \u2192\n  - **Action:** \"Provide further information about the amount.\"\n  - *Examples provided:*\n    - \"An explanation that no material items are included in the amount\"\n    - **Or**\n    - \"An explanation that the amount comprises several immaterial items, along with an indication of the nature and amount of the largest item\"\n  - *Reference: [IFRS 18.B26(a)]*\n  - *Background color: Yellow*\n\n- **No** \u2192\n  - **Action:** \"No further consideration needed\"\n  - *Background color: Grey*\n\n---\n\n## Flow Summary (Sequential Path)\n\n| Step | Decision | Condition | Action |\n|:---|:---|:---|:---|\n| 1 | Is there a more informative label than 'other'? | Yes | Use the more informative label [IFRS 18.B25] |\n| 1 | Is there a more informative label than 'other'? | No | Use most precise label possible (e.g., \"other operating expenses\") [IFRS 18.B25(a)] |\n| 2 | Do item ... [truncated]"
+        },
+        {
+          "rank": 2,
+          "score": 0.8063936345769711,
+          "vector_score": 0.7323416,
+          "bm25_score": 25.338657770865847,
+          "lexical_score": 0.5294117647058824,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md",
+          "page": 26,
+          "page_end": 26,
+          "chunk_id": "langchain_markdown_recursive:ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:000376:4987090e9b46c4dd",
+          "parent_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p26:cf799cc8f2ae",
+          "section_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p26:cf799cc8f2ae",
+          "retrieval_role": "child_chunk",
+          "page_type": "content",
+          "content_type": "text",
+          "heading_path": [
+            "A closer look at IFRS 18",
+            "2 Roles, aggregation and labelling",
+            "Appendix A Defined terms",
+            "2.3 Description of items",
+            "2.3.1 Using the label \u2018other\u2019"
+          ],
+          "image_paths": [],
+          "primary_image_path": "",
+          "text": "[current, page 26]\n##### 2.3.1 Using the label \u2018other\u2019  \nCurrently, some entities present or disclose a large amount of \u2018other\u2019 income or expenses without explaining what those \u2018other\u2019 items include; this is a matter of concern for users. The Board noted that using the label \u2018other\u2019 for such an aggregation is usually unhelpful and, therefore, it developed the application guidance below to help entities determine a more informative label and provide more useful information. [IFRS 18.B25, IFRS 18.BC79].  \nExtract from IFRS 18 B25 An entity shall label items presented or disclosed as \u2018other\u2019 only if  \nit cannot find a more informative label. Examples of how an entity might find a more informative label are:  \n- (a) if an item for which information is material is aggregated with items for which information is not material, finding a label that describes the item for which information is material; and  \n- (b) if items for which information is not material are aggregated:  \n- (i) aggregating items that share similar characteristics and describing them in a way that faithfully represents the similar characteristics; or  \n- (ii) aggregating items with other items that do not share similar characteristics and describing them in a way that faithfully represents the dissimilar characteristics of the items.  \nIf an entity cannot find a more informative label than \u2018other\u2019: [IFRS 18.B26]"
+        },
+        {
+          "rank": 3,
+          "score": 0.7918693139744336,
+          "vector_score": 0.6854044,
+          "bm25_score": 25.28204840096632,
+          "lexical_score": 0.5882352941176471,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-sg-good-group-ifrs-18-12-2025.md",
+          "page": 18,
+          "page_end": 18,
+          "chunk_id": "langchain_markdown_recursive:ey-sg-good-group-ifrs-18-12-2025:000754:2ead719dceb18df6",
+          "parent_id": "ey-sg-good-group-ifrs-18-12-2025:p18:ca3bac525bbe",
+          "section_id": "ey-sg-good-group-ifrs-18-12-2025:p18:ca3bac525bbe",
+          "retrieval_role": "child_chunk",
+          "page_type": "content",
+          "content_type": "text",
+          "heading_path": [
+            "- IFRS 18",
+            "Consolidated statement of financial position (Cont.)",
+            "as at 31 December 2025",
+            "Commentary on IFRS accounting standards"
+          ],
+          "image_paths": [],
+          "primary_image_path": "",
+          "text": "[current, page 18]\n###### Commentary on IFRS accounting standards  \nIFRS 18 quires an entity to present a statement of financial position at the beginning of the earliest comparative period when: it applies an accounting policy retrospectively; it makes a retrospective restatement of items in its financial statements; or when it reclassifies items in its financial statements (IFRS 18.10(g)), and the change has a material effect on the statement of financial position. In these situations, IFRS 18.37 states that an entity must present, at a minimum, three statements of financial position, two of each of the other statements and the related notes. The three statements of financial position include the statement of financial position as at the current annual period year end, the statement of financial position as at the previous annual period year end, and the statement of financial position as at the beginning of the previous annual period (\u2019the opening balance sheet\u2019, often referred to as the \u2018third balance sheet\u2019). As the Group restated the financial statements to correct an error retrospectively, it has included a third balance sheet as at 1 January 2024. Such an additional balance sheet is only required if the adjustment to opening balances is considered to be material (IFRS 18.37(b)). However, the notes related to the third balance sheet are not required, nor are additional statements of profit or loss and other comprehensive income, changes in equity or cash flows (IFRS 18.39).  \nThere is no specific requirement to identify restatements to prior period financial statements on the face of the financial statements. IAS 8 requires details to be provided only in the notes. The Group illustrates how an entity may supplement the requirements of IAS 8 so that it is clear to the reader that amounts in the prior period financial statements have been adjusted in comparative period(s) of the current period financial statements.  \nUnder IFRS 18, the Group consistently applies aggregation and disaggregation principles across all primary financial statements. Items with similar characteristics are aggregated, while items with dissimilar characteristics are disaggregated when disaggregated information is material.  \nThe Group uses the label \u2018other\u2019 in a statement of financial position if there is not a more informative label for the aggregated item than \u2018other\u2019. To assess whether the label \u2018other\u2019 is appropriate, the Group has considered whether the ... [truncated]"
+        },
+        {
+          "rank": 4,
+          "score": 0.734466126549935,
+          "vector_score": 0.6555728,
+          "bm25_score": 21.73448142103473,
+          "lexical_score": 0.5294117647058824,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md",
+          "page": 26,
+          "page_end": 26,
+          "chunk_id": "langchain_markdown_recursive:ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:000378:1dbdee3cf2212caf",
+          "parent_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p26:738c0b8ff62a",
+          "section_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p26:738c0b8ff62a",
+          "retrieval_role": "child_chunk",
+          "page_type": "content",
+          "content_type": "text",
+          "heading_path": [
+            "A closer look at IFRS 18",
+            "2 Roles, aggregation and labelling",
+            "Appendix A Defined terms",
+            "2.3 Description of items",
+            "2.3.1 Using the label \u2018other\u2019",
+            "(b) For an aggregation comprising only immaterial items"
+          ],
+          "image_paths": [],
+          "primary_image_path": "",
+          "text": "[current, page 26]\n###### (b) For an aggregation comprising only immaterial items  \nAn entity could aggregate immaterial items despite them having dissimilar characteristics, resulting in an aggregated item that is cumulatively large despite comprising individually immaterial items. Where that is the case, the entity needs to consider whether the aggregated amount is large enough that users might reasonably question whether it includes material items. If so, the information needed to resolve that question is itself material information. [IFRS 18.BC80]. An entity in such a situation is required to disclose further information about the amount. Examples of such further information include:  \n- (i) An explanation that no items for which information would be material are included in the aggregated amount.\n- (ii) An explanation that the aggregated amount comprises several items for which information would not be material, along with an indication of the nature and amount of the largest item."
+        },
+        {
+          "rank": 5,
+          "score": 0.7172029048135237,
+          "vector_score": 0.6487711,
+          "bm25_score": 21.970641192186193,
+          "lexical_score": 0.47058823529411764,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md",
+          "page": 64,
+          "page_end": 64,
+          "chunk_id": "langchain_markdown_recursive:ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:000438:b68a02a691e111d8",
+          "parent_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p64:4a856d3bc91a",
+          "section_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p64:4a856d3bc91a",
+          "retrieval_role": "child_chunk",
+          "page_type": "content",
+          "content_type": "text",
+          "heading_path": [
+            "Flowchart: Classification of Hybrid Contracts Without a Specified Main Business Activity",
+            "Derivatives Used to Manage Risks - Classification Flowchart",
+            "Complete Flow Summary",
+            "How we see it",
+            "Extract from IFRS 18 51 If an entity:"
+          ],
+          "image_paths": [],
+          "primary_image_path": "",
+          "text": "[current, page 64]\n###### Extract from IFRS 18 51 If an entity:  \n- (a) invests in assets as a main business activity, it shall disclose that fact.  \n- (b) provides financing to customers as a main business activity, it shall disclose that fact.  \n- (c) identifies a different outcome from its assessment of whether it invests in assets or provides financing to customers as a main business activity (see paragraph B41), it shall disclose:  \n- (i) the fact the outcome of the assessment has changed and the date of the change.  \n- (ii) the amount and classification of items of income and expense before and after the date of the change in the outcome of the assessment in the current period and the amount and classification in the prior period for the items for which the classification has changed because of the changed outcome of the assessment, unless it is impracticable to do so. If an entity does not disclose the information because it is impracticable to do so, the entity shall disclose that fact.  \nThe requirement for entities to disclose whether they invest in assets or provide financing to customers as a main business activity helps users to understand the structure of an entity\u2019s statement of financial performance, especially in digital financial reports. To be clear, this disclosure is separate from the requirements to disclose a description of the nature of the entity\u2019s operations and its principal activities in IFRS 18.116(b). [IFRS 18.BC100].  \nAs the assessment of an entity\u2019s main business activities is a matter of fact, it follows that facts may change, and an assessment performed at the point of the change could lead to a different conclusion. When this is the case, as noted above, an entity will classify and present income and expenses from the change in assessment prospectively and amounts before the change are not reclassified. As this will inevitably cause some disruption to trend analysis, the requirement to disclose the change and information about the effects of the change relating to both the current and prior periods, has been introduced to alleviate the disruption, unless it is impracticable to make the disclosure. [IFRS 18.B41, IFRS 18.51(c), IFRS 18.BC101, IFRS 18.BC102]."
+        }
+      ],
+      "latency_ms": 866,
+      "top_k": 5,
+      "candidate_k": 20,
+      "retrieval_mode": "hybrid_vector_bm25_rerank",
+      "window_radius": 1,
+      "human_score": null,
+      "human_notes": "",
+      "collection": "ey_rag_langchain_markdown_recursive",
+      "retrieval_status": "ok"
+    },
+    {
+      "scenario_id": "H05",
+      "indexing_type": "llamaindex_semantic",
+      "query": "According to the IFRS 18 aggregated-items decision flowchart, how should an entity label an 'other' balance and decide whether to disclose more information?",
+      "retrieved_answer": "Retrieved response (extractive, from reranked contexts):\n\n[rank 1, ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md, page 27, score 0.8913, Flowchart: Determining Information Label and Disclosure for Aggregated Items > Flow Summary (Sequential Path)]\n[current, page 27]\n# Flowchart: Determining Information Label and Disclosure for Aggregated Items\n\n## Overall Structure\nThis is a vertical flowchart with three main horizontal sections, separated by horizontal dividers. Decision points use diamond shapes (represented here as questions), with \"Yes\" and \"No\" branches leading to different outcomes. Certain sections have bracket labels on the left side indicating the purpose of that section.\n\n---\n\n## Section 1: Determining Information Label\n\n**[Left bracket label: Determining Information Label]**\n\n### Decision Point 1:\n**\"Is there a more informative label for the aggregated items than 'other'?\"**\n\n- **Yes** \u2192\n  - **Action:** \"Use the more informative label for the aggregated item\"\n  - *Reference: [IFRS 18.B25]*\n  - *Background color: Teal/Green*\n\n- **No** \u2192\n  - **Action:** \"Use a label that describes the aggregated item as precisely as possible.\"\n  - *Example given:* \"For example, 'other operating expenses' or 'other finance expenses'\"\n  - *Reference: [IFRS 18.B25(a)]*\n  - *Background color: Yellow*\n\n---\n\n## Section 2: Determining Information to Disclose for Aggregated Items\n\n**[Left bracket label: Determining Information to disclose for aggregated items]**\n\n### Decision Point 2:\n**\"Do the aggregated items comprise only immaterial items?\"**\n\n- **No** \u2192\n  - **Action:** \"Disclose material Information\"\n  - *Reference: [IFRS 18.41]*\n  - *Background color: Teal/Green*\n\n- **Yes** \u2192 Proceed to Decision Point 3\n\n### Decision Point 3:\n**\"Is the aggregated amount sufficiently large that users might reasonably question whether it includes material items?\"**\n\n- **Yes** \u2192\n  - **Action:** \"Provide further information about the amount.\"\n  - *Examples provided:*\n    - \"An explanation that no material items are included in the amount\"\n    - **Or**\n    - \"An explanation that the amount comprises several immaterial items, along with an indication of the nature and amount of the largest item\"\n  - *Reference: [IFRS 18.B26(a)]*\n  - *Background color: Yellow*\n\n- **No** \u2192\n  - **Action:** \"No further consideration needed\"\n  - *Background color: Grey*\n\n---\n\n## Flow Summary (Sequential Path)\n\n| Step | Decision | Condition | Action |\n|:---|:---|:---|:---|\n| 1 | Is there a more informative label than 'other'? | Yes | Use the more informative label [IFRS 18.B25] |\n| 1 | Is there a more informative label than 'other'? | No | Use most precise label possible (e.g., \"other operating expenses\") [IFRS 18.B25(a)] |\n| 2 | Do item ... [truncated]\n\n[rank 2, ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md, page 26, score 0.8224, A closer look at IFRS 18 > 2 Roles, aggregation and labelling > Appendix A Defined terms > 2.3 Description of items > 2.3.1 Using the label \u2018other\u2019 > (b) For an aggregation comprising only immaterial items]\n[current, page 26]\n\u201cAn entity shall label items presented or disclosed as \u2018other\u2019 only if it cannot find a more informative label.\u201d\n\n###### (b) A material item is aggregated with immaterial items\n\nIn this case, an entity would only need to provide disaggregated information about the material item if the immaterial information obscured the material information about that item.\n\n###### (c) Immaterial items are aggregated with other immaterial items\n\nAn entity might provide such an aggregation of immaterial items in order to complete a list of items, or a subtotal. Since items are immaterial, no disaggregated information would be required, subject to the guidance on using the label \u2018other\u2019 discussed below.\n\n##### 2.3.1 Using the label \u2018other\u2019\n\nCurrently, some entities present or disclose a large amount of \u2018other\u2019 income or expenses without explaining what those \u2018other\u2019 items include; this is a matter of concern for users. The Board noted that using the label \u2018other\u2019 for such an aggregation is usually unhelpful and, therefore, it developed the application guidance below to help entities determine a more informative label and provide more useful information. [IFRS 18.B25, IFRS 18.BC79].\n\nExtract from IFRS 18 B25 An entity shall label items presented or disclosed as \u2018other\u2019 only if\n\nit cannot find a more informative label. Examples of how an entity might find a more informative label are:\n\n- (a) if an item for which information is material is aggregated with items for which information is not material, finding a label that describes the item for which information is material; and\n\n- (b) if items for which information is not material are aggregated:\n\n- (i) aggregating items that share similar characteristics and describing them in a way that faithfully represents the similar characteristics; or\n\n- (ii) aggregating items with other items that do not share similar characteristics and describing them in a way that faithfully represents the dissimilar characteristics of the items.\n\nIf an entity cannot find a more informative label than \u2018other\u2019: [IFRS 18.B26]\n\n###### (a) For any aggregation\n\nThe entity needs to use a label which describes the aggregated item as precisely as possible (for example, \u2018other operating expenses\u2019 or \u2018other finance expenses\u2019).\n\n###### (b) For an aggregation comprising only immaterial items\n\nAn entity could aggregate immaterial items despite them having dissimilar characteristics, resulting in an aggregated item that is cumul ... [truncated]\n\n[rank 3, ey-sg-good-group-ifrs-18-12-2025.md, page 18, score 0.8174, - IFRS 18 > Consolidated statement of financial position (Cont.) > as at 31 December 2025 > Commentary on IFRS accounting standards]\n[current, page 18]\n###### Commentary on IFRS accounting standards\n\nIFRS 18 quires an entity to present a statement of financial position at the beginning of the earliest comparative period when: it applies an accounting policy retrospectively; it makes a retrospective restatement of items in its financial statements; or when it reclassifies items in its financial statements (IFRS 18.10(g)), and the change has a material effect on the statement of financial position. In these situations, IFRS 18.37 states that an entity must present, at a minimum, three statements of financial position, two of each of the other statements and the related notes. The three statements of financial position include the statement of financial position as at the current annual period year end, the statement of financial position as at the previous annual period year end, and the statement of financial position as at the beginning of the previous annual period (\u2019the opening balance sheet\u2019, often referred to as the \u2018third balance sheet\u2019). As the Group restated the financial statements to correct an error retrospectively, it has included a third balance sheet as at 1 January 2024. Such an additional balance sheet is only required if the adjustment to opening balances is considered to be material (IFRS 18.37(b)). However, the notes related to the third balance sheet are not required, nor are additional statements of profit or loss and other comprehensive income, changes in equity or cash flows (IFRS 18.39).\n\nThere is no specific requirement to identify restatements to prior period financial statements on the face of the financial statements. IAS 8 requires details to be provided only in the notes. The Group illustrates how an entity may supplement the requirements of IAS 8 so that it is clear to the reader that amounts in the prior period financial statements have been adjusted in comparative period(s) of the current period financial statements.\n\nUnder IFRS 18, the Group consistently applies aggregation and disaggregation principles across all primary financial statements. Items with similar characteristics are aggregated, while items with dissimilar characteristics are disaggregated when disaggregated information is material.\n\nThe Group uses the label \u2018other\u2019 in a statement of financial position if there is not a more informative label for the aggregated item than \u2018other\u2019. To assess whether the label \u2018other\u2019 is appropriate, the Group has considered whether the tota ... [truncated]",
+      "retrieved_image_paths": [
+        "filtered_images/ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025__p27__imageFile4__scoreNA.png"
+      ],
+      "retrieved_contexts": [
+        {
+          "rank": 1,
+          "score": 0.8913078306745817,
+          "vector_score": 0.682492,
+          "bm25_score": 37.700262535473335,
+          "lexical_score": 0.5882352941176471,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md",
+          "page": 27,
+          "page_end": 27,
+          "chunk_id": "llamaindex_semantic:ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:000341:3552607ea811bbcd",
+          "parent_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p27:5926bd2cc10f",
+          "section_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p27:5926bd2cc10f",
+          "retrieval_role": "atomic_block",
+          "page_type": "image_extraction",
+          "content_type": "figure_table",
+          "heading_path": [
+            "Flowchart: Determining Information Label and Disclosure for Aggregated Items",
+            "Flow Summary (Sequential Path)"
+          ],
+          "image_paths": [
+            "filtered_images/ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025__p27__imageFile4__scoreNA.png"
+          ],
+          "primary_image_path": "filtered_images/ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025__p27__imageFile4__scoreNA.png",
+          "text": "[current, page 27]\n# Flowchart: Determining Information Label and Disclosure for Aggregated Items\n\n## Overall Structure\nThis is a vertical flowchart with three main horizontal sections, separated by horizontal dividers. Decision points use diamond shapes (represented here as questions), with \"Yes\" and \"No\" branches leading to different outcomes. Certain sections have bracket labels on the left side indicating the purpose of that section.\n\n---\n\n## Section 1: Determining Information Label\n\n**[Left bracket label: Determining Information Label]**\n\n### Decision Point 1:\n**\"Is there a more informative label for the aggregated items than 'other'?\"**\n\n- **Yes** \u2192\n  - **Action:** \"Use the more informative label for the aggregated item\"\n  - *Reference: [IFRS 18.B25]*\n  - *Background color: Teal/Green*\n\n- **No** \u2192\n  - **Action:** \"Use a label that describes the aggregated item as precisely as possible.\"\n  - *Example given:* \"For example, 'other operating expenses' or 'other finance expenses'\"\n  - *Reference: [IFRS 18.B25(a)]*\n  - *Background color: Yellow*\n\n---\n\n## Section 2: Determining Information to Disclose for Aggregated Items\n\n**[Left bracket label: Determining Information to disclose for aggregated items]**\n\n### Decision Point 2:\n**\"Do the aggregated items comprise only immaterial items?\"**\n\n- **No** \u2192\n  - **Action:** \"Disclose material Information\"\n  - *Reference: [IFRS 18.41]*\n  - *Background color: Teal/Green*\n\n- **Yes** \u2192 Proceed to Decision Point 3\n\n### Decision Point 3:\n**\"Is the aggregated amount sufficiently large that users might reasonably question whether it includes material items?\"**\n\n- **Yes** \u2192\n  - **Action:** \"Provide further information about the amount.\"\n  - *Examples provided:*\n    - \"An explanation that no material items are included in the amount\"\n    - **Or**\n    - \"An explanation that the amount comprises several immaterial items, along with an indication of the nature and amount of the largest item\"\n  - *Reference: [IFRS 18.B26(a)]*\n  - *Background color: Yellow*\n\n- **No** \u2192\n  - **Action:** \"No further consideration needed\"\n  - *Background color: Grey*\n\n---\n\n## Flow Summary (Sequential Path)\n\n| Step | Decision | Condition | Action |\n|:---|:---|:---|:---|\n| 1 | Is there a more informative label than 'other'? | Yes | Use the more informative label [IFRS 18.B25] |\n| 1 | Is there a more informative label than 'other'? | No | Use most precise label possible (e.g., \"other operating expenses\") [IFRS 18.B25(a)] |\n| 2 | Do item ... [truncated]"
+        },
+        {
+          "rank": 2,
+          "score": 0.8223950583876131,
+          "vector_score": 0.69132715,
+          "bm25_score": 26.440888344542394,
+          "lexical_score": 0.5882352941176471,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md",
+          "page": 26,
+          "page_end": 26,
+          "chunk_id": "llamaindex_semantic:ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:000426:d882706c382619cb",
+          "parent_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p26:738c0b8ff62a",
+          "section_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p26:738c0b8ff62a",
+          "retrieval_role": "child_chunk",
+          "page_type": "content",
+          "content_type": "text",
+          "heading_path": [
+            "A closer look at IFRS 18",
+            "2 Roles, aggregation and labelling",
+            "Appendix A Defined terms",
+            "2.3 Description of items",
+            "2.3.1 Using the label \u2018other\u2019",
+            "(b) For an aggregation comprising only immaterial items"
+          ],
+          "image_paths": [],
+          "primary_image_path": "",
+          "text": "[current, page 26]\n\u201cAn entity shall label items presented or disclosed as \u2018other\u2019 only if it cannot find a more informative label.\u201d\n\n###### (b) A material item is aggregated with immaterial items\n\nIn this case, an entity would only need to provide disaggregated information about the material item if the immaterial information obscured the material information about that item.\n\n###### (c) Immaterial items are aggregated with other immaterial items\n\nAn entity might provide such an aggregation of immaterial items in order to complete a list of items, or a subtotal. Since items are immaterial, no disaggregated information would be required, subject to the guidance on using the label \u2018other\u2019 discussed below.\n\n##### 2.3.1 Using the label \u2018other\u2019\n\nCurrently, some entities present or disclose a large amount of \u2018other\u2019 income or expenses without explaining what those \u2018other\u2019 items include; this is a matter of concern for users. The Board noted that using the label \u2018other\u2019 for such an aggregation is usually unhelpful and, therefore, it developed the application guidance below to help entities determine a more informative label and provide more useful information. [IFRS 18.B25, IFRS 18.BC79].\n\nExtract from IFRS 18 B25 An entity shall label items presented or disclosed as \u2018other\u2019 only if\n\nit cannot find a more informative label. Examples of how an entity might find a more informative label are:\n\n- (a) if an item for which information is material is aggregated with items for which information is not material, finding a label that describes the item for which information is material; and\n\n- (b) if items for which information is not material are aggregated:\n\n- (i) aggregating items that share similar characteristics and describing them in a way that faithfully represents the similar characteristics; or\n\n- (ii) aggregating items with other items that do not share similar characteristics and describing them in a way that faithfully represents the dissimilar characteristics of the items.\n\nIf an entity cannot find a more informative label than \u2018other\u2019: [IFRS 18.B26]\n\n###### (a) For any aggregation\n\nThe entity needs to use a label which describes the aggregated item as precisely as possible (for example, \u2018other operating expenses\u2019 or \u2018other finance expenses\u2019).\n\n###### (b) For an aggregation comprising only immaterial items\n\nAn entity could aggregate immaterial items despite them having dissimilar characteristics, resulting in an aggregated item that is cumul ... [truncated]"
+        },
+        {
+          "rank": 3,
+          "score": 0.8174094813499739,
+          "vector_score": 0.6830714,
+          "bm25_score": 26.499440117592037,
+          "lexical_score": 0.5882352941176471,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-sg-good-group-ifrs-18-12-2025.md",
+          "page": 18,
+          "page_end": 18,
+          "chunk_id": "llamaindex_semantic:ey-sg-good-group-ifrs-18-12-2025:000705:c106724eff9756c6",
+          "parent_id": "ey-sg-good-group-ifrs-18-12-2025:p18:ca3bac525bbe",
+          "section_id": "ey-sg-good-group-ifrs-18-12-2025:p18:ca3bac525bbe",
+          "retrieval_role": "child_chunk",
+          "page_type": "content",
+          "content_type": "text",
+          "heading_path": [
+            "- IFRS 18",
+            "Consolidated statement of financial position (Cont.)",
+            "as at 31 December 2025",
+            "Commentary on IFRS accounting standards"
+          ],
+          "image_paths": [],
+          "primary_image_path": "",
+          "text": "[current, page 18]\n###### Commentary on IFRS accounting standards\n\nIFRS 18 quires an entity to present a statement of financial position at the beginning of the earliest comparative period when: it applies an accounting policy retrospectively; it makes a retrospective restatement of items in its financial statements; or when it reclassifies items in its financial statements (IFRS 18.10(g)), and the change has a material effect on the statement of financial position. In these situations, IFRS 18.37 states that an entity must present, at a minimum, three statements of financial position, two of each of the other statements and the related notes. The three statements of financial position include the statement of financial position as at the current annual period year end, the statement of financial position as at the previous annual period year end, and the statement of financial position as at the beginning of the previous annual period (\u2019the opening balance sheet\u2019, often referred to as the \u2018third balance sheet\u2019). As the Group restated the financial statements to correct an error retrospectively, it has included a third balance sheet as at 1 January 2024. Such an additional balance sheet is only required if the adjustment to opening balances is considered to be material (IFRS 18.37(b)). However, the notes related to the third balance sheet are not required, nor are additional statements of profit or loss and other comprehensive income, changes in equity or cash flows (IFRS 18.39).\n\nThere is no specific requirement to identify restatements to prior period financial statements on the face of the financial statements. IAS 8 requires details to be provided only in the notes. The Group illustrates how an entity may supplement the requirements of IAS 8 so that it is clear to the reader that amounts in the prior period financial statements have been adjusted in comparative period(s) of the current period financial statements.\n\nUnder IFRS 18, the Group consistently applies aggregation and disaggregation principles across all primary financial statements. Items with similar characteristics are aggregated, while items with dissimilar characteristics are disaggregated when disaggregated information is material.\n\nThe Group uses the label \u2018other\u2019 in a statement of financial position if there is not a more informative label for the aggregated item than \u2018other\u2019. To assess whether the label \u2018other\u2019 is appropriate, the Group has considered whether the tota ... [truncated]"
+        },
+        {
+          "rank": 4,
+          "score": 0.7323800238780668,
+          "vector_score": 0.6338321,
+          "bm25_score": 22.945549050945885,
+          "lexical_score": 0.47058823529411764,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md",
+          "page": 64,
+          "page_end": 64,
+          "chunk_id": "llamaindex_semantic:ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:000455:16940be884888625",
+          "parent_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p64:4a856d3bc91a",
+          "section_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p64:4a856d3bc91a",
+          "retrieval_role": "child_chunk",
+          "page_type": "content",
+          "content_type": "text",
+          "heading_path": [
+            "Flowchart: Classification of Hybrid Contracts Without a Specified Main Business Activity",
+            "Derivatives Used to Manage Risks - Classification Flowchart",
+            "Complete Flow Summary",
+            "How we see it",
+            "Extract from IFRS 18 51 If an entity:"
+          ],
+          "image_paths": [],
+          "primary_image_path": "",
+          "text": "[current, page 64]\n###### 3.3.1.A Specified main business activities disclosures\n\nEntities with a specified main business activity must make certain disclosures to enable users to understand the assessment of their main business activity, as follows: [IFRS 18.51]\n\n###### Extract from IFRS 18 51 If an entity:\n\n- (a) invests in assets as a main business activity, it shall disclose that fact.\n\n- (b) provides financing to customers as a main business activity, it shall disclose that fact.\n\n- (c) identifies a different outcome from its assessment of whether it invests in assets or provides financing to customers as a main business activity (see paragraph B41), it shall disclose:\n\n- (i) the fact the outcome of the assessment has changed and the date of the change.\n\n- (ii) the amount and classification of items of income and expense before and after the date of the change in the outcome of the assessment in the current period and the amount and classification in the prior period for the items for which the classification has changed because of the changed outcome of the assessment, unless it is impracticable to do so. If an entity does not disclose the information because it is impracticable to do so, the entity shall disclose that fact."
+        },
+        {
+          "rank": 5,
+          "score": 0.600032721292151,
+          "vector_score": 0.64167416,
+          "bm25_score": 0.0,
+          "lexical_score": 0.5294117647058824,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md",
+          "page": 17,
+          "page_end": 17,
+          "chunk_id": "llamaindex_semantic:ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:000337:30db67c02a71e185",
+          "parent_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p17:5c0e93ad59e1",
+          "section_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p17:5c0e93ad59e1",
+          "retrieval_role": "atomic_block",
+          "page_type": "content",
+          "content_type": "table",
+          "heading_path": [
+            "A closer look at IFRS 18",
+            "2 Roles, aggregation and labelling",
+            "How we see it",
+            "2.1.2 Information disclosed in the notes"
+          ],
+          "image_paths": [],
+          "primary_image_path": "",
+          "text": "[current, page 17]\nAn entity presents additional subtotals and line items if they are necessary to provide a useful structured summary in the primary financial statements\n\n| In that case, since IFRS accounting standards do not provide specific guidance on how to determine the unrealised portion of a gain or loss, an entity would need to develop an accounting policy under IAS 8 to determine the current period unrealised gain or loss if it believes that such disaggregated information is material, either for the purpose of presentation or disclosure. In developing such a policy, entities must consider the requirements in other standards dealing with similar and related issues, for instance, the requirement to disclose the amount of current period fair value gains or losses attributable to the change in unrealised gains or losses for fair value measurements categorised (as a whole) within Level 3 of the fair value hierarchy, in paragraph 93(f) of IFRS 13 Fair Value Measurement.How we see it Since IFRS accounting standards, including IFRS 18, do not provide specific guidance on whether separate presentation of \u2018realised\u2019 and \u2018unrealised\u2019 components of gains or losses may be appropriate, different practices may develop. It is important to consider the regulatory requirements in the different jurisdictions in which the entity operates, as there may be specific requirements to be followed. For instance, in certain industries in certain jurisdictions, local regulation requires separate presentation of the \u2018realised\u2019 and \u2018unrealised\u2019 components. Furthermore, we believe that judgement must be applied to determine whether the separate presentation of realised and unrealised gains and losses contributes to a useful structured summary. If it does, the entity must:\u25aa Label the line item accurately And\u25aa Disclose its accounting policy for determining which gains and losses are realised and unrealised, to clarify the basis of the presentation. |\n| --- |\n\nThe requirement in IFRS 18.24(b) above, not previously included in IAS 1, limits the inclusion of additional line items and additional subtotals in the primary financial statements to those that fit the specified structure of that particular primary financial statement, as set out in IFRS 18.22 (see section 2.1.1 above). For example, a subtotal representing \u2018gross profit net of income taxes\u2019 mixes the operating and income tax categories, and would, therefore, conflict with the requirement. The requirement i ... [truncated]"
+        }
+      ],
+      "latency_ms": 809,
+      "top_k": 5,
+      "candidate_k": 20,
+      "retrieval_mode": "hybrid_vector_bm25_rerank",
+      "window_radius": 1,
+      "human_score": null,
+      "human_notes": "",
+      "collection": "ey_rag_llamaindex_semantic",
+      "retrieval_status": "ok"
+    },
+    {
+      "scenario_id": "H05",
+      "indexing_type": "haystack_document_splitter",
+      "query": "According to the IFRS 18 aggregated-items decision flowchart, how should an entity label an 'other' balance and decide whether to disclose more information?",
+      "retrieved_answer": "Retrieved response (extractive, from reranked contexts):\n\n[rank 1, ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md, page 27, score 0.8935, Flowchart: Determining Information Label and Disclosure for Aggregated Items > Flow Summary (Sequential Path)]\n[current, page 27]\n# Flowchart: Determining Information Label and Disclosure for Aggregated Items\n\n## Overall Structure\nThis is a vertical flowchart with three main horizontal sections, separated by horizontal dividers. Decision points use diamond shapes (represented here as questions), with \"Yes\" and \"No\" branches leading to different outcomes. Certain sections have bracket labels on the left side indicating the purpose of that section.\n\n---\n\n## Section 1: Determining Information Label\n\n**[Left bracket label: Determining Information Label]**\n\n### Decision Point 1:\n**\"Is there a more informative label for the aggregated items than 'other'?\"**\n\n- **Yes** \u2192\n  - **Action:** \"Use the more informative label for the aggregated item\"\n  - *Reference: [IFRS 18.B25]*\n  - *Background color: Teal/Green*\n\n- **No** \u2192\n  - **Action:** \"Use a label that describes the aggregated item as precisely as possible.\"\n  - *Example given:* \"For example, 'other operating expenses' or 'other finance expenses'\"\n  - *Reference: [IFRS 18.B25(a)]*\n  - *Background color: Yellow*\n\n---\n\n## Section 2: Determining Information to Disclose for Aggregated Items\n\n**[Left bracket label: Determining Information to disclose for aggregated items]**\n\n### Decision Point 2:\n**\"Do the aggregated items comprise only immaterial items?\"**\n\n- **No** \u2192\n  - **Action:** \"Disclose material Information\"\n  - *Reference: [IFRS 18.41]*\n  - *Background color: Teal/Green*\n\n- **Yes** \u2192 Proceed to Decision Point 3\n\n### Decision Point 3:\n**\"Is the aggregated amount sufficiently large that users might reasonably question whether it includes material items?\"**\n\n- **Yes** \u2192\n  - **Action:** \"Provide further information about the amount.\"\n  - *Examples provided:*\n    - \"An explanation that no material items are included in the amount\"\n    - **Or**\n    - \"An explanation that the amount comprises several immaterial items, along with an indication of the nature and amount of the largest item\"\n  - *Reference: [IFRS 18.B26(a)]*\n  - *Background color: Yellow*\n\n- **No** \u2192\n  - **Action:** \"No further consideration needed\"\n  - *Background color: Grey*\n\n---\n\n## Flow Summary (Sequential Path)\n\n| Step | Decision | Condition | Action |\n|:---|:---|:---|:---|\n| 1 | Is there a more informative label than 'other'? | Yes | Use the more informative label [IFRS 18.B25] |\n| 1 | Is there a more informative label than 'other'? | No | Use most precise label possible (e.g., \"other operating expenses\") [IFRS 18.B25(a)] |\n| 2 | Do item ... [truncated]\n\n[rank 2, ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md, page 26, score 0.8182, A closer look at IFRS 18 > 2 Roles, aggregation and labelling > Appendix A Defined terms > 2.3 Description of items > 2.3.1 Using the label \u2018other\u2019 > (b) For an aggregation comprising only immaterial items]\n[current, page 26]\n\u201cAn entity shall label items presented or disclosed as \u2018other\u2019 only if it cannot find a more informative label.\u201d\n\n###### (b) A material item is aggregated with immaterial items\n\nIn this case, an entity would only need to provide disaggregated information about the material item if the immaterial information obscured the material information about that item.\n\n###### (c) Immaterial items are aggregated with other immaterial items\n\nAn entity might provide such an aggregation of immaterial items in order to complete a list of items, or a subtotal. Since items are immaterial, no disaggregated information would be required, subject to the guidance on using the label \u2018other\u2019 discussed below.\n\n##### 2.3.1 Using the label \u2018other\u2019\n\nCurrently, some entities present or disclose a large amount of \u2018other\u2019 income or expenses without explaining what those \u2018other\u2019 items include; this is a matter of concern for users. The Board noted that using the label \u2018other\u2019 for such an aggregation is usually unhelpful and, therefore, it developed the application guidance below to help entities determine a more informative label and provide more useful information. [IFRS 18.B25, IFRS 18.BC79].\n\nExtract from IFRS 18 B25 An entity shall label items presented or disclosed as \u2018other\u2019 only if\n\nit cannot find a more informative label. Examples of how an entity might find a more informative label are:\n\n- (a) if an item for which information is material is aggregated with items for which information is not material, finding a label that describes the item for which information is material; and\n\n- (b) if items for which information is not material are aggregated:\n\n- (i) aggregating items that share similar characteristics and describing them in a way that faithfully represents the similar characteristics; or\n\n- (ii) aggregating items with other items that do not share similar characteristics and describing them in a way that faithfully represents the dissimilar characteristics of the items.\n\nIf an entity cannot find a more informative label than \u2018other\u2019: [IFRS 18.B26]\n\n###### (a) For any aggregation\n\nThe entity needs to use a label which describes the aggregated item as precisely as possible (for example, \u2018other operating expenses\u2019 or \u2018other finance expenses\u2019).\n\n###### (b) For an aggregation comprising only immaterial items\n\nAn entity could aggregate immaterial items despite them having dissimilar characteristics, resulting in an aggregated item that is cumul ... [truncated]\n\n[rank 3, ey-sg-good-group-ifrs-18-12-2025.md, page 18, score 0.8131, - IFRS 18 > Consolidated statement of financial position (Cont.) > as at 31 December 2025 > Commentary on IFRS accounting standards]\n[current, page 18]\n###### Commentary on IFRS accounting standards\n\nIFRS 18 quires an entity to present a statement of financial position at the beginning of the earliest comparative period when: it applies an accounting policy retrospectively; it makes a retrospective restatement of items in its financial statements; or when it reclassifies items in its financial statements (IFRS 18.10(g)), and the change has a material effect on the statement of financial position. In these situations, IFRS 18.37 states that an entity must present, at a minimum, three statements of financial position, two of each of the other statements and the related notes. The three statements of financial position include the statement of financial position as at the current annual period year end, the statement of financial position as at the previous annual period year end, and the statement of financial position as at the beginning of the previous annual period (\u2019the opening balance sheet\u2019, often referred to as the \u2018third balance sheet\u2019). As the Group restated the financial statements to correct an error retrospectively, it has included a third balance sheet as at 1 January 2024. Such an additional balance sheet is only required if the adjustment to opening balances is considered to be material (IFRS 18.37(b)). However, the notes related to the third balance sheet are not required, nor are additional statements of profit or loss and other comprehensive income, changes in equity or cash flows (IFRS 18.39).\n\nThere is no specific requirement to identify restatements to prior period financial statements on the face of the financial statements. IAS 8 requires details to be provided only in the notes. The Group illustrates how an entity may supplement the requirements of IAS 8 so that it is clear to the reader that amounts in the prior period financial statements have been adjusted in comparative period(s) of the current period financial statements.\n\nUnder IFRS 18, the Group consistently applies aggregation and disaggregation principles across all primary financial statements. Items with similar characteristics are aggregated, while items with dissimilar characteristics are disaggregated when disaggregated information is material.\n\nThe Group uses the label \u2018other\u2019 in a statement of financial position if there is not a more informative label for the aggregated item than \u2018other\u2019. To assess whether the label \u2018other\u2019 is appropriate, the Group has considered whether the tota ... [truncated]",
+      "retrieved_image_paths": [
+        "filtered_images/ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025__p27__imageFile4__scoreNA.png"
+      ],
+      "retrieved_contexts": [
+        {
+          "rank": 1,
+          "score": 0.8934894299931487,
+          "vector_score": 0.682492,
+          "bm25_score": 36.09128620129257,
+          "lexical_score": 0.5882352941176471,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md",
+          "page": 27,
+          "page_end": 27,
+          "chunk_id": "haystack_document_splitter:ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:000222:1b4d671edb2d4f16",
+          "parent_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p27:5926bd2cc10f",
+          "section_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p27:5926bd2cc10f",
+          "retrieval_role": "atomic_block",
+          "page_type": "image_extraction",
+          "content_type": "figure_table",
+          "heading_path": [
+            "Flowchart: Determining Information Label and Disclosure for Aggregated Items",
+            "Flow Summary (Sequential Path)"
+          ],
+          "image_paths": [
+            "filtered_images/ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025__p27__imageFile4__scoreNA.png"
+          ],
+          "primary_image_path": "filtered_images/ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025__p27__imageFile4__scoreNA.png",
+          "text": "[current, page 27]\n# Flowchart: Determining Information Label and Disclosure for Aggregated Items\n\n## Overall Structure\nThis is a vertical flowchart with three main horizontal sections, separated by horizontal dividers. Decision points use diamond shapes (represented here as questions), with \"Yes\" and \"No\" branches leading to different outcomes. Certain sections have bracket labels on the left side indicating the purpose of that section.\n\n---\n\n## Section 1: Determining Information Label\n\n**[Left bracket label: Determining Information Label]**\n\n### Decision Point 1:\n**\"Is there a more informative label for the aggregated items than 'other'?\"**\n\n- **Yes** \u2192\n  - **Action:** \"Use the more informative label for the aggregated item\"\n  - *Reference: [IFRS 18.B25]*\n  - *Background color: Teal/Green*\n\n- **No** \u2192\n  - **Action:** \"Use a label that describes the aggregated item as precisely as possible.\"\n  - *Example given:* \"For example, 'other operating expenses' or 'other finance expenses'\"\n  - *Reference: [IFRS 18.B25(a)]*\n  - *Background color: Yellow*\n\n---\n\n## Section 2: Determining Information to Disclose for Aggregated Items\n\n**[Left bracket label: Determining Information to disclose for aggregated items]**\n\n### Decision Point 2:\n**\"Do the aggregated items comprise only immaterial items?\"**\n\n- **No** \u2192\n  - **Action:** \"Disclose material Information\"\n  - *Reference: [IFRS 18.41]*\n  - *Background color: Teal/Green*\n\n- **Yes** \u2192 Proceed to Decision Point 3\n\n### Decision Point 3:\n**\"Is the aggregated amount sufficiently large that users might reasonably question whether it includes material items?\"**\n\n- **Yes** \u2192\n  - **Action:** \"Provide further information about the amount.\"\n  - *Examples provided:*\n    - \"An explanation that no material items are included in the amount\"\n    - **Or**\n    - \"An explanation that the amount comprises several immaterial items, along with an indication of the nature and amount of the largest item\"\n  - *Reference: [IFRS 18.B26(a)]*\n  - *Background color: Yellow*\n\n- **No** \u2192\n  - **Action:** \"No further consideration needed\"\n  - *Background color: Grey*\n\n---\n\n## Flow Summary (Sequential Path)\n\n| Step | Decision | Condition | Action |\n|:---|:---|:---|:---|\n| 1 | Is there a more informative label than 'other'? | Yes | Use the more informative label [IFRS 18.B25] |\n| 1 | Is there a more informative label than 'other'? | No | Use most precise label possible (e.g., \"other operating expenses\") [IFRS 18.B25(a)] |\n| 2 | Do item ... [truncated]"
+        },
+        {
+          "rank": 2,
+          "score": 0.8181921179328425,
+          "vector_score": 0.6879488,
+          "bm25_score": 24.705682827537103,
+          "lexical_score": 0.5882352941176471,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md",
+          "page": 26,
+          "page_end": 26,
+          "chunk_id": "haystack_document_splitter:ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:001320:3151efd984dc5e70",
+          "parent_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p26:738c0b8ff62a",
+          "section_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p26:738c0b8ff62a",
+          "retrieval_role": "child_chunk",
+          "page_type": "content",
+          "content_type": "text",
+          "heading_path": [
+            "A closer look at IFRS 18",
+            "2 Roles, aggregation and labelling",
+            "Appendix A Defined terms",
+            "2.3 Description of items",
+            "2.3.1 Using the label \u2018other\u2019",
+            "(b) For an aggregation comprising only immaterial items"
+          ],
+          "image_paths": [],
+          "primary_image_path": "",
+          "text": "[current, page 26]\n\u201cAn entity shall label items presented or disclosed as \u2018other\u2019 only if it cannot find a more informative label.\u201d\n\n###### (b) A material item is aggregated with immaterial items\n\nIn this case, an entity would only need to provide disaggregated information about the material item if the immaterial information obscured the material information about that item.\n\n###### (c) Immaterial items are aggregated with other immaterial items\n\nAn entity might provide such an aggregation of immaterial items in order to complete a list of items, or a subtotal. Since items are immaterial, no disaggregated information would be required, subject to the guidance on using the label \u2018other\u2019 discussed below.\n\n##### 2.3.1 Using the label \u2018other\u2019\n\nCurrently, some entities present or disclose a large amount of \u2018other\u2019 income or expenses without explaining what those \u2018other\u2019 items include; this is a matter of concern for users. The Board noted that using the label \u2018other\u2019 for such an aggregation is usually unhelpful and, therefore, it developed the application guidance below to help entities determine a more informative label and provide more useful information. [IFRS 18.B25, IFRS 18.BC79].\n\nExtract from IFRS 18 B25 An entity shall label items presented or disclosed as \u2018other\u2019 only if\n\nit cannot find a more informative label. Examples of how an entity might find a more informative label are:\n\n- (a) if an item for which information is material is aggregated with items for which information is not material, finding a label that describes the item for which information is material; and\n\n- (b) if items for which information is not material are aggregated:\n\n- (i) aggregating items that share similar characteristics and describing them in a way that faithfully represents the similar characteristics; or\n\n- (ii) aggregating items with other items that do not share similar characteristics and describing them in a way that faithfully represents the dissimilar characteristics of the items.\n\nIf an entity cannot find a more informative label than \u2018other\u2019: [IFRS 18.B26]\n\n###### (a) For any aggregation\n\nThe entity needs to use a label which describes the aggregated item as precisely as possible (for example, \u2018other operating expenses\u2019 or \u2018other finance expenses\u2019).\n\n###### (b) For an aggregation comprising only immaterial items\n\nAn entity could aggregate immaterial items despite them having dissimilar characteristics, resulting in an aggregated item that is cumul ... [truncated]"
+        },
+        {
+          "rank": 3,
+          "score": 0.8131048060735129,
+          "vector_score": 0.6822899,
+          "bm25_score": 24.505633016859967,
+          "lexical_score": 0.5882352941176471,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-sg-good-group-ifrs-18-12-2025.md",
+          "page": 18,
+          "page_end": 18,
+          "chunk_id": "haystack_document_splitter:ey-sg-good-group-ifrs-18-12-2025:001454:f8396a18812870ee",
+          "parent_id": "ey-sg-good-group-ifrs-18-12-2025:p18:ca3bac525bbe",
+          "section_id": "ey-sg-good-group-ifrs-18-12-2025:p18:ca3bac525bbe",
+          "retrieval_role": "child_chunk",
+          "page_type": "content",
+          "content_type": "text",
+          "heading_path": [
+            "- IFRS 18",
+            "Consolidated statement of financial position (Cont.)",
+            "as at 31 December 2025",
+            "Commentary on IFRS accounting standards"
+          ],
+          "image_paths": [],
+          "primary_image_path": "",
+          "text": "[current, page 18]\n###### Commentary on IFRS accounting standards\n\nIFRS 18 quires an entity to present a statement of financial position at the beginning of the earliest comparative period when: it applies an accounting policy retrospectively; it makes a retrospective restatement of items in its financial statements; or when it reclassifies items in its financial statements (IFRS 18.10(g)), and the change has a material effect on the statement of financial position. In these situations, IFRS 18.37 states that an entity must present, at a minimum, three statements of financial position, two of each of the other statements and the related notes. The three statements of financial position include the statement of financial position as at the current annual period year end, the statement of financial position as at the previous annual period year end, and the statement of financial position as at the beginning of the previous annual period (\u2019the opening balance sheet\u2019, often referred to as the \u2018third balance sheet\u2019). As the Group restated the financial statements to correct an error retrospectively, it has included a third balance sheet as at 1 January 2024. Such an additional balance sheet is only required if the adjustment to opening balances is considered to be material (IFRS 18.37(b)). However, the notes related to the third balance sheet are not required, nor are additional statements of profit or loss and other comprehensive income, changes in equity or cash flows (IFRS 18.39).\n\nThere is no specific requirement to identify restatements to prior period financial statements on the face of the financial statements. IAS 8 requires details to be provided only in the notes. The Group illustrates how an entity may supplement the requirements of IAS 8 so that it is clear to the reader that amounts in the prior period financial statements have been adjusted in comparative period(s) of the current period financial statements.\n\nUnder IFRS 18, the Group consistently applies aggregation and disaggregation principles across all primary financial statements. Items with similar characteristics are aggregated, while items with dissimilar characteristics are disaggregated when disaggregated information is material.\n\nThe Group uses the label \u2018other\u2019 in a statement of financial position if there is not a more informative label for the aggregated item than \u2018other\u2019. To assess whether the label \u2018other\u2019 is appropriate, the Group has considered whether the tota ... [truncated]"
+        },
+        {
+          "rank": 4,
+          "score": 0.7268370656273293,
+          "vector_score": 0.6271715,
+          "bm25_score": 21.502547313425502,
+          "lexical_score": 0.47058823529411764,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md",
+          "page": 64,
+          "page_end": 64,
+          "chunk_id": "haystack_document_splitter:ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:001335:068e8bb99f036a16",
+          "parent_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p64:4a856d3bc91a",
+          "section_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p64:4a856d3bc91a",
+          "retrieval_role": "child_chunk",
+          "page_type": "content",
+          "content_type": "text",
+          "heading_path": [
+            "Flowchart: Classification of Hybrid Contracts Without a Specified Main Business Activity",
+            "Derivatives Used to Manage Risks - Classification Flowchart",
+            "Complete Flow Summary",
+            "How we see it",
+            "Extract from IFRS 18 51 If an entity:"
+          ],
+          "image_paths": [],
+          "primary_image_path": "",
+          "text": "[current, page 64]\n###### 3.3.1.A Specified main business activities disclosures\n\nEntities with a specified main business activity must make certain disclosures to enable users to understand the assessment of their main business activity, as follows: [IFRS 18.51]\n\n###### Extract from IFRS 18 51 If an entity:\n\n- (a) invests in assets as a main business activity, it shall disclose that fact.\n\n- (b) provides financing to customers as a main business activity, it shall disclose that fact.\n\n- (c) identifies a different outcome from its assessment of whether it invests in assets or provides financing to customers as a main business activity (see paragraph B41), it shall disclose:\n\n- (i) the fact the outcome of the assessment has changed and the date of the change.\n\n- (ii) the amount and classification of items of income and expense before and after the date of the change in the outcome of the assessment in the current period and the amount and classification in the prior period for the items for which the classification has changed because of the changed outcome of the assessment, unless it is impracticable to do so. If an entity does not disclose the information because it is impracticable to do so, the entity shall disclose that fact.\n\nThe requirement for entities to disclose whether they invest in assets or provide financing to customers as a main business activity helps users to understand the structure of an entity\u2019s statement of financial performance, especially in digital financial reports. To be clear, this disclosure is separate from the requirements to disclose a description of the nature of the entity\u2019s operations and its principal activities in IFRS 18.116(b). [IFRS 18.BC100].\n\nAs the assessment of an entity\u2019s main business activities is a matter of fact, it follows that facts may change, and an assessment performed at the point of the change could lead to a different conclusion. When this is the case, as noted above, an entity will classify and present income and expenses from the change in assessment prospectively and amounts before the change are not reclassified. As this will inevitably cause some disruption to trend analysis, the requirement to disclose the change and information about the effects of the change relating to both the current and prior periods, has been introduced to alleviate the disruption, unless it is impracticable to make the disclosure. [IFRS 18.B41, IFRS 18.51(c), IFRS 18.BC101, IFRS 18.BC102]."
+        },
+        {
+          "rank": 5,
+          "score": 0.6124830382384134,
+          "vector_score": 0.6350902,
+          "bm25_score": 0.0,
+          "lexical_score": 0.5882352941176471,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md",
+          "page": 20,
+          "page_end": 20,
+          "chunk_id": "haystack_document_splitter:ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:001317:3a30936306c19c18",
+          "parent_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p20:7b5b9ae80d3c",
+          "section_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p20:7b5b9ae80d3c",
+          "retrieval_role": "child_chunk",
+          "page_type": "content",
+          "content_type": "text",
+          "heading_path": [
+            "A closer look at IFRS 18",
+            "2 Roles, aggregation and labelling",
+            "Appendix A Defined terms",
+            "How we see it"
+          ],
+          "image_paths": [],
+          "primary_image_path": "",
+          "text": "[current, page 20]\nApplying the principles above, an entity shall disaggregate items whenever the resulting information is material; and where the application of (c) above results in an entity not presenting material information in the primary financial statements, it shall disclose that material information in the notes. [IFRS 18.42]. To assist entities in applying the principles of aggregation and disaggregation, the Board decided to provide application guidance on: [IFRS 18.BC74]\n\n- (a) The process involved in deciding whether to aggregate or disaggregate information (discussed below)\n- (b) The basis of aggregation and disaggregation (including the characteristics of assets, liabilities, equity, income and expenses to consider in assessing whether items have dissimilar characteristics) (see section 2.2.2 below) And\n- (c) The description of items presented or disclosed (see section 2.3 below)\n\nThe Board replaced the requirements for aggregation and disaggregation in IAS 1, including a requirement for an entity to present separately each \u2018material class of similar items\u2019, with the principles of aggregation and disaggregation in IFRS 18. Entities are now required to aggregate and disaggregate items based both on their characteristics and the roles of the primary financial statements and the notes. That said, the Board expects that an entity would generally conclude that line items previously determined to be a \u2018material class of items\u2019 also contribute to the primary financial statements providing useful structured summaries. [IFRS 18.BC75]. The Board developed the principles of aggregation and disaggregation from the descriptions of \u2018classification\u2019 and \u2018aggregation\u2019 in the Conceptual Framework for Financial Reporting (Conceptual Framework). Those descriptions recognise shared characteristics as a condition for classifying and aggregating items. [IFRS 18.BC72].\n\n#### How we see it\n\nWhile IFRS 18 includes more guidance on aggregation and disaggregation, including the guidance on the principles of aggregation and disaggregation above, it remains a difficult balance to strike. Entity will need to apply judgement to determine how much detail is necessary to provide useful information, without obscuring material information.\n\nTo apply the requirements above, an entity is required to aggregate items based on their shared characteristics (i.e., aggregate items with similar characteristics) and disaggregate items based on characteristics that are ... [truncated]"
+        }
+      ],
+      "latency_ms": 898,
+      "top_k": 5,
+      "candidate_k": 20,
+      "retrieval_mode": "hybrid_vector_bm25_rerank",
+      "window_radius": 1,
+      "human_score": null,
+      "human_notes": "",
+      "collection": "ey_rag_haystack_document_splitter",
+      "retrieval_status": "ok"
+    },
+    {
+      "scenario_id": "H05",
+      "indexing_type": "chonkie_semantic",
+      "query": "According to the IFRS 18 aggregated-items decision flowchart, how should an entity label an 'other' balance and decide whether to disclose more information?",
+      "retrieved_answer": "Retrieved response (extractive, from reranked contexts):\n\n[rank 1, ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md, page 27, score 0.8703, Flowchart: Determining Information Label and Disclosure for Aggregated Items > Flow Summary (Sequential Path)]\n[current, page 27]\n# Flowchart: Determining Information Label and Disclosure for Aggregated Items\n\n## Overall Structure\nThis is a vertical flowchart with three main horizontal sections, separated by horizontal dividers. Decision points use diamond shapes (represented here as questions), with \"Yes\" and \"No\" branches leading to different outcomes. Certain sections have bracket labels on the left side indicating the purpose of that section.\n\n---\n\n## Section 1: Determining Information Label\n\n**[Left bracket label: Determining Information Label]**\n\n### Decision Point 1:\n**\"Is there a more informative label for the aggregated items than 'other'?\"**\n\n- **Yes** \u2192\n  - **Action:** \"Use the more informative label for the aggregated item\"\n  - *Reference: [IFRS 18.B25]*\n  - *Background color: Teal/Green*\n\n- **No** \u2192\n  - **Action:** \"Use a label that describes the aggregated item as precisely as possible.\"\n  - *Example given:* \"For example, 'other operating expenses' or 'other finance expenses'\"\n  - *Reference: [IFRS 18.B25(a)]*\n  - *Background color: Yellow*\n\n---\n\n## Section 2: Determining Information to Disclose for Aggregated Items\n\n**[Left bracket label: Determining Information to disclose for aggregated items]**\n\n### Decision Point 2:\n**\"Do the aggregated items comprise only immaterial items?\"**\n\n- **No** \u2192\n  - **Action:** \"Disclose material Information\"\n  - *Reference: [IFRS 18.41]*\n  - *Background color: Teal/Green*\n\n- **Yes** \u2192 Proceed to Decision Point 3\n\n### Decision Point 3:\n**\"Is the aggregated amount sufficiently large that users might reasonably question whether it includes material items?\"**\n\n- **Yes** \u2192\n  - **Action:** \"Provide further information about the amount.\"\n  - *Examples provided:*\n    - \"An explanation that no material items are included in the amount\"\n    - **Or**\n    - \"An explanation that the amount comprises several immaterial items, along with an indication of the nature and amount of the largest item\"\n  - *Reference: [IFRS 18.B26(a)]*\n  - *Background color: Yellow*\n\n- **No** \u2192\n  - **Action:** \"No further consideration needed\"\n  - *Background color: Grey*\n\n---\n\n## Flow Summary (Sequential Path)\n\n| Step | Decision | Condition | Action |\n|:---|:---|:---|:---|\n| 1 | Is there a more informative label than 'other'? | Yes | Use the more informative label [IFRS 18.B25] |\n| 1 | Is there a more informative label than 'other'? | No | Use most precise label possible (e.g., \"other operating expenses\") [IFRS 18.B25(a)] |\n| 2 | Do item ... [truncated]\n\n[rank 2, ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md, page 26, score 0.7851, A closer look at IFRS 18 > 2 Roles, aggregation and labelling > Appendix A Defined terms > 2.3 Description of items > 2.3.1 Using the label \u2018other\u2019]\n[current, page 26]\n##### 2.3.1 Using the label \u2018other\u2019\n\nCurrently, some entities present or disclose a large amount of \u2018other\u2019 income or expenses without explaining what those \u2018other\u2019 items include; this is a matter of concern for users. The Board noted that using the label \u2018other\u2019 for such an aggregation is usually unhelpful and, therefore, it developed the application guidance below to help entities determine a more informative label and provide more useful information.\n\n[rank 3, ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md, page 26, score 0.7597, A closer look at IFRS 18 > 2 Roles, aggregation and labelling > Appendix A Defined terms > 2.3 Description of items > (b) For an aggregation comprising only immaterial items]\n[current, page 26]\nExamples of how an entity might find a more informative label are:\n\n- (a) if an item for which information is material is aggregated with items for which information is not material, finding a label that describes the item for which information is material; and\n\n- (b) if items for which information is not material are aggregated:\n\n- (i) aggregating items that share similar characteristics and describing them in a way that faithfully represents the similar characteristics; or\n\n- (ii) aggregating items with other items that do not share similar characteristics and describing them in a way that faithfully represents the dissimilar characteristics of the items.\n\nIf an entity cannot find a more informative label than \u2018other\u2019: [IFRS 18.B26]\n\n###### (a) For any aggregation\n\nThe entity needs to use a label which describes the aggregated item as precisely as possible (for example, \u2018other operating expenses\u2019 or \u2018other finance expenses\u2019).\n\n###### (b) For an aggregation comprising only immaterial items\n\nAn entity could aggregate immaterial items despite them having dissimilar characteristics, resulting in an aggregated item that is cumulatively large despite comprising individually immaterial items. Where that is the case, the entity needs to consider whether the aggregated amount is large enough that users might reasonably question whether it includes material items.",
+      "retrieved_image_paths": [
+        "filtered_images/ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025__p27__imageFile4__scoreNA.png"
+      ],
+      "retrieved_contexts": [
+        {
+          "rank": 1,
+          "score": 0.8702892620267798,
+          "vector_score": 0.682492,
+          "bm25_score": 40.138005746650144,
+          "lexical_score": 0.5882352941176471,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md",
+          "page": 27,
+          "page_end": 27,
+          "chunk_id": "chonkie_semantic:ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:000803:30daf32b3518a6b1",
+          "parent_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p27:43ef8425839a",
+          "section_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p27:5926bd2cc10f",
+          "retrieval_role": "atomic_block",
+          "page_type": "image_extraction",
+          "content_type": "figure_table",
+          "heading_path": [
+            "Flowchart: Determining Information Label and Disclosure for Aggregated Items",
+            "Flow Summary (Sequential Path)"
+          ],
+          "image_paths": [
+            "filtered_images/ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025__p27__imageFile4__scoreNA.png"
+          ],
+          "primary_image_path": "filtered_images/ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025__p27__imageFile4__scoreNA.png",
+          "text": "[current, page 27]\n# Flowchart: Determining Information Label and Disclosure for Aggregated Items\n\n## Overall Structure\nThis is a vertical flowchart with three main horizontal sections, separated by horizontal dividers. Decision points use diamond shapes (represented here as questions), with \"Yes\" and \"No\" branches leading to different outcomes. Certain sections have bracket labels on the left side indicating the purpose of that section.\n\n---\n\n## Section 1: Determining Information Label\n\n**[Left bracket label: Determining Information Label]**\n\n### Decision Point 1:\n**\"Is there a more informative label for the aggregated items than 'other'?\"**\n\n- **Yes** \u2192\n  - **Action:** \"Use the more informative label for the aggregated item\"\n  - *Reference: [IFRS 18.B25]*\n  - *Background color: Teal/Green*\n\n- **No** \u2192\n  - **Action:** \"Use a label that describes the aggregated item as precisely as possible.\"\n  - *Example given:* \"For example, 'other operating expenses' or 'other finance expenses'\"\n  - *Reference: [IFRS 18.B25(a)]*\n  - *Background color: Yellow*\n\n---\n\n## Section 2: Determining Information to Disclose for Aggregated Items\n\n**[Left bracket label: Determining Information to disclose for aggregated items]**\n\n### Decision Point 2:\n**\"Do the aggregated items comprise only immaterial items?\"**\n\n- **No** \u2192\n  - **Action:** \"Disclose material Information\"\n  - *Reference: [IFRS 18.41]*\n  - *Background color: Teal/Green*\n\n- **Yes** \u2192 Proceed to Decision Point 3\n\n### Decision Point 3:\n**\"Is the aggregated amount sufficiently large that users might reasonably question whether it includes material items?\"**\n\n- **Yes** \u2192\n  - **Action:** \"Provide further information about the amount.\"\n  - *Examples provided:*\n    - \"An explanation that no material items are included in the amount\"\n    - **Or**\n    - \"An explanation that the amount comprises several immaterial items, along with an indication of the nature and amount of the largest item\"\n  - *Reference: [IFRS 18.B26(a)]*\n  - *Background color: Yellow*\n\n- **No** \u2192\n  - **Action:** \"No further consideration needed\"\n  - *Background color: Grey*\n\n---\n\n## Flow Summary (Sequential Path)\n\n| Step | Decision | Condition | Action |\n|:---|:---|:---|:---|\n| 1 | Is there a more informative label than 'other'? | Yes | Use the more informative label [IFRS 18.B25] |\n| 1 | Is there a more informative label than 'other'? | No | Use most precise label possible (e.g., \"other operating expenses\") [IFRS 18.B25(a)] |\n| 2 | Do item ... [truncated]"
+        },
+        {
+          "rank": 2,
+          "score": 0.7850692383390534,
+          "vector_score": 0.72566,
+          "bm25_score": 26.87996961404315,
+          "lexical_score": 0.47058823529411764,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md",
+          "page": 26,
+          "page_end": 26,
+          "chunk_id": "chonkie_semantic:ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:000797:87b7f40ddfc4fd48",
+          "parent_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p26:6c0dd481516f",
+          "section_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p26:cf799cc8f2ae",
+          "retrieval_role": "child_chunk",
+          "page_type": "content",
+          "content_type": "text",
+          "heading_path": [
+            "A closer look at IFRS 18",
+            "2 Roles, aggregation and labelling",
+            "Appendix A Defined terms",
+            "2.3 Description of items",
+            "2.3.1 Using the label \u2018other\u2019"
+          ],
+          "image_paths": [],
+          "primary_image_path": "",
+          "text": "[current, page 26]\n##### 2.3.1 Using the label \u2018other\u2019\n\nCurrently, some entities present or disclose a large amount of \u2018other\u2019 income or expenses without explaining what those \u2018other\u2019 items include; this is a matter of concern for users. The Board noted that using the label \u2018other\u2019 for such an aggregation is usually unhelpful and, therefore, it developed the application guidance below to help entities determine a more informative label and provide more useful information."
+        },
+        {
+          "rank": 3,
+          "score": 0.7596646726558172,
+          "vector_score": 0.66836333,
+          "bm25_score": 26.144746791496466,
+          "lexical_score": 0.5294117647058824,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md",
+          "page": 26,
+          "page_end": 26,
+          "chunk_id": "chonkie_semantic:ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:000799:dea8a3dd8c97a175",
+          "parent_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p26:80de254fc34d",
+          "section_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p26:5187e82c9cee",
+          "retrieval_role": "child_chunk",
+          "page_type": "content",
+          "content_type": "text",
+          "heading_path": [
+            "A closer look at IFRS 18",
+            "2 Roles, aggregation and labelling",
+            "Appendix A Defined terms",
+            "2.3 Description of items",
+            "(b) For an aggregation comprising only immaterial items"
+          ],
+          "image_paths": [],
+          "primary_image_path": "",
+          "text": "[current, page 26]\nExamples of how an entity might find a more informative label are:\n\n- (a) if an item for which information is material is aggregated with items for which information is not material, finding a label that describes the item for which information is material; and\n\n- (b) if items for which information is not material are aggregated:\n\n- (i) aggregating items that share similar characteristics and describing them in a way that faithfully represents the similar characteristics; or\n\n- (ii) aggregating items with other items that do not share similar characteristics and describing them in a way that faithfully represents the dissimilar characteristics of the items.\n\nIf an entity cannot find a more informative label than \u2018other\u2019: [IFRS 18.B26]\n\n###### (a) For any aggregation\n\nThe entity needs to use a label which describes the aggregated item as precisely as possible (for example, \u2018other operating expenses\u2019 or \u2018other finance expenses\u2019).\n\n###### (b) For an aggregation comprising only immaterial items\n\nAn entity could aggregate immaterial items despite them having dissimilar characteristics, resulting in an aggregated item that is cumulatively large despite comprising individually immaterial items. Where that is the case, the entity needs to consider whether the aggregated amount is large enough that users might reasonably question whether it includes material items."
+        },
+        {
+          "rank": 4,
+          "score": 0.7325547983524989,
+          "vector_score": 0.67142284,
+          "bm25_score": 23.848648804518653,
+          "lexical_score": 0.47058823529411764,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md",
+          "page": 26,
+          "page_end": 26,
+          "chunk_id": "chonkie_semantic:ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:000796:612d8d987f3822bc",
+          "parent_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p26:f52698d23659",
+          "section_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p26:7d043006ed6c",
+          "retrieval_role": "child_chunk",
+          "page_type": "content",
+          "content_type": "text",
+          "heading_path": [
+            "A closer look at IFRS 18",
+            "2 Roles, aggregation and labelling",
+            "Appendix A Defined terms",
+            "2.3 Description of items",
+            "(c) Immaterial items are aggregated with other immaterial items"
+          ],
+          "image_paths": [],
+          "primary_image_path": "",
+          "text": "[current, page 26]\n\u201cAn entity shall label items presented or disclosed as \u2018other\u2019 only if it cannot find a more informative label.\u201d\n\n###### (b) A material item is aggregated with immaterial items\n\nIn this case, an entity would only need to provide disaggregated information about the material item if the immaterial information obscured the material information about that item.\n\n###### (c) Immaterial items are aggregated with other immaterial items\n\nAn entity might provide such an aggregation of immaterial items in order to complete a list of items, or a subtotal. Since items are immaterial, no disaggregated information would be required, subject to the guidance on using the label \u2018other\u2019 discussed below."
+        },
+        {
+          "rank": 5,
+          "score": 0.7289717484325818,
+          "vector_score": 0.7083346,
+          "bm25_score": 21.95942071654564,
+          "lexical_score": 0.4117647058823529,
+          "number_score": 1.0,
+          "source_path": "C:\\Users\\youssef\\Desktop\\EY_RAG\\output_clean\\ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025.md",
+          "page": 26,
+          "page_end": 26,
+          "chunk_id": "chonkie_semantic:ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:000798:c80252871ab9e22a",
+          "parent_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p26:eb8fee29c03a",
+          "section_id": "ey-gl-applying-ifrs-a-closer-look-at-ifrs-18-07-2025:p26:95f5a1226e24",
+          "retrieval_role": "child_chunk",
+          "page_type": "content",
+          "content_type": "text",
+          "heading_path": [
+            "A closer look at IFRS 18",
+            "2 Roles, aggregation and labelling",
+            "Appendix A Defined terms",
+            "2.3 Description of items"
+          ],
+          "image_paths": [],
+          "primary_image_path": "",
+          "text": "[current, page 26]\n[IFRS 18.B25, IFRS 18.BC79].\n\nExtract from IFRS 18 B25 An entity shall label items presented or disclosed as \u2018other\u2019 only if\n\nit cannot find a more informative label.\n\n[neighbor, page 26]\nIf so, the information needed to resolve that question is itself material information. [IFRS 18.BC80]."
+        }
+      ],
+      "latency_ms": 883,
+      "top_k": 5,
+      "candidate_k": 20,
+      "retrieval_mode": "hybrid_vector_bm25_rerank",
+      "window_radius": 1,
+      "human_score": null,
+      "human_notes": "",
+      "collection": "ey_rag_chonkie_semantic",
+      "retrieval_status": "ok"
+    }
+  ]
+}

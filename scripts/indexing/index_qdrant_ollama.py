@@ -18,6 +18,8 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import os
+import random
 import time
 import uuid
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -27,7 +29,9 @@ from pathlib import Path
 from typing import Any, Iterable
 
 import requests
+from requests.adapters import HTTPAdapter
 from qdrant_client import QdrantClient, models
+from urllib3.util.retry import Retry
 
 
 POINT_NAMESPACE = uuid.UUID("2d6fef7b-9ca9-4fd2-81d9-f60b0bf3b4ef")
@@ -70,11 +74,14 @@ class StrategyResult:
 
 
 def parse_args() -> argparse.Namespace:
+    load_dotenv()
     parser = argparse.ArgumentParser(
         description="Embed each chunking strategy with Ollama and index it into local Qdrant."
     )
     parser.add_argument("--chunks-dir", default="chunks", help="Folder containing strategy subfolders.")
-    parser.add_argument("--qdrant-url", default="http://localhost:6333", help="Qdrant REST URL.")
+    parser.add_argument("--qdrant-url", default=env_value("QDRANT_URL", default="http://localhost:6333"), help="Qdrant REST URL.")
+    parser.add_argument("--qdrant-api-key", default=env_value("QDRANT_API_KEY"), help="Optional Qdrant API key.")
+    parser.add_argument("--cloud", action="store_true", help="Use QDRANT_CLOUD_URL and QDRANT_CLOUD_API_KEY from .env.")
     parser.add_argument("--ollama-url", default="http://localhost:11434", help="Ollama base URL.")
     parser.add_argument("--ollama-model", default="bge-m3", help="Ollama embedding model name.")
     parser.add_argument("--collection-prefix", default="ey_rag", help="Qdrant collection prefix.")
@@ -132,7 +139,137 @@ def parse_args() -> argparse.Namespace:
         help="Check services, model dimension, and chunk files without creating collections.",
     )
     parser.add_argument("--timeout", type=int, default=120, help="HTTP timeout in seconds.")
-    return parser.parse_args()
+    parser.add_argument("--qdrant-retries", type=int, default=10, help="Retries for transient Qdrant HTTP/SSL errors.")
+    parser.add_argument("--qdrant-backoff", type=float, default=2.0, help="Initial Qdrant retry backoff seconds.")
+    parser.add_argument("--qdrant-max-sleep", type=float, default=120.0, help="Maximum Qdrant retry sleep seconds.")
+    parser.add_argument("--qdrant-jitter", type=float, default=1.0, help="Random jitter added to Qdrant retry sleeps.")
+    parser.add_argument("--no-resume", action="store_true", help="Do not skip already indexed points when rerunning.")
+    parser.add_argument("--ollama-retries", type=int, default=5, help="Retries for transient Ollama embedding HTTP errors.")
+    parser.add_argument("--ollama-backoff", type=float, default=1.0, help="Ollama retry backoff factor.")
+    args = parser.parse_args()
+    if args.cloud:
+        args.qdrant_url = env_value("QDRANT_CLOUD_URL")
+        args.qdrant_api_key = env_value("QDRANT_CLOUD_API_KEY")
+        if not args.qdrant_url:
+            raise SystemExit("QDRANT_CLOUD_URL is missing from .env.")
+        if not args.qdrant_api_key:
+            raise SystemExit("QDRANT_CLOUD_API_KEY is missing from .env.")
+    return args
+
+
+def load_dotenv(path: Path = Path(".env")) -> None:
+    if not path.exists():
+        return
+    for raw_line in path.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        key = key.strip()
+        value = value.strip()
+        if len(value) >= 2 and value[0] == value[-1] and value[0] in {"'", '"'}:
+            value = value[1:-1]
+        if key and key not in os.environ:
+            os.environ[key] = value
+
+
+def env_value(*names: str, default: str | None = None) -> str | None:
+    for name in names:
+        value = os.environ.get(name)
+        if value:
+            return value
+    return default
+
+
+def retry_call(
+    label: str,
+    retries: int,
+    backoff: float,
+    max_sleep: float,
+    jitter: float,
+    func: Any,
+    *args: Any,
+    **kwargs: Any,
+) -> Any:
+    attempts = max(retries, 0) + 1
+    for attempt in range(1, attempts + 1):
+        try:
+            return func(*args, **kwargs)
+        except Exception as exc:
+            if not should_retry_exception(exc):
+                print(
+                    f"{label}: non-retryable error: {type(exc).__name__}: {str(exc)[:500]}",
+                    flush=True,
+                )
+                raise
+            if attempt >= attempts:
+                print(
+                    f"{label}: failed after {attempt}/{attempts} attempts: "
+                    f"{type(exc).__name__}: {str(exc)[:500]}",
+                    flush=True,
+                )
+                raise
+            sleep_seconds = min(max_sleep, backoff * (2 ** (attempt - 1)))
+            if jitter > 0:
+                sleep_seconds += random.uniform(0, jitter)
+            print(
+                f"{label}: transient failure {attempt}/{attempts}: "
+                f"{type(exc).__name__}: {str(exc)[:300]}. "
+                f"Retrying in {sleep_seconds:.1f}s ...",
+                flush=True,
+            )
+            time.sleep(sleep_seconds)
+    raise RuntimeError(f"Unreachable retry path for {label}")
+
+
+def should_retry_exception(exc: Exception) -> bool:
+    text = f"{type(exc).__name__}: {exc}".lower()
+    non_retryable = (
+        "400",
+        "401",
+        "403",
+        "404",
+        "409",
+        "bad request",
+        "unauthorized",
+        "forbidden",
+        "not found",
+        "already exists",
+        "wrong input",
+        "validation",
+    )
+    return not any(marker in text for marker in non_retryable)
+
+
+def qdrant_call(args: argparse.Namespace, label: str, func: Any, *func_args: Any, **kwargs: Any) -> Any:
+    return retry_call(
+        label,
+        args.qdrant_retries,
+        args.qdrant_backoff,
+        args.qdrant_max_sleep,
+        args.qdrant_jitter,
+        func,
+        *func_args,
+        **kwargs,
+    )
+
+
+def make_retry_session(total: int, backoff: float) -> requests.Session:
+    session = requests.Session()
+    retry = Retry(
+        total=total,
+        connect=total,
+        read=total,
+        status=total,
+        allowed_methods=None,
+        status_forcelist=(429, 500, 502, 503, 504),
+        backoff_factor=backoff,
+        respect_retry_after_header=True,
+    )
+    adapter = HTTPAdapter(max_retries=retry, pool_connections=16, pool_maxsize=16)
+    session.mount("http://", adapter)
+    session.mount("https://", adapter)
+    return session
 
 
 def csv_arg(value: str) -> set[str]:
@@ -224,11 +361,18 @@ def read_chunks(
 
 
 class OllamaEmbedder:
-    def __init__(self, base_url: str, model: str, timeout: int) -> None:
+    def __init__(
+        self,
+        base_url: str,
+        model: str,
+        timeout: int,
+        retries: int,
+        backoff: float,
+    ) -> None:
         self.base_url = base_url.rstrip("/")
         self.model = model
         self.timeout = timeout
-        self.session = requests.Session()
+        self.session = make_retry_session(retries, backoff)
 
     def embed(self, texts: list[str]) -> list[list[float]]:
         if not texts:
@@ -279,9 +423,9 @@ def collection_name(prefix: str, strategy: str) -> str:
     return f"{prefix}_{safe}"
 
 
-def existing_vector_size(client: QdrantClient, collection: str) -> int | None:
+def existing_vector_size(args: argparse.Namespace, client: QdrantClient, collection: str) -> int | None:
     try:
-        info = client.get_collection(collection)
+        info = qdrant_call(args, f"{collection}: get collection config", client.get_collection, collection)
         vectors = info.config.params.vectors
         if hasattr(vectors, "size"):
             return int(vectors.size)
@@ -294,41 +438,48 @@ def existing_vector_size(client: QdrantClient, collection: str) -> int | None:
 
 
 def ensure_collection(
+    args: argparse.Namespace,
     client: QdrantClient,
     collection: str,
     vector_size: int,
     recreate: bool,
     create_indexes: bool,
 ) -> None:
-    exists = client.collection_exists(collection)
+    exists = bool(qdrant_call(args, f"{collection}: check collection", client.collection_exists, collection))
     if exists and recreate:
-        client.delete_collection(collection, timeout=120)
+        qdrant_call(args, f"{collection}: delete collection", client.delete_collection, collection, timeout=args.timeout)
         exists = False
 
     if exists:
-        current_size = existing_vector_size(client, collection)
+        current_size = existing_vector_size(args, client, collection)
         if current_size is not None and current_size != vector_size:
             raise RuntimeError(
                 f"Collection {collection} has vector size {current_size}, "
                 f"but Ollama model produces {vector_size}. Use --recreate."
             )
     else:
-        client.create_collection(
+        qdrant_call(
+            args,
+            f"{collection}: create collection",
+            client.create_collection,
             collection_name=collection,
             vectors_config=models.VectorParams(size=vector_size, distance=models.Distance.COSINE),
             on_disk_payload=True,
-            timeout=120,
+            timeout=args.timeout,
         )
 
     if create_indexes:
         for field, schema in PAYLOAD_INDEXES.items():
             try:
-                client.create_payload_index(
+                qdrant_call(
+                    args,
+                    f"{collection}: create payload index {field}",
+                    client.create_payload_index,
                     collection_name=collection,
                     field_name=field,
                     field_schema=schema,
                     wait=True,
-                    timeout=120,
+                    timeout=args.timeout,
                 )
             except Exception as exc:
                 print(f"Warning: could not create payload index {collection}.{field}: {exc}")
@@ -374,6 +525,30 @@ def batched(items: Iterable[dict[str, Any]], batch_size: int) -> Iterable[list[d
         yield batch
 
 
+def qdrant_count(args: argparse.Namespace, client: QdrantClient, collection: str) -> int:
+    result = qdrant_call(
+        args,
+        f"{collection}: count points",
+        client.count,
+        collection_name=collection,
+        exact=True,
+        timeout=args.timeout,
+    )
+    return int(result.count)
+
+
+def skip_chunks(chunks: Iterable[dict[str, Any]], count: int) -> Iterable[dict[str, Any]]:
+    skipped = 0
+    iterator = iter(chunks)
+    while skipped < count:
+        try:
+            next(iterator)
+        except StopIteration:
+            return
+        skipped += 1
+    yield from iterator
+
+
 def index_strategy(
     client: QdrantClient,
     embedder: OllamaEmbedder,
@@ -394,6 +569,7 @@ def index_strategy(
         return StrategyResult(strategy, collection, source_chunks, 0, vector_size, 0, "dry_run")
 
     ensure_collection(
+        args,
         client,
         collection,
         vector_size,
@@ -401,10 +577,33 @@ def index_strategy(
         create_indexes=not args.no_payload_indexes,
     )
 
-    indexed = 0
+    resume_offset = 0
+    if not args.recreate and not args.no_resume and not args.source_name:
+        resume_offset = min(source_chunks, qdrant_count(args, client, collection))
+        if resume_offset:
+            print(
+                f"{collection}: resume enabled, skipping {resume_offset}/{source_chunks} "
+                "already stored point(s). Use --no-resume to reprocess.",
+                flush=True,
+            )
+        if resume_offset >= source_chunks:
+            return StrategyResult(
+                strategy,
+                collection,
+                source_chunks,
+                resume_offset,
+                vector_size,
+                round(time.time() - start, 2),
+                "already_indexed",
+            )
+
+    indexed = resume_offset
     pending_points: list[models.PointStruct] = []
+    chunk_iterable = read_chunks(path, args.limit_per_strategy, allowed_sources)
+    if resume_offset:
+        chunk_iterable = skip_chunks(chunk_iterable, resume_offset)
     for chunk_batch in batched(
-        read_chunks(path, args.limit_per_strategy, allowed_sources),
+        chunk_iterable,
         args.embed_batch_size,
     ):
         texts = [str(chunk.get(args.embed_field) or chunk.get("text") or "") for chunk in chunk_batch]
@@ -419,17 +618,33 @@ def index_strategy(
                 )
             )
             if len(pending_points) >= args.upsert_batch_size:
-                client.upsert(collection_name=collection, points=pending_points, wait=True, timeout=120)
+                qdrant_call(
+                    args,
+                    f"{collection}: upsert batch ending at {indexed + len(pending_points)}",
+                    client.upsert,
+                    collection_name=collection,
+                    points=pending_points,
+                    wait=True,
+                    timeout=args.timeout,
+                )
                 indexed += len(pending_points)
                 pending_points = []
                 print(f"{collection}: indexed {indexed}/{source_chunks}", flush=True)
 
     if pending_points:
-        client.upsert(collection_name=collection, points=pending_points, wait=True, timeout=120)
+        qdrant_call(
+            args,
+            f"{collection}: upsert final batch ending at {indexed + len(pending_points)}",
+            client.upsert,
+            collection_name=collection,
+            points=pending_points,
+            wait=True,
+            timeout=args.timeout,
+        )
         indexed += len(pending_points)
         print(f"{collection}: indexed {indexed}/{source_chunks}", flush=True)
 
-    stored_count = client.count(collection_name=collection, exact=True, timeout=120).count
+    stored_count = qdrant_count(args, client, collection)
     return StrategyResult(
         strategy=strategy,
         collection=collection,
@@ -476,9 +691,9 @@ def write_report(results: list[StrategyResult], chunks_dir: Path, args: argparse
     report_md.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
-def check_qdrant(client: QdrantClient, qdrant_url: str) -> None:
+def check_qdrant(args: argparse.Namespace, client: QdrantClient, qdrant_url: str) -> None:
     try:
-        client.get_collections()
+        qdrant_call(args, "qdrant health check", client.get_collections)
     except Exception as exc:
         raise SystemExit(
             f"Qdrant is not reachable at {qdrant_url}.\n"
@@ -531,12 +746,19 @@ def run_strategy(
     try:
         client = shared_client or QdrantClient(
             url=args.qdrant_url,
+            api_key=args.qdrant_api_key,
             timeout=args.timeout,
             check_compatibility=not args.dry_run,
         )
         if shared_client is None and not args.dry_run:
-            check_qdrant(client, args.qdrant_url)
-        embedder = shared_embedder or OllamaEmbedder(args.ollama_url, args.ollama_model, args.timeout)
+            check_qdrant(args, client, args.qdrant_url)
+        embedder = shared_embedder or OllamaEmbedder(
+            args.ollama_url,
+            args.ollama_model,
+            args.timeout,
+            args.ollama_retries,
+            args.ollama_backoff,
+        )
         return index_strategy(client, embedder, strategy, path, collection, vector_size, args)
     except Exception as exc:
         if args.continue_on_error:
@@ -553,13 +775,20 @@ def main() -> None:
 
     client = QdrantClient(
         url=args.qdrant_url,
+        api_key=args.qdrant_api_key,
         timeout=args.timeout,
         check_compatibility=not args.dry_run,
     )
     if not args.dry_run:
-        check_qdrant(client, args.qdrant_url)
+        check_qdrant(args, client, args.qdrant_url)
 
-    embedder = OllamaEmbedder(args.ollama_url, args.ollama_model, args.timeout)
+    embedder = OllamaEmbedder(
+        args.ollama_url,
+        args.ollama_model,
+        args.timeout,
+        args.ollama_retries,
+        args.ollama_backoff,
+    )
     vector_size = embedder.vector_size()
     print(f"Ollama model {args.ollama_model} vector size: {vector_size}")
 

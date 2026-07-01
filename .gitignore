@@ -38,6 +38,7 @@ output_clean/
 filtered_images/
 chunks/
 qdrant_storage/
+qdrant_transfer/
 pixelrag_indexes/
 *.db
 *.sqlite

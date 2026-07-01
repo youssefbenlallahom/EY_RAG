@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import os
 import re
 import time
 import urllib.error
@@ -75,13 +76,18 @@ STOPWORDS = {
 
 
 def parse_args() -> argparse.Namespace:
+    load_dotenv()
     parser = argparse.ArgumentParser(description="Run retrieval scenarios against Qdrant.")
     parser.add_argument("--scenarios", default="eval/retrieval_benchmark_scenarios.json")
     parser.add_argument("--output", default="eval/retrieval_results_qdrant_bge_m3.json")
     parser.add_argument("--chunks-dir", default="chunks")
-    parser.add_argument("--qdrant-url", default="http://localhost:6333")
+    parser.add_argument("--qdrant-url", default=env_value("QDRANT_URL", default="http://localhost:6333"))
+    parser.add_argument("--qdrant-api-key", default=env_value("QDRANT_API_KEY"))
+    parser.add_argument("--cloud", action="store_true", help="Use QDRANT_CLOUD_URL and QDRANT_CLOUD_API_KEY from .env.")
     parser.add_argument("--ollama-url", default="http://localhost:11434")
     parser.add_argument("--embedding-model", default="bge-m3")
+    parser.add_argument("--scenario-ids", default="", help="Comma-separated scenario IDs to run, for example T01,T02.")
+    parser.add_argument("--scenario-limit", type=int, default=None, help="Run only the first N scenarios after filtering.")
     parser.add_argument("--top-k", type=int, default=10)
     parser.add_argument("--candidate-k", type=int, default=20)
     parser.add_argument("--bm25-k", type=int, default=20)
@@ -98,7 +104,39 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--bm25-weight", type=float, default=0.25)
     parser.add_argument("--lexical-weight", type=float, default=0.25)
     parser.add_argument("--number-weight", type=float, default=0.05)
-    return parser.parse_args()
+    args = parser.parse_args()
+    if args.cloud:
+        args.qdrant_url = env_value("QDRANT_CLOUD_URL")
+        args.qdrant_api_key = env_value("QDRANT_CLOUD_API_KEY")
+        if not args.qdrant_url:
+            raise SystemExit("QDRANT_CLOUD_URL is missing from .env.")
+        if not args.qdrant_api_key:
+            raise SystemExit("QDRANT_CLOUD_API_KEY is missing from .env.")
+    return args
+
+
+def load_dotenv(path: Path = Path(".env")) -> None:
+    if not path.exists():
+        return
+    for raw_line in path.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        key = key.strip()
+        value = value.strip()
+        if len(value) >= 2 and value[0] == value[-1] and value[0] in {"'", '"'}:
+            value = value[1:-1]
+        if key and key not in os.environ:
+            os.environ[key] = value
+
+
+def env_value(*names: str, default: str | None = None) -> str | None:
+    for name in names:
+        value = os.environ.get(name)
+        if value:
+            return value
+    return default
 
 
 def load_json(path: str | Path) -> dict[str, Any]:
@@ -136,9 +174,12 @@ def http_json(
     url: str,
     payload: dict[str, Any] | None = None,
     timeout: int = 120,
+    api_key: str | None = None,
 ) -> dict[str, Any]:
     data = None
     headers = {"Accept": "application/json"}
+    if api_key:
+        headers["api-key"] = api_key
     if payload is not None:
         data = json.dumps(payload).encode("utf-8")
         headers["Content-Type"] = "application/json"
@@ -148,9 +189,9 @@ def http_json(
     return json.loads(body) if body else {}
 
 
-def collection_exists(qdrant_url: str, collection: str, timeout: int) -> bool:
+def collection_exists(qdrant_url: str, collection: str, timeout: int, api_key: str | None = None) -> bool:
     try:
-        http_json("GET", f"{qdrant_url.rstrip('/')}/collections/{collection}", timeout=timeout)
+        http_json("GET", f"{qdrant_url.rstrip('/')}/collections/{collection}", timeout=timeout, api_key=api_key)
         return True
     except urllib.error.HTTPError as exc:
         if exc.code == 404:
@@ -188,6 +229,7 @@ def qdrant_search(
     vector: list[float],
     top_k: int,
     timeout: int,
+    api_key: str | None = None,
 ) -> list[dict[str, Any]]:
     response = http_json(
         "POST",
@@ -199,6 +241,7 @@ def qdrant_search(
             "with_vector": False,
         },
         timeout=timeout,
+        api_key=api_key,
     )
     return response.get("result") or []
 
@@ -613,7 +656,7 @@ def run_scenario(
         "collection": collection,
     }
 
-    if not collection_exists(args.qdrant_url, collection, args.timeout):
+    if not collection_exists(args.qdrant_url, collection, args.timeout, args.qdrant_api_key):
         result_base.update(
             {
                 "retrieval_status": "collection_missing",
@@ -630,6 +673,7 @@ def run_scenario(
             vector,
             max(args.candidate_k, args.top_k),
             args.timeout,
+            args.qdrant_api_key,
         )
         bm25_hits: list[tuple[str, float]] = []
         if not args.disable_bm25:
@@ -672,6 +716,13 @@ def main() -> None:
     args = parse_args()
     scenarios_doc = load_json(args.scenarios)
     scenarios = scenarios_doc.get("scenarios") or []
+    if args.scenario_ids:
+        wanted_ids = set(csv_values(args.scenario_ids))
+        scenarios = [scenario for scenario in scenarios if str(scenario.get("id")) in wanted_ids]
+    if args.scenario_limit is not None:
+        scenarios = scenarios[: args.scenario_limit]
+    if not scenarios:
+        raise SystemExit("No scenarios selected.")
     indexing_types = resolve_indexing_types(args, scenarios_doc)
     chunk_indexes = {
         indexing_type: load_chunk_index(Path(args.chunks_dir), indexing_type)

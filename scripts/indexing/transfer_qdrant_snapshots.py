@@ -138,6 +138,12 @@ def parse_args() -> argparse.Namespace:
         default=2,
         help="Retry failed snapshot uploads this many times.",
     )
+    restore.add_argument(
+        "--read-timeout-multiplier",
+        type=float,
+        default=1.0,
+        help="Multiply the base timeout by this factor for read operations during upload. Use 2.0 or higher for cloud uploads.",
+    )
 
     inspect = subparsers.add_parser("inspect", help="Print the manifest inside a snapshot bundle.")
     inspect.add_argument(
@@ -456,6 +462,7 @@ def upload_snapshot(
     skip_checksum: bool,
     progress_mb: int,
     retries: int,
+    read_timeout_multiplier: float = 1.0,
 ) -> dict[str, Any]:
     params = {"wait": "true", "priority": "snapshot"}
     if checksum and not skip_checksum:
@@ -475,13 +482,17 @@ def upload_snapshot(
                 progress_mb,
                 attempt,
                 max_attempts,
+                read_timeout_multiplier,
             )
             break
         except requests.RequestException as exc:
             last_error = exc
             if attempt >= max_attempts:
                 raise
-            delay = min(5 * attempt, 30)
+            # Use longer delays for SSL errors, which often indicate network instability
+            is_ssl_error = "SSL" in str(type(exc).__name__) or "SSL" in str(exc)
+            base_delay = 10 if is_ssl_error else 5
+            delay = min(base_delay * attempt, 60 if is_ssl_error else 30)
             print(
                 f"    Upload attempt {attempt}/{max_attempts} failed: {type(exc).__name__}: {exc}",
                 flush=True,
@@ -509,7 +520,14 @@ def upload_snapshot_once(
     progress_mb: int,
     attempt: int,
     max_attempts: int,
+    read_timeout_multiplier: float = 1.0,
 ) -> requests.Response:
+    # Use separate connect and read timeouts
+    # Connect timeout: 60s (reasonable for establishing connection)
+    # Read timeout: base timeout * multiplier (for large file transfers)
+    read_timeout = int(timeout * read_timeout_multiplier)
+    timeout_tuple = (60, read_timeout)
+    
     if MultipartEncoder is None or MultipartEncoderMonitor is None:
         print(
             "    requests-toolbelt is not installed; using standard requests upload without streaming progress.",
@@ -521,7 +539,7 @@ def upload_snapshot_once(
                 headers=headers(api_key),
                 params=params,
                 files={"snapshot": (snapshot_path.name, handle, "application/octet-stream")},
-                timeout=(60, timeout),
+                timeout=timeout_tuple,
             )
 
     file_size = snapshot_path.stat().st_size
@@ -559,13 +577,15 @@ def upload_snapshot_once(
         if max_attempts > 1:
             print(f"    Upload attempt {attempt}/{max_attempts}", flush=True)
         print(f"    Multipart payload: {total_bytes / MB:.1f} MB; snapshot file: {file_size / MB:.1f} MB", flush=True)
+        if read_timeout_multiplier != 1.0:
+            print(f"    Using read timeout: {read_timeout}s (base: {timeout}s × {read_timeout_multiplier})", flush=True)
 
         return requests.post(
             qdrant_url(base_url, f"/collections/{collection}/snapshots/upload"),
             headers=request_headers,
             params=params,
             data=monitor,
-            timeout=(60, timeout),
+            timeout=timeout_tuple,
         )
 
 
@@ -599,6 +619,7 @@ def restore_snapshots(args: argparse.Namespace) -> None:
                 args.skip_checksum,
                 args.upload_progress_mb,
                 args.upload_retries,
+                args.read_timeout_multiplier,
             )
             info = collection_info(args.qdrant_url, collection, args.api_key, args.timeout)
             print(

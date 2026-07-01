@@ -1,0 +1,174 @@
+{
+  "collection": "ey_rag_pixelrag_visual_ceo_ai_4page_eval",
+  "qdrant_url": "http://localhost:6333",
+  "model": "Qwen/Qwen3-VL-Embedding-2B",
+  "device": "cuda",
+  "query_embed_seconds": 31.72,
+  "top1_accuracy": 1.0,
+  "results": [
+    {
+      "id": "CEO_SENTIMENT",
+      "query": "CEO confidence index declined from 83.0 to 78.5 and expected global GDP growth eased",
+      "expected_page": 3,
+      "top_page": 3,
+      "top1_correct": true,
+      "hits": [
+        {
+          "score": 0.62542003,
+          "page": 3,
+          "article_id": 0,
+          "tile_index": 0,
+          "chunk_index": 0,
+          "tile_path": "C:/Users/youssef/Desktop/EY_RAG/pixelrag_indexes/ceo_ai_pixelrag_4page_eval/tiles/000000.png.tiles/tile_0000.jpg"
+        },
+        {
+          "score": 0.4345867,
+          "page": 6,
+          "article_id": 0,
+          "tile_index": 3,
+          "chunk_index": 0,
+          "tile_path": "C:/Users/youssef/Desktop/EY_RAG/pixelrag_indexes/ceo_ai_pixelrag_4page_eval/tiles/000000.png.tiles/tile_0003.jpg"
+        },
+        {
+          "score": 0.3430977,
+          "page": 9,
+          "article_id": 0,
+          "tile_index": 6,
+          "chunk_index": 0,
+          "tile_path": "C:/Users/youssef/Desktop/EY_RAG/pixelrag_indexes/ceo_ai_pixelrag_4page_eval/tiles/000000.png.tiles/tile_0006.jpg"
+        },
+        {
+          "score": 0.3246405,
+          "page": 15,
+          "article_id": 0,
+          "tile_index": 12,
+          "chunk_index": 0,
+          "tile_path": "C:/Users/youssef/Desktop/EY_RAG/pixelrag_indexes/ceo_ai_pixelrag_4page_eval/tiles/000000.png.tiles/tile_0012.jpg"
+        }
+      ]
+    },
+    {
+      "id": "TRANSFORMATION",
+      "query": "enterprise-wide transformation 52 percent significant transformation 45 percent begin in 2026",
+      "expected_page": 6,
+      "top_page": 6,
+      "top1_correct": true,
+      "hits": [
+        {
+          "score": 0.4892601,
+          "page": 6,
+          "article_id": 0,
+          "tile_index": 3,
+          "chunk_index": 0,
+          "tile_path": "C:/Users/youssef/Desktop/EY_RAG/pixelrag_indexes/ceo_ai_pixelrag_4page_eval/tiles/000000.png.tiles/tile_0003.jpg"
+        },
+        {
+          "score": 0.42053017,
+          "page": 15,
+          "article_id": 0,
+          "tile_index": 12,
+          "chunk_index": 0,
+          "tile_path": "C:/Users/youssef/Desktop/EY_RAG/pixelrag_indexes/ceo_ai_pixelrag_4page_eval/tiles/000000.png.tiles/tile_0012.jpg"
+        },
+        {
+          "score": 0.40972576,
+          "page": 9,
+          "article_id": 0,
+          "tile_index": 6,
+          "chunk_index": 0,
+          "tile_path": "C:/Users/youssef/Desktop/EY_RAG/pixelrag_indexes/ceo_ai_pixelrag_4page_eval/tiles/000000.png.tiles/tile_0006.jpg"
+        },
+        {
+          "score": 0.28783596,
+          "page": 3,
+          "article_id": 0,
+          "tile_index": 0,
+          "chunk_index": 0,
+          "tile_path": "C:/Users/youssef/Desktop/EY_RAG/pixelrag_indexes/ceo_ai_pixelrag_4page_eval/tiles/000000.png.tiles/tile_0000.jpg"
+        }
+      ]
+    },
+    {
+      "id": "AI_FIGURE",
+      "query": "AI technologies driving transformation generative AI machine learning agentic AI ranking",
+      "expected_page": 9,
+      "top_page": 9,
+      "top1_correct": true,
+      "hits": [
+        {
+          "score": 0.50824726,
+          "page": 9,
+          "article_id": 0,
+          "tile_index": 6,
+          "chunk_index": 0,
+          "tile_path": "C:/Users/youssef/Desktop/EY_RAG/pixelrag_indexes/ceo_ai_pixelrag_4page_eval/tiles/000000.png.tiles/tile_0006.jpg"
+        },
+        {
+          "score": 0.39008796,
+          "page": 6,
+          "article_id": 0,
+          "tile_index": 3,
+          "chunk_index": 0,
+          "tile_path": "C:/Users/youssef/Desktop/EY_RAG/pixelrag_indexes/ceo_ai_pixelrag_4page_eval/tiles/000000.png.tiles/tile_0003.jpg"
+        },
+        {
+          "score": 0.35239676,
+          "page": 15,
+          "article_id": 0,
+          "tile_index": 12,
+          "chunk_index": 0,
+          "tile_path": "C:/Users/youssef/Desktop/EY_RAG/pixelrag_indexes/ceo_ai_pixelrag_4page_eval/tiles/000000.png.tiles/tile_0012.jpg"
+        },
+        {
+          "score": 0.27560407,
+          "page": 3,
+          "article_id": 0,
+          "tile_index": 0,
+          "chunk_index": 0,
+          "tile_path": "C:/Users/youssef/Desktop/EY_RAG/pixelrag_indexes/ceo_ai_pixelrag_4page_eval/tiles/000000.png.tiles/tile_0000.jpg"
+        }
+      ]
+    },
+    {
+      "id": "ACQUISITIONS",
+      "query": "CEOs pursuing acquisitions in the next 12 months acquisition objective operational optimization productivity",
+      "expected_page": 15,
+      "top_page": 15,
+      "top1_correct": true,
+      "hits": [
+        {
+          "score": 0.5455096,
+          "page": 15,
+          "article_id": 0,
+          "tile_index": 12,
+          "chunk_index": 0,
+          "tile_path": "C:/Users/youssef/Desktop/EY_RAG/pixelrag_indexes/ceo_ai_pixelrag_4page_eval/tiles/000000.png.tiles/tile_0012.jpg"
+        },
+        {
+          "score": 0.44043565,
+          "page": 6,
+          "article_id": 0,
+          "tile_index": 3,
+          "chunk_index": 0,
+          "tile_path": "C:/Users/youssef/Desktop/EY_RAG/pixelrag_indexes/ceo_ai_pixelrag_4page_eval/tiles/000000.png.tiles/tile_0003.jpg"
+        },
+        {
+          "score": 0.38975722,
+          "page": 3,
+          "article_id": 0,
+          "tile_index": 0,
+          "chunk_index": 0,
+          "tile_path": "C:/Users/youssef/Desktop/EY_RAG/pixelrag_indexes/ceo_ai_pixelrag_4page_eval/tiles/000000.png.tiles/tile_0000.jpg"
+        },
+        {
+          "score": 0.35866424,
+          "page": 9,
+          "article_id": 0,
+          "tile_index": 6,
+          "chunk_index": 0,
+          "tile_path": "C:/Users/youssef/Desktop/EY_RAG/pixelrag_indexes/ceo_ai_pixelrag_4page_eval/tiles/000000.png.tiles/tile_0006.jpg"
+        }
+      ]
+    }
+  ]
+}
